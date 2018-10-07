@@ -1,0 +1,19 @@
+platform :ios, '10.0'
+use_frameworks!
+
+
+def pods
+    pod 'SwiftyJSON'
+    pod 'KeychainAccess'
+    pod 'Alamofire'
+    pod 'SDWebImage'
+    pod 'SVProgressHUD'
+    pod 'AsyncSwift'
+    pod 'Alamofire-Synchronous', '~> 4.0'
+    pod 'IQKeyboardManagerSwift'
+end
+
+target 'WhiteMOney' do
+    inherit! :search_paths
+    pods
+end
