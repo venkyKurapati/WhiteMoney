@@ -10,6 +10,8 @@ import UIKit
 
 class AuthFlow: NSObject {
     
+    
+    
     var authMainVC : AuthViewController!
     var emailAndPhoneModel : EmailAndPhoneViewModel?
     var eligibilityCheckModel : EligibilityCheckViewModel?
