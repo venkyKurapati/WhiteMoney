@@ -38,6 +38,7 @@
 		8274B5E4216D08450032AA23 /* OTPField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8274B5E3216D08450032AA23 /* OTPField.swift */; };
 		8274B5E6216D08670032AA23 /* OTPField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8274B5E5216D08660032AA23 /* OTPField.xib */; };
 		8274B5E8216D0A160032AA23 /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8274B5E7216D0A160032AA23 /* XibView.swift */; };
+		8274B5EA216D13CB0032AA23 /* SimpleTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8274B5E9216D13CB0032AA23 /* SimpleTimer.swift */; };
 		8277FD992167C16C0003AD65 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277FD982167C16C0003AD65 /* TableView.swift */; };
 		8277FD9B2168630D0003AD65 /* EligibilityCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277FD9A2168630D0003AD65 /* EligibilityCheckViewModel.swift */; };
 		8277FD9D2168632F0003AD65 /* EligibilityCheckCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277FD9C2168632F0003AD65 /* EligibilityCheckCV.swift */; };
@@ -123,6 +124,7 @@
 		8274B5E3216D08450032AA23 /* OTPField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPField.swift; sourceTree = "<group>"; };
 		8274B5E5216D08660032AA23 /* OTPField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OTPField.xib; sourceTree = "<group>"; };
 		8274B5E7216D0A160032AA23 /* XibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
+		8274B5E9216D13CB0032AA23 /* SimpleTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTimer.swift; sourceTree = "<group>"; };
 		8277FD982167C16C0003AD65 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		8277FD9A2168630D0003AD65 /* EligibilityCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityCheckViewModel.swift; sourceTree = "<group>"; };
 		8277FD9C2168632F0003AD65 /* EligibilityCheckCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityCheckCV.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				825FB0FF2163D16F008B6D9B /* RootNavigation */,
 				825FB0F22163CFF3008B6D9B /* Common */,
 				8277FDB32168B76B0003AD65 /* Constents.swift */,
+				8274B5E9216D13CB0032AA23 /* SimpleTimer.swift */,
 			);
 			path = WhiteMOney;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				825FB10B2163D16F008B6D9B /* RootVC.swift in Sources */,
 				82ECAB252167B01200455397 /* EmailAndPhoneVC.swift in Sources */,
 				825FB1092163D16F008B6D9B /* SideMenuFeature.swift in Sources */,
+				8274B5EA216D13CB0032AA23 /* SimpleTimer.swift in Sources */,
 				8277FD9F216865EA0003AD65 /* DocumentsUploadViewModel.swift in Sources */,
 				825FB12C2163D7D4008B6D9B /* Color.swift in Sources */,
 				829CA6C321612A6600F032FC /* AppDelegate.swift in Sources */,

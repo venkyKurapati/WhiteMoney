@@ -19,101 +19,56 @@
                 <rect key="frame" x="0.0" y="0.0" width="357" height="128.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8nK-Jo-83N">
+                        <rect key="frame" x="25" y="30" width="322" height="40"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="waI-yT-eB4"/>
+                        </constraints>
+                        <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    </textField>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CSx-N7-6hj">
-                        <rect key="frame" x="10" y="0.0" width="337" height="70"/>
+                        <rect key="frame" x="25" y="15" width="322" height="55"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8nK-Jo-83N">
-                                <rect key="frame" x="0.0" y="0.0" width="337" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gR-G4-IfE" customClass="OTPField" customModule="WhiteMOney" customModuleProvider="target">
+                                <rect key="frame" x="5" y="0.0" width="74.5" height="55"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <view userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RsZ-Ie-MHH" customClass="FloatingTxtField" customModule="WhiteMOney" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="84.5" height="70"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="warningLblHeight">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="txtFieldLeftPaddingWidth">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
-                            <view userInteractionEnabled="NO" tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ERO-sg-mPC" customClass="FloatingTxtField" customModule="WhiteMOney" customModuleProvider="target">
-                                <rect key="frame" x="84.5" y="0.0" width="84" height="70"/>
+                            <view tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1qt-fC-J1o" customClass="OTPField" customModule="WhiteMOney" customModuleProvider="target">
+                                <rect key="frame" x="84.5" y="0.0" width="74" height="55"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="warningLblHeight">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="txtFieldLeftPaddingWidth">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
-                            <view userInteractionEnabled="NO" tag="102" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZVH-7h-Q5w" customClass="FloatingTxtField" customModule="WhiteMOney" customModuleProvider="target">
-                                <rect key="frame" x="168.5" y="0.0" width="84.5" height="70"/>
+                            <view tag="102" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocl-lb-jXc" customClass="OTPField" customModule="WhiteMOney" customModuleProvider="target">
+                                <rect key="frame" x="163.5" y="0.0" width="74.5" height="55"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="warningLblHeight">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="txtFieldLeftPaddingWidth">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
-                            <view userInteractionEnabled="NO" tag="103" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jx9-jb-8VY" customClass="FloatingTxtField" customModule="WhiteMOney" customModuleProvider="target">
-                                <rect key="frame" x="253" y="0.0" width="84" height="70"/>
+                            <view tag="103" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eg4-Dm-iue" customClass="OTPField" customModule="WhiteMOney" customModuleProvider="target">
+                                <rect key="frame" x="243" y="0.0" width="74" height="55"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="iconSize">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="warningLblHeight">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="txtFieldLeftPaddingWidth">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="RsZ-Ie-MHH" firstAttribute="leading" secondItem="CSx-N7-6hj" secondAttribute="leading" id="0Oh-7v-uxy"/>
-                            <constraint firstAttribute="trailing" secondItem="Jx9-jb-8VY" secondAttribute="trailing" id="4pV-2M-AHF"/>
-                            <constraint firstAttribute="height" constant="70" id="CbF-JT-Cyo"/>
-                            <constraint firstAttribute="bottom" secondItem="ERO-sg-mPC" secondAttribute="bottom" id="Hji-Lk-N82"/>
-                            <constraint firstItem="Jx9-jb-8VY" firstAttribute="leading" secondItem="ZVH-7h-Q5w" secondAttribute="trailing" id="KPL-c6-4Ov"/>
-                            <constraint firstItem="ZVH-7h-Q5w" firstAttribute="leading" secondItem="ERO-sg-mPC" secondAttribute="trailing" id="KeY-rt-lwT"/>
-                            <constraint firstItem="ERO-sg-mPC" firstAttribute="top" secondItem="CSx-N7-6hj" secondAttribute="top" id="Ku8-KW-TNx"/>
-                            <constraint firstItem="ZVH-7h-Q5w" firstAttribute="height" secondItem="RsZ-Ie-MHH" secondAttribute="height" id="Mmk-tT-tQ0"/>
-                            <constraint firstItem="ERO-sg-mPC" firstAttribute="width" secondItem="RsZ-Ie-MHH" secondAttribute="width" id="Mt7-Wx-NNY"/>
-                            <constraint firstItem="Jx9-jb-8VY" firstAttribute="top" secondItem="CSx-N7-6hj" secondAttribute="top" id="Myl-hj-mXo"/>
-                            <constraint firstAttribute="bottom" secondItem="Jx9-jb-8VY" secondAttribute="bottom" id="TKg-OB-Hof"/>
-                            <constraint firstItem="ZVH-7h-Q5w" firstAttribute="top" secondItem="CSx-N7-6hj" secondAttribute="top" id="Xjm-Oh-VP0"/>
-                            <constraint firstItem="Jx9-jb-8VY" firstAttribute="width" secondItem="RsZ-Ie-MHH" secondAttribute="width" id="bLx-B6-efE"/>
-                            <constraint firstItem="ZVH-7h-Q5w" firstAttribute="width" secondItem="RsZ-Ie-MHH" secondAttribute="width" id="d5q-8J-f19"/>
-                            <constraint firstItem="RsZ-Ie-MHH" firstAttribute="top" secondItem="CSx-N7-6hj" secondAttribute="top" id="lTX-Ig-177"/>
-                            <constraint firstItem="ERO-sg-mPC" firstAttribute="leading" secondItem="RsZ-Ie-MHH" secondAttribute="trailing" id="p5e-hd-nHp"/>
-                            <constraint firstItem="Jx9-jb-8VY" firstAttribute="height" secondItem="RsZ-Ie-MHH" secondAttribute="height" id="py1-e4-1XS"/>
-                            <constraint firstAttribute="bottom" secondItem="RsZ-Ie-MHH" secondAttribute="bottom" id="tQT-8q-aM3"/>
-                            <constraint firstAttribute="bottom" secondItem="ZVH-7h-Q5w" secondAttribute="bottom" id="v0W-Qm-ems"/>
-                            <constraint firstItem="ERO-sg-mPC" firstAttribute="height" secondItem="RsZ-Ie-MHH" secondAttribute="height" id="yXS-jk-psO"/>
+                            <constraint firstAttribute="bottom" secondItem="eg4-Dm-iue" secondAttribute="bottom" id="0gh-lG-288"/>
+                            <constraint firstItem="eg4-Dm-iue" firstAttribute="top" secondItem="CSx-N7-6hj" secondAttribute="top" id="9Ep-HT-ibY"/>
+                            <constraint firstItem="7gR-G4-IfE" firstAttribute="top" secondItem="CSx-N7-6hj" secondAttribute="top" id="9se-Ve-3l4"/>
+                            <constraint firstAttribute="height" constant="55" id="CbF-JT-Cyo"/>
+                            <constraint firstItem="eg4-Dm-iue" firstAttribute="leading" secondItem="ocl-lb-jXc" secondAttribute="trailing" constant="5" id="Ef7-hC-mN5"/>
+                            <constraint firstItem="1qt-fC-J1o" firstAttribute="leading" secondItem="7gR-G4-IfE" secondAttribute="trailing" constant="5" id="Js3-yH-F41"/>
+                            <constraint firstItem="eg4-Dm-iue" firstAttribute="width" secondItem="7gR-G4-IfE" secondAttribute="width" id="KvG-dZ-tYF"/>
+                            <constraint firstItem="1qt-fC-J1o" firstAttribute="top" secondItem="CSx-N7-6hj" secondAttribute="top" id="Lf1-Ip-L5Q"/>
+                            <constraint firstAttribute="bottom" secondItem="1qt-fC-J1o" secondAttribute="bottom" id="RsP-KF-Ns8"/>
+                            <constraint firstItem="ocl-lb-jXc" firstAttribute="leading" secondItem="1qt-fC-J1o" secondAttribute="trailing" constant="5" id="VNU-Ho-cKG"/>
+                            <constraint firstAttribute="bottom" secondItem="ocl-lb-jXc" secondAttribute="bottom" id="WEn-3K-yuP"/>
+                            <constraint firstItem="7gR-G4-IfE" firstAttribute="leading" secondItem="CSx-N7-6hj" secondAttribute="leading" constant="5" id="WGd-eT-j8Z"/>
+                            <constraint firstItem="1qt-fC-J1o" firstAttribute="width" secondItem="7gR-G4-IfE" secondAttribute="width" id="cY0-Rz-eF3"/>
+                            <constraint firstItem="ocl-lb-jXc" firstAttribute="width" secondItem="7gR-G4-IfE" secondAttribute="width" id="cYN-vE-Ndh"/>
+                            <constraint firstAttribute="trailing" secondItem="eg4-Dm-iue" secondAttribute="trailing" constant="5" id="por-wN-Cw1"/>
+                            <constraint firstItem="ocl-lb-jXc" firstAttribute="top" secondItem="CSx-N7-6hj" secondAttribute="top" id="ta5-Ib-khZ"/>
+                            <constraint firstAttribute="bottom" secondItem="7gR-G4-IfE" secondAttribute="bottom" id="tmA-Vm-9f9"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="          * Verify your mobile number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gU5-XC-E01">
@@ -130,10 +85,13 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="gU5-XC-E01" secondAttribute="bottom" id="39B-uA-0t7"/>
                     <constraint firstItem="gU5-XC-E01" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3pT-W7-qZ7"/>
-                    <constraint firstItem="CSx-N7-6hj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="VVc-nu-gR6"/>
+                    <constraint firstItem="8nK-Jo-83N" firstAttribute="width" secondItem="CSx-N7-6hj" secondAttribute="width" id="Ls7-5f-scz"/>
+                    <constraint firstItem="8nK-Jo-83N" firstAttribute="bottom" secondItem="CSx-N7-6hj" secondAttribute="bottom" id="RcY-p9-ZPs"/>
+                    <constraint firstItem="CSx-N7-6hj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="VVc-nu-gR6"/>
                     <constraint firstAttribute="trailing" secondItem="CSx-N7-6hj" secondAttribute="trailing" constant="10" id="Yxe-w3-P6d"/>
+                    <constraint firstItem="8nK-Jo-83N" firstAttribute="centerX" secondItem="CSx-N7-6hj" secondAttribute="centerX" id="bOK-1b-tO6"/>
                     <constraint firstItem="gU5-XC-E01" firstAttribute="top" secondItem="CSx-N7-6hj" secondAttribute="bottom" id="jyb-D5-MwC"/>
-                    <constraint firstItem="CSx-N7-6hj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="k2o-8w-GBo"/>
+                    <constraint firstItem="CSx-N7-6hj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="k2o-8w-GBo"/>
                     <constraint firstAttribute="trailing" secondItem="gU5-XC-E01" secondAttribute="trailing" id="piI-tc-BFs"/>
                 </constraints>
             </tableViewCellContentView>
@@ -141,7 +99,7 @@
             <connections>
                 <outlet property="dummyTxtField" destination="8nK-Jo-83N" id="d2t-5e-vrf"/>
             </connections>
-            <point key="canvasLocation" x="162.40000000000001" y="71.514242878560722"/>
+            <point key="canvasLocation" x="64.799999999999997" y="50.824587706146929"/>
         </tableViewCell>
     </objects>
 </document>

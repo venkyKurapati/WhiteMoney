@@ -22,15 +22,18 @@ class OTPTextFieldCell: UITableViewCell {
             
             var letters = OTPtext.characters.map { String($0) }
             while letters.count < OTPFieldsCount {
-                letters.append("-")
+                letters.append("")
             }
             var i = 0
             while i < OTPFieldsCount{
                 let fieldTag = 100 + i
-                if let floatingTxtView = self.contentView.viewWithTag(fieldTag) as? FloatingTxtField{
-                    floatingTxtView.setUpTxtField(letters[i], font: UIFont.appSectionTextFont(), textColor: UIColor.appHilightedTxtColor(), underLine_Hilight_ViewColor: UIColor.appPrimaryTextColor(), underLineViewColor: UIColor.placeHolderTxtColor(), placeHoleder: "", placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.placeHolderTxtColor(), keyboardType: .phonePad, delegate: nil ,logoImg : nil,isSecureTextEntry : false, warningText: "")
-                    floatingTxtView.txtField.tintColor = UIColor.clear
-                    floatingTxtView.txtField.textAlignment = .center
+                if let otpField = self.contentView.viewWithTag(fieldTag) as? OTPField{
+                    otpField.txtLbl.text = letters[i]
+                    if OTPtext.count+100 == fieldTag{
+                        otpField.startEdit()
+                    }else{
+                        otpField.endEdit()
+                    }
                 }
                 i += 1
             }

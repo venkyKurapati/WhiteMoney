@@ -24,11 +24,11 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rdu-sE-Hpg">
                                 <rect key="frame" x="0.0" y="20" width="375" height="20"/>
-                                <color key="backgroundColor" red="0.64313725489999995" green="0.70196078429999997" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yVz-Rb-eKy">
                                 <rect key="frame" x="0.0" y="647" width="375" height="20"/>
-                                <color key="backgroundColor" red="0.64313725489999995" green="0.70196078429999997" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -133,10 +133,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BMh-OY-8C4">
-                                <rect key="frame" x="0.0" y="620" width="375" height="47"/>
+                                <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dY1-x7-b5g">
-                                        <rect key="frame" x="301.5" y="0.0" width="58.5" height="47"/>
+                                        <rect key="frame" x="360" y="0.0" width="0.0" height="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="dY1-x7-b5g" secondAttribute="height" multiplier="25:20" id="C95-h8-W5Y"/>
                                         </constraints>
@@ -146,7 +146,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfL-DJ-gJR">
-                                        <rect key="frame" x="15" y="0.0" width="65.5" height="47"/>
+                                        <rect key="frame" x="15" y="0.0" width="0.0" height="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="YfL-DJ-gJR" secondAttribute="height" multiplier="28:20" id="Ork-Nh-48s"/>
                                         </constraints>
@@ -160,11 +160,11 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="dY1-x7-b5g" secondAttribute="trailing" constant="15" id="3In-CF-Bkq"/>
                                     <constraint firstItem="dY1-x7-b5g" firstAttribute="top" secondItem="BMh-OY-8C4" secondAttribute="top" id="5cD-Y0-Gce"/>
-                                    <constraint firstAttribute="width" secondItem="BMh-OY-8C4" secondAttribute="height" multiplier="8:1" id="5gp-E0-4Wq"/>
                                     <constraint firstAttribute="bottom" secondItem="dY1-x7-b5g" secondAttribute="bottom" id="BT2-PA-s1C"/>
                                     <constraint firstAttribute="bottom" secondItem="YfL-DJ-gJR" secondAttribute="bottom" id="BTS-51-ig4"/>
                                     <constraint firstItem="YfL-DJ-gJR" firstAttribute="leading" secondItem="BMh-OY-8C4" secondAttribute="leading" constant="15" id="P7X-Yk-KQZ"/>
                                     <constraint firstItem="YfL-DJ-gJR" firstAttribute="top" secondItem="BMh-OY-8C4" secondAttribute="top" id="WSh-BB-JG9"/>
+                                    <constraint firstAttribute="height" id="sBD-mg-NHZ"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNN-yF-kdN" customClass="FormStepsView" customModule="WhiteMOney" customModuleProvider="target">
@@ -172,7 +172,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bt5-ux-xtn">
-                                <rect key="frame" x="0.0" y="109.5" width="375" height="510.5"/>
+                                <rect key="frame" x="0.0" y="109.5" width="375" height="557.5"/>
                                 <color key="backgroundColor" red="0.2470588235" green="0.62745098040000002" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
