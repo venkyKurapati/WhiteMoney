@@ -35,6 +35,9 @@
 		825FB1292163D7B6008B6D9B /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825FB1202163D7B6008B6D9B /* UIApplication.swift */; };
 		825FB12A2163D7B6008B6D9B /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825FB1212163D7B6008B6D9B /* Bundle.swift */; };
 		825FB12C2163D7D4008B6D9B /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825FB12B2163D7D3008B6D9B /* Color.swift */; };
+		8274B5E4216D08450032AA23 /* OTPField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8274B5E3216D08450032AA23 /* OTPField.swift */; };
+		8274B5E6216D08670032AA23 /* OTPField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8274B5E5216D08660032AA23 /* OTPField.xib */; };
+		8274B5E8216D0A160032AA23 /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8274B5E7216D0A160032AA23 /* XibView.swift */; };
 		8277FD992167C16C0003AD65 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277FD982167C16C0003AD65 /* TableView.swift */; };
 		8277FD9B2168630D0003AD65 /* EligibilityCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277FD9A2168630D0003AD65 /* EligibilityCheckViewModel.swift */; };
 		8277FD9D2168632F0003AD65 /* EligibilityCheckCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277FD9C2168632F0003AD65 /* EligibilityCheckCV.swift */; };
@@ -117,6 +120,9 @@
 		825FB1202163D7B6008B6D9B /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		825FB1212163D7B6008B6D9B /* Bundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		825FB12B2163D7D3008B6D9B /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		8274B5E3216D08450032AA23 /* OTPField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPField.swift; sourceTree = "<group>"; };
+		8274B5E5216D08660032AA23 /* OTPField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OTPField.xib; sourceTree = "<group>"; };
+		8274B5E7216D0A160032AA23 /* XibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
 		8277FD982167C16C0003AD65 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		8277FD9A2168630D0003AD65 /* EligibilityCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityCheckViewModel.swift; sourceTree = "<group>"; };
 		8277FD9C2168632F0003AD65 /* EligibilityCheckCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EligibilityCheckCV.swift; sourceTree = "<group>"; };
@@ -356,6 +362,9 @@
 				82ECAB162167A5B800455397 /* FloatingTxtField.swift */,
 				8277FDA82168A16F0003AD65 /* OTPTextFieldCell.swift */,
 				8277FDA92168A16F0003AD65 /* OTPTextFieldCell.xib */,
+				8274B5E3216D08450032AA23 /* OTPField.swift */,
+				8274B5E5216D08660032AA23 /* OTPField.xib */,
+				8274B5E7216D0A160032AA23 /* XibView.swift */,
 			);
 			path = FloatingTxtField;
 			sourceTree = "<group>";
@@ -516,6 +525,7 @@
 				829CA6CD21612A6700F032FC /* Assets.xcassets in Resources */,
 				825FB10A2163D16F008B6D9B /* SideMenuCell.xib in Resources */,
 				829CA6C821612A6600F032FC /* Main.storyboard in Resources */,
+				8274B5E6216D08670032AA23 /* OTPField.xib in Resources */,
 				8277FDB22168AFE80003AD65 /* ButtonCell.xib in Resources */,
 				82ECAB1F2167A5B800455397 /* AuthFlow.storyboard in Resources */,
 				82ECAB1C2167A5B800455397 /* FloatingTxtFieldCell.xib in Resources */,
@@ -626,8 +636,10 @@
 				825FB1142163D58F008B6D9B /* StoryboardUtils.swift in Sources */,
 				825FB1232163D7B6008B6D9B /* UIColor.swift in Sources */,
 				825FB1272163D7B6008B6D9B /* UIImage.swift in Sources */,
+				8274B5E8216D0A160032AA23 /* XibView.swift in Sources */,
 				8277FDA1216866000003AD65 /* DocumentsUploadVC.swift in Sources */,
 				825FB10C2163D16F008B6D9B /* SideMenuNavigation.swift in Sources */,
+				8274B5E4216D08450032AA23 /* OTPField.swift in Sources */,
 				825FB1112163D55B008B6D9B /* Storyboards.swift in Sources */,
 				8277FDB12168AFE80003AD65 /* ButtonCell.swift in Sources */,
 				82ECAB232167AFEE00455397 /* EmailAndPhoneViewModel.swift in Sources */,

@@ -22,7 +22,16 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CSx-N7-6hj">
                         <rect key="frame" x="10" y="0.0" width="337" height="70"/>
                         <subviews>
-                            <view tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RsZ-Ie-MHH" customClass="FloatingTxtField" customModule="WhiteMOney" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8nK-Jo-83N">
+                                <rect key="frame" x="0.0" y="0.0" width="337" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <view userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RsZ-Ie-MHH" customClass="FloatingTxtField" customModule="WhiteMOney" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="84.5" height="70"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -32,9 +41,12 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="warningLblHeight">
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="txtFieldLeftPaddingWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ERO-sg-mPC" customClass="FloatingTxtField" customModule="WhiteMOney" customModuleProvider="target">
+                            <view userInteractionEnabled="NO" tag="101" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ERO-sg-mPC" customClass="FloatingTxtField" customModule="WhiteMOney" customModuleProvider="target">
                                 <rect key="frame" x="84.5" y="0.0" width="84" height="70"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -44,9 +56,12 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="warningLblHeight">
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="txtFieldLeftPaddingWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view tag="102" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZVH-7h-Q5w" customClass="FloatingTxtField" customModule="WhiteMOney" customModuleProvider="target">
+                            <view userInteractionEnabled="NO" tag="102" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZVH-7h-Q5w" customClass="FloatingTxtField" customModule="WhiteMOney" customModuleProvider="target">
                                 <rect key="frame" x="168.5" y="0.0" width="84.5" height="70"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -56,9 +71,12 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="warningLblHeight">
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="txtFieldLeftPaddingWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view tag="103" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jx9-jb-8VY" customClass="FloatingTxtField" customModule="WhiteMOney" customModuleProvider="target">
+                            <view userInteractionEnabled="NO" tag="103" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jx9-jb-8VY" customClass="FloatingTxtField" customModule="WhiteMOney" customModuleProvider="target">
                                 <rect key="frame" x="253" y="0.0" width="84" height="70"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -66,6 +84,9 @@
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="warningLblHeight">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="txtFieldLeftPaddingWidth">
                                         <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
@@ -101,34 +122,25 @@
                             <constraint firstAttribute="height" constant="10" id="mip-BQ-DTb"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8nK-Jo-83N">
-                        <rect key="frame" x="10" y="0.0" width="337" height="70"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="gU5-XC-E01" secondAttribute="bottom" id="39B-uA-0t7"/>
                     <constraint firstItem="gU5-XC-E01" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3pT-W7-qZ7"/>
-                    <constraint firstItem="8nK-Jo-83N" firstAttribute="height" secondItem="CSx-N7-6hj" secondAttribute="height" id="Sjr-uy-xLz"/>
                     <constraint firstItem="CSx-N7-6hj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="VVc-nu-gR6"/>
                     <constraint firstAttribute="trailing" secondItem="CSx-N7-6hj" secondAttribute="trailing" constant="10" id="Yxe-w3-P6d"/>
-                    <constraint firstItem="8nK-Jo-83N" firstAttribute="centerX" secondItem="CSx-N7-6hj" secondAttribute="centerX" id="ZCc-O9-PwI"/>
-                    <constraint firstItem="8nK-Jo-83N" firstAttribute="width" secondItem="CSx-N7-6hj" secondAttribute="width" id="cvY-t3-KhN"/>
-                    <constraint firstItem="8nK-Jo-83N" firstAttribute="centerY" secondItem="CSx-N7-6hj" secondAttribute="centerY" id="gk3-M6-3kf"/>
                     <constraint firstItem="gU5-XC-E01" firstAttribute="top" secondItem="CSx-N7-6hj" secondAttribute="bottom" id="jyb-D5-MwC"/>
                     <constraint firstItem="CSx-N7-6hj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="k2o-8w-GBo"/>
                     <constraint firstAttribute="trailing" secondItem="gU5-XC-E01" secondAttribute="trailing" id="piI-tc-BFs"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dummyTxtField" destination="8nK-Jo-83N" id="d2t-5e-vrf"/>
+            </connections>
             <point key="canvasLocation" x="162.40000000000001" y="71.514242878560722"/>
         </tableViewCell>
     </objects>
