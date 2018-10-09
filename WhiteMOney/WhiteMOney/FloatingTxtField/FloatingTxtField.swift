@@ -401,4 +401,7 @@ extension FloatingTxtField{
         self.txtField.isSecureTextEntry = true
 
     }
+    func makeFirstResponder() -> Void {
+        txtField.becomeFirstResponder()
+    }
 }

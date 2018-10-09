@@ -69,7 +69,10 @@ extension EmailAndPhoneViewModel:UITableViewDataSource,UITableViewDelegate{
         let field = fields[indexPath.row]
         switch field {
         case .otp:
-            cell = tableView.dequeueReusableCell(withIdentifier: "OTPTextFieldCell") as! OTPTextFieldCell
+            let OTPCell = tableView.dequeueReusableCell(withIdentifier: "OTPTextFieldCell") as! OTPTextFieldCell
+            OTPCell.setUpUserFieldDetailsOfUser(dataModel.email, typeOfTxtField: fields[indexPath.row], inputAccessoryView: nil, delegate: self)
+            cell = OTPCell
+
         case .nextBtn,.nextWithCancel:
             let cellBtn = tableView.dequeueReusableCell(withIdentifier: "ButtonCell") as! ButtonCell
             if field == .nextBtn{
