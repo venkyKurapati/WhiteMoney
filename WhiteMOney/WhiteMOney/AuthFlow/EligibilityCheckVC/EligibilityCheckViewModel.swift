@@ -44,11 +44,19 @@ extension EligibilityCheckViewModel:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FloatingTxtFieldCell") as! FloatingTxtFieldCell
         cell.selectionStyle = .none
-        cell.contentView.backgroundColor = UIColor.appYellow
-
         return cell
     }
     
     
     
 }
+
+
+func setupSections() -> Void {
+    
+}
+
+//1) address => addr 1,addr 2 ,city,state,country,pin,
+//2) employment Type
+//3) company name and salary / anual incom
+//4) pan and Aadhar

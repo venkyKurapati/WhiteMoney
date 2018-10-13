@@ -10,11 +10,35 @@ import UIKit
 import Async
 class OTPTextFieldCell: UITableViewCell {
 
+    var delegate : FloatingTxtFieldDelegate?
+    var dataModel : AuthDataModel?
     @IBOutlet weak var dummyTxtField: UITextField!
     var OTPFieldsCount = 4
+    var isFieldEditing  : Bool = false{
+        didSet{
+            var letters = OTPtext.characters.map { String($0) }
+            while letters.count < OTPFieldsCount {
+                letters.append("")
+            }
+            var i = 0
+            while i < OTPFieldsCount{
+                let fieldTag = 100 + i
+                if let otpField = self.contentView.viewWithTag(fieldTag) as? OTPField{
+                    otpField.setUpTxtFieldColor(UIColor.appPrimaryTextColor(), underLineViewColor: UIColor.placeHolderTxtColor())
+                    if OTPtext.count+100 == fieldTag && isFieldEditing{
+                        otpField.startEdit()
+                    }else{
+                        otpField.endEdit()
+                    }
+                }
+                i += 1
+            }
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        isFieldEditing = false
         dummyTxtField.delegate = self
     }
     var OTPtext : String = "" {
@@ -29,11 +53,6 @@ class OTPTextFieldCell: UITableViewCell {
                 let fieldTag = 100 + i
                 if let otpField = self.contentView.viewWithTag(fieldTag) as? OTPField{
                     otpField.txtLbl.text = letters[i]
-                    if OTPtext.count+100 == fieldTag{
-                        otpField.startEdit()
-                    }else{
-                        otpField.endEdit()
-                    }
                 }
                 i += 1
             }
@@ -41,15 +60,14 @@ class OTPTextFieldCell: UITableViewCell {
     }
 
     func setUpUserFieldDetailsOfUser(_ userInfo : String ,
-                                     typeOfTxtField : TypeOfCellField ,inputAccessoryView : UIToolbar? , delegate : FloatingTxtFieldDelegate?) -> Void {
+                                     typeOfTxtField : AuthDataModel.TypeOfCellField ,inputAccessoryView : UIToolbar? , delegate : FloatingTxtFieldDelegate?) -> Void {
         
         OTPtext = userInfo
-
-       
+        dummyTxtField.keyboardType = .numberPad
+        dummyTxtField.text = OTPtext
         
         switch typeOfTxtField {
         case .otp:
-            
             
             break
        
@@ -68,88 +86,6 @@ class OTPTextFieldCell: UITableViewCell {
     
 }
 
-//extension OTPTextFieldCell: FloatingTxtFieldDelegate {
-//    func floatingTxtFieldShouldBeginEditing(_ textField: FloatingTxtField) -> Bool {
-//        let length = OTPtext.count
-//        if length == OTPFieldsCount {
-//            if let floaingTxtField = self.contentView.viewWithTag(100+OTPFieldsCount-1) as? FloatingTxtField{
-//                Async.main{floaingTxtField.makeFirstResponder()}
-//                if floaingTxtField != textField{return false}
-//
-//            }
-//        }else{
-//            if let floaingTxtField = self.contentView.viewWithTag(100+length) as? FloatingTxtField{
-//                Async.main{floaingTxtField.makeFirstResponder()}
-//                if floaingTxtField != textField{return false}
-//
-//            }
-//        }
-//        return true
-//    }
-//
-//    func floatingTxtField(_ textField: FloatingTxtField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//
-//        if let text = textField.text,let textRange = Range(range, in: text) {
-//            var updatedText = text.replacingCharacters(in: textRange,
-//                                                       with: string)
-//            if updatedText.count == 0{
-////                makeFieldRespond()
-//            }else{
-//                updatedText = updatedText.trimmingCharacters(in: .whitespacesAndNewlines)
-//                if updatedText.count > 0{
-//                    OTPtext = OTPtext + updatedText
-//                }
-//                makeFieldRespond()
-//            }
-//
-//
-//        }
-//        return true
-//    }
-//
-//
-////    func floatingTxtField(_ textField: FloatingTxtField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-////        // Range.length == 1 means,clicking backspace
-////        if (range.length == 0){
-////            let viewTag = textField.tag
-////            if viewTag == 100+OTPFieldsCount-1{
-////                textField.txtField.resignFirstResponder()
-////            }else{
-////                if let floatingTxtField = self.contentView.viewWithTag(textField.tag+1) as? FloatingTxtField{
-////                    floatingTxtField.txtField.becomeFirstResponder()
-////                }
-////            }
-////            textField.text? = string
-////            return false
-////        }else if (range.length == 1) {
-////            if let floatingTxtField = self.contentView.viewWithTag(textField.tag-1) as? FloatingTxtField{
-////                floatingTxtField.txtField.becomeFirstResponder()
-////            }
-////            textField.text? = ""
-////            return false
-////        }
-////        return true
-////    }
-//
-//
-//    func makeFieldRespond() -> Void {
-//        let length = OTPtext.count
-//        if length == OTPFieldsCount {
-//            self.resignFirstResponder()
-//        }else{
-//            if let floaingTxtField = self.contentView.viewWithTag(100+length) as? FloatingTxtField{
-//                Async.main{floaingTxtField.makeFirstResponder()}
-//            }
-//        }
-//    }
-//    func floatingTxtFieldDidEndEditing(_ textField: FloatingTxtField) {
-//
-//    }
-//    func floatingTxtFieldShouldClear(_ textField: FloatingTxtField) -> Bool {
-//        return true
-//    }
-//
-//}
 
 
 
@@ -157,10 +93,12 @@ class OTPTextFieldCell: UITableViewCell {
 extension OTPTextFieldCell:UITextFieldDelegate{
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        isFieldEditing = true
         return true
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
+        isFieldEditing = false
+
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
@@ -169,6 +107,10 @@ extension OTPTextFieldCell:UITextFieldDelegate{
                                                        with: string)
             if updatedText.count <= OTPFieldsCount{
                 self.OTPtext = updatedText
+                isFieldEditing = true
+//                Async.main{if updatedText.count == self.OTPFieldsCount {self.endEditing(true)}
+//}
+                self.dataModel?.emailAndPhoneInfo.OTP = updatedText
                 return true
             }
         }
@@ -176,4 +118,15 @@ extension OTPTextFieldCell:UITextFieldDelegate{
 
     }
     
+}
+extension UITableViewCell{
+    func deactivateCell(_ deactivate : Bool) -> Void {
+        if !deactivate {
+            self.isUserInteractionEnabled = true
+            self.contentView.alpha = 1
+        }else{
+            self.isUserInteractionEnabled = false
+            self.contentView.alpha = 0.5
+        }
+    }
 }

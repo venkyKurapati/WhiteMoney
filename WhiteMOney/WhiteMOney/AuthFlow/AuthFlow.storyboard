@@ -22,11 +22,11 @@
                                 <rect key="frame" x="0.0" y="40" width="375" height="607"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rdu-sE-Hpg">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rdu-sE-Hpg">
                                 <rect key="frame" x="0.0" y="20" width="375" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yVz-Rb-eKy">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yVz-Rb-eKy">
                                 <rect key="frame" x="0.0" y="647" width="375" height="20"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -168,19 +168,19 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNN-yF-kdN" customClass="FormStepsView" customModule="WhiteMOney" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="45.5"/>
+                                <rect key="frame" x="0.0" y="74" width="375" height="45.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bt5-ux-xtn">
-                                <rect key="frame" x="0.0" y="109.5" width="375" height="557.5"/>
+                                <rect key="frame" x="0.0" y="119.5" width="375" height="547.5"/>
                                 <color key="backgroundColor" red="0.2470588235" green="0.62745098040000002" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.24755194780000001" green="0.62625330690000003" blue="0.85376888510000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qNN-yF-kdN" firstAttribute="leading" secondItem="S6F-Hk-zP6" secondAttribute="leading" id="FFj-0l-RdR"/>
                             <constraint firstItem="BMh-OY-8C4" firstAttribute="top" secondItem="bt5-ux-xtn" secondAttribute="bottom" id="Pbu-J0-DTW"/>
-                            <constraint firstItem="qNN-yF-kdN" firstAttribute="top" secondItem="S6F-Hk-zP6" secondAttribute="top" id="UKt-2m-YCU"/>
+                            <constraint firstItem="qNN-yF-kdN" firstAttribute="top" secondItem="S6F-Hk-zP6" secondAttribute="top" constant="10" id="UKt-2m-YCU"/>
                             <constraint firstItem="BMh-OY-8C4" firstAttribute="bottom" secondItem="S6F-Hk-zP6" secondAttribute="bottom" id="ZVt-pd-1Bc"/>
                             <constraint firstItem="S6F-Hk-zP6" firstAttribute="trailing" secondItem="BMh-OY-8C4" secondAttribute="trailing" id="dAj-iX-rpb"/>
                             <constraint firstItem="qNN-yF-kdN" firstAttribute="width" secondItem="qNN-yF-kdN" secondAttribute="height" multiplier="23:2.8" id="gxV-fv-SC6"/>
@@ -202,14 +202,20 @@
             </objects>
             <point key="canvasLocation" x="322" y="-80"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--White Money-->
         <scene sceneID="tf9-od-ows">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fbh-5H-BiG" sceneMemberID="viewController">
+                <navigationController title="White Money" automaticallyAdjustsScrollViewInsets="NO" id="Fbh-5H-BiG" customClass="NavigationController" customModule="WhiteMOney" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6KS-15-l2O">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.24755194780000001" green="0.62625330690000003" blue="0.85376888510000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

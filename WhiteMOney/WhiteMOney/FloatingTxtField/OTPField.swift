@@ -11,7 +11,11 @@ import UIKit
 class OTPField: XibView {
     @IBOutlet weak var blinkLbl: UILabel!
     @IBOutlet weak var txtLbl: UILabel!
+    @IBOutlet weak var underlineLbl: UILabel!
     var timer : SimpleTimer!
+
+    var underLine_Hilight_ViewColor = UIColor.white
+    var underLineViewColor = UIColor.lightGray
 
     override func commonInit() {
         timer = SimpleTimer.init(interval: 1, onTick: {
@@ -21,12 +25,21 @@ class OTPField: XibView {
         txtLbl.textColor = UIColor.white
 
     }
-    
+    func setUpTxtFieldColor( _ underLine_Hilight_ViewColor : UIColor,underLineViewColor : UIColor) -> Void {
+        self.underLineViewColor = underLineViewColor
+        self.underLine_Hilight_ViewColor = underLine_Hilight_ViewColor
+    }
     func startEdit() -> Void {
+        self.underlineLbl.backgroundColor = underLine_Hilight_ViewColor
         blinkLbl.isHidden = false
         timer.start()
     }
     func endEdit() -> Void {
+        if (txtLbl.text?.count ?? "".count) > 0 {
+            self.underlineLbl.backgroundColor = underLine_Hilight_ViewColor
+        }else{
+            self.underlineLbl.backgroundColor = underLineViewColor
+        }
         blinkLbl.isHidden = true
         timer.stop()
     }

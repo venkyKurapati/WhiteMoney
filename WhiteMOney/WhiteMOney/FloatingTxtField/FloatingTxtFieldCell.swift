@@ -23,16 +23,16 @@ class FloatingTxtFieldCell: UITableViewCell {
     }
     
     func setUpUserFieldDetailsOfUser(_ userInfo : String ,
-                                     typeOfTxtField : TypeOfCellField ,inputAccessoryView : UIToolbar? , delegate : FloatingTxtFieldDelegate?) -> Void {
+                                     typeOfTxtField : AuthDataModel.TypeOfCellField ,inputAccessoryView : UIToolbar? , delegate : FloatingTxtFieldDelegate?) -> Void {
         
         switch typeOfTxtField {
         case .email:
             floatingTxtView.setUpTxtField(userInfo, font: UIFont.appTextFont(), textColor: UIColor.appHilightedTxtColor(), underLine_Hilight_ViewColor: UIColor.appPrimaryTextColor(), underLineViewColor: UIColor.placeHolderTxtColor(), placeHoleder: Constants.emailPlaceHolder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.placeHolderTxtColor(), keyboardType: .emailAddress, delegate: delegate ,logoImg : nil,isSecureTextEntry : false, warningText: "    * This email will get verification link.")
         case .fullName:
-            floatingTxtView.setUpTxtField(userInfo, font: UIFont.appTextFont(), textColor: UIColor.appHilightedTxtColor(), underLine_Hilight_ViewColor: UIColor.appPrimaryTextColor(), underLineViewColor: UIColor.placeHolderTxtColor(), placeHoleder: Constants.fullNamePlaceHolder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.placeHolderTxtColor(), keyboardType: .emailAddress, delegate: delegate ,logoImg : nil,isSecureTextEntry : false, warningText: "    * Full name as in Pan Card.")
+            floatingTxtView.setUpTxtField(userInfo, font: UIFont.appTextFont(), textColor: UIColor.appHilightedTxtColor(), underLine_Hilight_ViewColor: UIColor.appPrimaryTextColor(), underLineViewColor: UIColor.placeHolderTxtColor(), placeHoleder: Constants.fullNamePlaceHolder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.placeHolderTxtColor(), keyboardType: .default, delegate: delegate ,logoImg : nil,isSecureTextEntry : false, warningText: "    * Full name as in Pan Card.")
             
         case .phoneNum:
-            floatingTxtView.setUpTxtField(userInfo, font: UIFont.appTextFont(), textColor: UIColor.appHilightedTxtColor(), underLine_Hilight_ViewColor: UIColor.appPrimaryTextColor(), underLineViewColor: UIColor.placeHolderTxtColor(), placeHoleder: Constants.phoneNumPlaceHolder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.placeHolderTxtColor(), keyboardType: .emailAddress, delegate: delegate ,logoImg : nil,isSecureTextEntry : false, warningText: "    * This number will recive OTP.")
+            floatingTxtView.setUpTxtField(userInfo, font: UIFont.appTextFont(), textColor: UIColor.appHilightedTxtColor(), underLine_Hilight_ViewColor: UIColor.appPrimaryTextColor(), underLineViewColor: UIColor.placeHolderTxtColor(), placeHoleder: Constants.phoneNumPlaceHolder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.placeHolderTxtColor(), keyboardType: .phonePad, delegate: delegate ,logoImg : nil,isSecureTextEntry : false, warningText: "    * This number will recive OTP.")
      
             
         case .password:

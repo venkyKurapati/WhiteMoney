@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zkH-E2-7e2" customClass="FloatingTxtField" customModule="WhiteMOney" customModuleProvider="target">
-                        <rect key="frame" x="10" y="2.5" width="300" height="70"/>
+                        <rect key="frame" x="10" y="2" width="300" height="70.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="70" id="yH0-qV-oME"/>
@@ -32,13 +32,15 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="zkH-E2-7e2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Mk4-aC-LUp"/>
                     <constraint firstAttribute="trailing" secondItem="zkH-E2-7e2" secondAttribute="trailing" constant="10" id="R75-yH-p2I"/>
                     <constraint firstItem="zkH-E2-7e2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="ru7-ak-pyT"/>
-                    <constraint firstAttribute="bottom" secondItem="zkH-E2-7e2" secondAttribute="bottom" id="zw3-Nc-FR2"/>
+                    <constraint firstAttribute="bottom" secondItem="zkH-E2-7e2" secondAttribute="bottom" constant="5" id="zw3-Nc-FR2"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="floatingTxtView" destination="zkH-E2-7e2" id="8eH-fn-DjB"/>

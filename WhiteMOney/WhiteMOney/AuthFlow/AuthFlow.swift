@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import Async
 
 class AuthFlow: NSObject {
-    
-    
+    enum AuthSteps : String{
+        case emailAndPhoneNum = "emailAndPhoneNum"
+        case eligibility = "eligibility"
+        case documentsUpload = "documentsUpload"
+    }
     
     var authMainVC : AuthViewController!
     var emailAndPhoneModel : EmailAndPhoneViewModel?
@@ -18,7 +22,7 @@ class AuthFlow: NSObject {
     var documentsUploadModel : DocumentsUploadViewModel?
     var navigator : Navigator?
     var authPageVC : AuthPageViewController!
-    var authUserDetails = AuthDataModel()
+    var authUserDetails = AuthDataModel(nil)
     
     
     init(_ navigator : Navigator) {
@@ -29,6 +33,12 @@ class AuthFlow: NSObject {
         authPageVC = AuthPageViewController.instanciateFrom(storyboard: Storyboards.authFlow)
         super.init()
         runAuthFlow()
+        emailAndPhoneModel?.didFinishEmailAndPhonesStep {
+            Async.main{
+                self.authMainVC.stepsItemsView.chaangeStepTo(2)
+                self.authPageVC.setShowingVC(1)
+            }
+        }
     }
     func runAuthFlow() -> Void {
         authMainVC = AuthViewController.instanciateFrom(storyboard: Storyboards.authFlow)

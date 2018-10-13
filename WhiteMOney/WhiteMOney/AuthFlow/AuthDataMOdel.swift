@@ -10,25 +10,42 @@ import Foundation
 
 class AuthDataModel: NSObject {
     
-    var fullName  = "hihi"
-    var email  = ""
-    var phoneNum  = ""
-    var isOTPGenerated = false
-    var OTP  = ""
-    var isOTPVerified  = false
-    var password = ""
+    var emailAndPhoneInfo : EmailAndPhoneVerifyAuthModel
+    init(_ emailAndPhoneVerifyModel : EmailAndPhoneVerifyAuthModel?) {
+        self.emailAndPhoneInfo = emailAndPhoneVerifyModel ?? EmailAndPhoneVerifyAuthModel()
+    }
+    
+    
+   
+    
+    class EmailAndPhoneVerifyAuthModel {
+        var fullName  = ""
+        var email  = ""
+        var phoneNum  = ""
+        var isOTPGenerated = false
+        var OTP  = ""
+        var isOTPVerified  = false
+        var password = ""
+    }
+    class EligibilityCheckModel {
+        
+    }
+    class DocumentsUploadModel {
+        
+    }
+    enum TypeOfCellField : String {
+        case email = "Email"
+        case phoneNum = "PhoneNum"
+        case fullName = "FullName"
+        case otp = "OTP"
+        case password = "Password"
+        case nextBtn = "NextBtn"
+        case nextWithCancelOTP = "NextWithCancelOTP"
+        case nextWithCancelPassword = "NextWithCancelPassword"
+    }
     
 }
 
 
-enum TypeOfCellField : String {
-    case email = "Email"
-    case phoneNum = "PhoneNum"
-    case fullName = "FullName"
-    case otp = "OTP"
-    case password = "Password"
-    case nextBtn = "NextBtn"
-    case nextWithCancel = "NextWithCancel"
-    
-}
+
 

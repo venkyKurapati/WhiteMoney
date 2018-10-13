@@ -9,9 +9,13 @@
 import UIKit
 
 class AuthPageViewController: UIPageViewController {
+    
+    var currentIndex : Int = 0
+    
     var orderedViewControllers : [UIViewController] = []  {
         didSet{
             if let firstViewController = orderedViewControllers.first {
+                currentIndex = 0
                 setViewControllers([firstViewController],
                                    direction: .forward,
                                    animated: true,
@@ -23,10 +27,32 @@ class AuthPageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = self
+    
         // Do any additional setup after loading the view.
+        removeSwipeGesture()
+    }
+    func removeSwipeGesture(){
+        for view in self.view.subviews {
+            if let subView = view as? UIScrollView {
+                subView.isScrollEnabled = false
+            }
+        }
     }
     
+    func setShowingVC(_ index : Int) -> Void {
+        var navigationDirection : NavigationDirection!
+        if index > currentIndex {
+            navigationDirection = .forward
+        }else{
+            navigationDirection = .reverse
+        }
+        currentIndex = index
+        setViewControllers([orderedViewControllers[currentIndex]],
+                           direction: navigationDirection,
+                           animated: true,
+                           completion: nil)
 
+    }
     
     /*
     // MARK: - Navigation

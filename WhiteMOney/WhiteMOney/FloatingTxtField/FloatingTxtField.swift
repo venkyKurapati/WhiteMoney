@@ -386,19 +386,18 @@ extension FloatingTxtField{
         self.textColor = textColor
         self.txtField.font = font
         self.txtField.text = txt
+        self.text = txt
         endEditingWithTxt(txt)
         self.logoImg = logoImg
         warningLblText = warningText
 //        self.txtField.inputAccessoryView = inputAccessoryView
         self.txtField.autocorrectionType = .no
-        if isSecureTextEntry == true {
-            setUpSecureEntry()
-        }
+        setUpSecureEntry(isSecureTextEntry)
         
         
     }
-    func setUpSecureEntry() -> Void {
-        self.txtField.isSecureTextEntry = true
+    func setUpSecureEntry(_ isSecureTextEntry: Bool) -> Void {
+        self.txtField.isSecureTextEntry = isSecureTextEntry
 
     }
     func makeFirstResponder() -> Void {

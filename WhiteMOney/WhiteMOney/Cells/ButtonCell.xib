@@ -98,6 +98,7 @@
                     <constraint firstItem="7bN-aT-KGB" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="xda-DR-bca"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="backAndCancelView" destination="Ovo-tk-HYW" id="1wK-xy-aXh"/>

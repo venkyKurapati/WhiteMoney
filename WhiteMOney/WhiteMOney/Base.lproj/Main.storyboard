@@ -76,12 +76,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2521" y="275"/>
+            <point key="canvasLocation" x="1753" y="116"/>
         </scene>
         <!--White Money-->
         <scene sceneID="zkS-ao-yb8">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9MP-Sh-8xX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Lnq-qb-mpD" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PBy-g1-qkc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -149,13 +148,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="White Money" id="3lL-6O-SU1"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9MP-Sh-8xX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="909.375" y="128.87323943661971"/>
+            <point key="canvasLocation" x="936" y="117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KsU-YP-R4s">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7yf-qZ-djZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tJs-a4-VLs" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wDb-my-VWA">
@@ -167,6 +166,7 @@
                         <segue destination="Lnq-qb-mpD" kind="relationship" relationship="rootViewController" id="bXH-jM-fc4"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7yf-qZ-djZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="117.39130434782609"/>
         </scene>

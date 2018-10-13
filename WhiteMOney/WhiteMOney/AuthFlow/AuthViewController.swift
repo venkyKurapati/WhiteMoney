@@ -16,6 +16,8 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         didLoad(self)
+        stepsItemsView.items = ["Authentication","Basic Details","Documents"]
+
         // Do any additional setup after loading the view.
     }
     func onDidLoad(callback: @escaping (UIViewController)->Void) {

@@ -38,10 +38,10 @@ class FormStepsView: UIView {
         initializeUi()
     }
     func initializeUi() -> Void {
-        
+        self.backgroundColor = UIColor.clear
         hilightLbl = UILabel()
         hilightLbl?.frame = CGRect.init(x: 0, y: 0, width: 0, height: 0)
-        hilightLbl?.backgroundColor = UIColor.green
+        hilightLbl?.backgroundColor = UIColor.white
         hilightLbl?.layer.masksToBounds = true
 
         self.addSubview(hilightLbl!)
@@ -81,11 +81,18 @@ class FormStepsView: UIView {
         // Drawing code
     }
     */
-    func chaangeStepTo(_ stepNum : Int) -> Void {
+    func chaangeStepTo(_ step : Int) -> Void {
+        var stepNum = step-1
         selectedIndex = stepNum
         let attributes = collectionView?.layoutAttributesForItem(at: IndexPath.init(row: stepNum, section: 0))
         let cellFrame = collectionView?.convert((attributes?.frame)!, to: collectionView?.superview)
-        hilightLbl?.frame = cellFrame!
+        UIView.animate(withDuration: 0.5) {
+        }
+        UIView.animate(withDuration: 0.1, animations: {
+            self.hilightLbl?.frame = cellFrame!
+        })
+        self.collectionView?.reloadData()
+
     }
 
 }
@@ -102,6 +109,11 @@ extension FormStepsView:  UICollectionViewDataSource,UICollectionViewDelegate, U
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for:indexPath) as! StepsItemCell
         let titleLbl = cell.viewWithTag(100) as! UILabel
+        if selectedIndex == indexPath.row {
+            titleLbl.textColor = UIColor.appBlue
+        }else{
+            titleLbl.textColor = UIColor.white
+        }
         titleLbl.text = items[indexPath.row]
         cell.contentView.backgroundColor = UIColor.clear
         return cell
