@@ -15,6 +15,7 @@ class EmailAndPhoneVC: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         didLoad(self)
+        fieldsTblView.setDynamicCellHeight()
         // Do any additional setup after loading the view.
     }
     func onDidLoad(callback: @escaping (UIViewController)->Void) {

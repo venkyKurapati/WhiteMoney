@@ -25,11 +25,12 @@ class FormStepsView: UIView {
         super.init(frame: frame)
         setupConstraints()
     }
+    
     override func layoutSubviews() {
         collectionView?.reloadData()
         hilightLbl?.layer.cornerRadius = (self.frame.size.height/2) - 10
         let size = CGSize.init(width: (self.frame.size.width/CGFloat(items.count))-10, height: self.frame.size.height)
-        hilightLbl?.frame = CGRect.init(x: 5, y: 0, width: size.width, height: size.height)
+        hilightLbl?.frame = CGRect.init(x: 10, y: 0, width: size.width, height: size.height)
 
     }
     required init?(coder aDecoder: NSCoder) {
@@ -85,12 +86,15 @@ class FormStepsView: UIView {
         var stepNum = step-1
         selectedIndex = stepNum
         let attributes = collectionView?.layoutAttributesForItem(at: IndexPath.init(row: stepNum, section: 0))
-        let cellFrame = collectionView?.convert((attributes?.frame)!, to: collectionView?.superview)
-        UIView.animate(withDuration: 0.5) {
+        if let cellFrame = collectionView?.convert((attributes?.frame)!, to: collectionView?.superview){
+            var newFrame = CGRect.init(origin: cellFrame.origin, size: cellFrame.size)
+            newFrame.origin.x = (cellFrame.origin.x)  + CGFloat(5.0)
+
+            UIView.animate(withDuration: 0.1, animations: {
+                self.hilightLbl?.frame = newFrame
+            })
         }
-        UIView.animate(withDuration: 0.1, animations: {
-            self.hilightLbl?.frame = cellFrame!
-        })
+ 
         self.collectionView?.reloadData()
 
     }
@@ -109,6 +113,7 @@ extension FormStepsView:  UICollectionViewDataSource,UICollectionViewDelegate, U
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for:indexPath) as! StepsItemCell
         let titleLbl = cell.viewWithTag(100) as! UILabel
+        titleLbl.adjustsFontSizeToFitWidth = true
         if selectedIndex == indexPath.row {
             titleLbl.textColor = UIColor.appBlue
         }else{

@@ -204,8 +204,8 @@
 		822E0C5F216E6CB500032A60 /* EligibilityCheckVC */ = {
 			isa = PBXGroup;
 			children = (
-				822E0C60216E6CB500032A60 /* EligibilityCheckCV.swift */,
 				822E0C61216E6CB500032A60 /* EligibilityCheckViewModel.swift */,
+				822E0C60216E6CB500032A60 /* EligibilityCheckCV.swift */,
 			);
 			path = EligibilityCheckVC;
 			sourceTree = "<group>";

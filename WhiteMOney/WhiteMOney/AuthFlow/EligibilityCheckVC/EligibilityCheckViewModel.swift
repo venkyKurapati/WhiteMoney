@@ -11,17 +11,29 @@ import UIKit
 
 
 class EligibilityCheckViewModel: NSObject {
-    
+    var fieldsArray : [AuthDataModel.TypeOfCellField]?
+    var authDataModel : AuthDataModel?
     var eligibilityVC : EligibilityCheckVC?
-    
+    var eligibilityCheckModel = AuthDataModel.EligibilityCheckModel()
     init(_ navigator : Navigator) {
         eligibilityVC = EligibilityCheckVC.instanciateFrom(storyboard: Storyboards.authFlow)
         super.init()
 //        navigator.setAsRoot(eligibilityCV!)
         eligibilityVC?.onDidLoad(callback: { (eligibilityView) in
             self.regCellNib()
-
+            self.setupIdentifiers()
         })
+    }
+    
+    
+    func setupIdentifiers() -> Void {
+        fieldsArray = [.addAddressField ,.showAddressField,.panCardField,.aadharCardField,.employmentType,.anualIncome,.currentCompanyName,.monthlyIncome]
+        if eligibilityCheckModel.address == nil{
+            
+        } else {
+            
+        }
+        eligibilityVC?.fieldsTblView.reloadData()
     }
 }
 
@@ -38,19 +50,55 @@ extension EligibilityCheckViewModel:UITableViewDataSource,UITableViewDelegate{
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return fieldsArray?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FloatingTxtFieldCell") as! FloatingTxtFieldCell
-        cell.selectionStyle = .none
-        return cell
+        let cell : UITableViewCell?
+        let field = fieldsArray?[indexPath.row]
+        switch field {
+        case .addAddressField?:
+            cell = tableView.dequeueReusableCell(withIdentifier: "addAddressCell")
+        case .showAddressField?:
+            cell = tableView.dequeueReusableCell(withIdentifier: "ShowAddress")
+            
+        case .panCardField?:
+            cell = tableView.dequeueReusableCell(withIdentifier: "FloatingTxtFieldCell") as! FloatingTxtFieldCell
+
+        case .aadharCardField?:
+            cell = tableView.dequeueReusableCell(withIdentifier: "FloatingTxtFieldCell") as! FloatingTxtFieldCell
+
+        case .employmentType?:
+            cell = tableView.dequeueReusableCell(withIdentifier: "EmploymentTypeCell")
+            if let segmentControl = cell?.contentView.viewWithTag(100) as? UISegmentedControl{
+                let font = UIFont.systemFont(ofSize: 16)
+                segmentControl.setTitleTextAttributes([NSAttributedStringKey.font: font],
+                                                      for: UIControlState.normal)
+
+            }
+        case .anualIncome?:
+            cell = tableView.dequeueReusableCell(withIdentifier: "FloatingTxtFieldCell") as! FloatingTxtFieldCell
+            
+        case .currentCompanyName?:
+            cell = tableView.dequeueReusableCell(withIdentifier: "FloatingTxtFieldCell") as! FloatingTxtFieldCell
+        case .monthlyIncome?:
+            cell = tableView.dequeueReusableCell(withIdentifier: "FloatingTxtFieldCell") as! FloatingTxtFieldCell
+
+            
+            
+        default:
+            cell = UITableViewCell()
+        }
+        
+        cell?.selectionStyle = .none
+        return cell!
     }
     
     
     
 }
-
+// addAddressCell
+//ShowAddress
 
 func setupSections() -> Void {
     

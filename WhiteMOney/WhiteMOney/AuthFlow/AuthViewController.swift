@@ -16,7 +16,7 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         didLoad(self)
-        stepsItemsView.items = ["Authentication","Basic Details","Documents"]
+        stepsItemsView.items = ["  Authentication   ","  Basic Details   ","  Documents   "]
 
         // Do any additional setup after loading the view.
     }

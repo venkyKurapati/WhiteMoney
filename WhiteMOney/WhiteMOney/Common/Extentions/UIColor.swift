@@ -119,11 +119,14 @@ public extension UIColor {
     static func appBlueColor() -> UIColor {
         return UIColor.hexStringToUIColor(hex: "#1B4298")
     }
+    
     static func appdropDownBlueColor() -> UIColor {
         return UIColor.hexStringToUIColor(hex: "#1B4298", alpha: 0.7)
     }
     
-    
+    static func appThickBlue() -> UIColor{
+        return UIColor.hexStringToUIColor(hex: "#008FFF")
+    }
     static func appWhiteColor() -> UIColor {
         return UIColor.white
     }
