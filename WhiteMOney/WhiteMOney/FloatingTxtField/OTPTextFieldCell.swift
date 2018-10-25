@@ -24,7 +24,7 @@ class OTPTextFieldCell: UITableViewCell {
             while i < OTPFieldsCount{
                 let fieldTag = 100 + i
                 if let otpField = self.contentView.viewWithTag(fieldTag) as? OTPField{
-                    otpField.setUpTxtFieldColor(UIColor.appPrimaryTextColor(), underLineViewColor: UIColor.placeHolderTxtColor())
+                    otpField.setUpTxtFieldColor(UIColor.appPrimaryTextColor(), underLineViewColor: UIColor.fieldBackgroundColor())
                     if OTPtext.count+100 == fieldTag && isFieldEditing{
                         otpField.startEdit()
                     }else{
@@ -40,6 +40,9 @@ class OTPTextFieldCell: UITableViewCell {
         // Initialization code
         isFieldEditing = false
         dummyTxtField.delegate = self
+    }
+    func beginEditField() -> Void {
+        dummyTxtField.becomeFirstResponder()
     }
     var OTPtext : String = "" {
         didSet{

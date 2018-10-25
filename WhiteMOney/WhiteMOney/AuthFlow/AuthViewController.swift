@@ -11,12 +11,15 @@ import UIKit
 class AuthViewController: UIViewController {
     var didLoad : (UIViewController)->Void = {_ in}
     
+    @IBOutlet weak var backgroundThemeView: UIView!
     @IBOutlet weak var stepsItemsView: FormStepsView!
     @IBOutlet weak var fieldsContentView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         didLoad(self)
-        stepsItemsView.items = ["  Authentication   ","  Basic Details   ","  Documents   "]
+        fieldsContentView.applyDropShaddow(UIColor.lightGray)
+        backgroundThemeView.backgroundColor =  UIColor.primaryBrandingColor()
+        stepsItemsView.items = [" Profile Verification  ","  Eligibility Check   ","   Upload Documents    "]
 
         // Do any additional setup after loading the view.
     }

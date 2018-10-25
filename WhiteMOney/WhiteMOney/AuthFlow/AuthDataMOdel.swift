@@ -68,7 +68,15 @@ class AuthDataModel: NSObject {
         
         case panCardField = "PanCardNumberField"
         case aadharCardField = "AadharCardNumberField"
-
+        
+        
+        case uploadPhoto = "Photo"
+        case uploadPanCard = "Pan card"
+        case uploadProofOfResidence = "Proof of residence"
+        case uploadSalarySlip = "Salary slips"
+        case uploadITR = "Income tax return"
+        case bankStatements = "Bank statements"
+        
     }
     
 }

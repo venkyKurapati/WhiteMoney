@@ -22,7 +22,8 @@ class OTPField: XibView {
             self.blinkLbl.blink(withDuration: 1, color: UIColor.clear)
         })
         super.commonInit()
-        txtLbl.textColor = UIColor.white
+        blinkLbl.backgroundColor = UIColor.fieldBackgroundColor()
+        txtLbl.textColor = UIColor.appPrimaryTextColor()
 
     }
     func setUpTxtFieldColor( _ underLine_Hilight_ViewColor : UIColor,underLineViewColor : UIColor) -> Void {
@@ -35,7 +36,7 @@ class OTPField: XibView {
         timer.start()
     }
     func endEdit() -> Void {
-        if (txtLbl.text?.count ?? "".count) > 0 {
+        if (txtLbl.text ?? "").count > 0 {
             self.underlineLbl.backgroundColor = underLine_Hilight_ViewColor
         }else{
             self.underlineLbl.backgroundColor = underLineViewColor

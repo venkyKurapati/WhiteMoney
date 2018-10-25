@@ -11,7 +11,6 @@ import UIKit
 
 extension UIColor {
     class var appYellow: UIColor { get { return UIColor(red:244.0/255, green:228.0/255, blue:63.0/255, alpha:1.0) } }
-    class var appBlue: UIColor { get { return UIColor(red:22.0/255, green:161.0/255, blue:220.0/255, alpha:1.0) } }
     class var appDarkBlue: UIColor { get { return UIColor(red:44.0/255, green:72.0/255, blue:114.0/255, alpha:1.0) } }
     class var appGreen: UIColor { get { return UIColor(red:46.0/255, green:204.0/255, blue:113.0/255, alpha:1.0) } }
     class var appRed: UIColor { get { return UIColor(red:214.0/255, green:69.0/255, blue:65.0/255, alpha:1.0) } }
@@ -73,9 +72,6 @@ public extension UIColor {
         //        return UIColor.hexStringToUIColor(hex: "#1B4298")
         return UIColor.white
     }
-    class func appHilightedTxtColor() -> UIColor{
-        return UIColor.white
-    }
     static func appTextGreyColor() -> UIColor {
         return UIColor.hexStringToUIColor(hex: "#A5B3BA")
     }
@@ -87,9 +83,7 @@ public extension UIColor {
     static func tblViewBackgroundColor() -> UIColor{
         return UIColor.hexStringToUIColor(hex: "#f2f2f2")
     }
-    static func appPrimaryTextColor() -> UIColor {
-        return UIColor.white
-    }
+  
     
     static func appSecondaryTextColor() -> UIColor {
         return UIColor.hexStringToUIColor(hex: "#000000", alpha: 0.54)
@@ -104,6 +98,8 @@ public extension UIColor {
     static func appRedColor() -> UIColor {
         return UIColor.hexStringToUIColor(hex: "#FFD600")
     }
+ 
+    
     
     static func appContentDeviderColor() -> UIColor {
         return UIColor.hexStringToUIColor(hex: "#C8C7CC")
@@ -116,9 +112,30 @@ public extension UIColor {
         return UIColor.init(red: 204/255.0, green: 204/255.0, blue: 204/255.0, alpha: 1.0)
     }
     
-    static func appBlueColor() -> UIColor {
-        return UIColor.hexStringToUIColor(hex: "#1B4298")
+//    static func appBlueColor() -> UIColor {
+//        return UIColor.hexStringToUIColor(hex: "#009FF9")
+//    }
+    
+    
+    static func primaryBrandingColor() -> UIColor{
+        return UIColor.hexStringToUIColor(hex: "#0086F7")
     }
+    static func secondaryBrandingColor() -> UIColor{
+        return UIColor.white
+    }
+    
+    static func fieldBackgroundColor() -> UIColor{
+        return UIColor.hexStringToUIColor(hex: "#0086F7",alpha: 0.6)
+    }
+    static func appPrimaryTextColor() -> UIColor {
+        return UIColor.hexStringToUIColor(hex: "#0086F7",alpha: 0.8)
+    }
+    class func appHilightedTxtColor() -> UIColor{
+        return UIColor.hexStringToUIColor(hex: "#0086F7",alpha: 0.8)
+    }
+
+    
+    
     
     static func appdropDownBlueColor() -> UIColor {
         return UIColor.hexStringToUIColor(hex: "#1B4298", alpha: 0.7)
@@ -133,6 +150,7 @@ public extension UIColor {
     static func appScreenBgColor() -> UIColor {
         return UIColor.white
     }
+    
     
     static func filterViewBgColor() -> UIColor {
         return UIColor.white.withAlphaComponent(0.9)

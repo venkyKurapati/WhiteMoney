@@ -29,7 +29,7 @@ class FormStepsView: UIView {
     override func layoutSubviews() {
         collectionView?.reloadData()
         hilightLbl?.layer.cornerRadius = (self.frame.size.height/2) - 10
-        let size = CGSize.init(width: (self.frame.size.width/CGFloat(items.count))-10, height: self.frame.size.height)
+        let size = cellSize
         hilightLbl?.frame = CGRect.init(x: 10, y: 0, width: size.width, height: size.height)
 
     }
@@ -62,6 +62,7 @@ class FormStepsView: UIView {
         collectionView?.backgroundColor = UIColor.clear
         collectionView?.dataSource = self
         collectionView?.delegate = self
+        collectionView?.isScrollEnabled = false
         setupConstraints()
     }
     
@@ -85,11 +86,12 @@ class FormStepsView: UIView {
     func chaangeStepTo(_ step : Int) -> Void {
         var stepNum = step-1
         selectedIndex = stepNum
+        collectionView?.scrollToItem(at: IndexPath.init(row: stepNum, section: 0), at: .centeredHorizontally, animated: false)
+
         let attributes = collectionView?.layoutAttributesForItem(at: IndexPath.init(row: stepNum, section: 0))
         if let cellFrame = collectionView?.convert((attributes?.frame)!, to: collectionView?.superview){
             var newFrame = CGRect.init(origin: cellFrame.origin, size: cellFrame.size)
             newFrame.origin.x = (cellFrame.origin.x)  + CGFloat(5.0)
-
             UIView.animate(withDuration: 0.1, animations: {
                 self.hilightLbl?.frame = newFrame
             })
@@ -98,7 +100,16 @@ class FormStepsView: UIView {
         self.collectionView?.reloadData()
 
     }
-
+    var cellSize : CGSize {
+        get{
+            var size = CGSize.init(width: (self.frame.size.width/CGFloat(items.count))-10, height: self.frame.size.height)
+            if size.width > 150 {
+                return size
+            }
+            size.width = 150.0
+            return size
+        }
+    }
 }
 extension FormStepsView:  UICollectionViewDataSource,UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -108,15 +119,16 @@ extension FormStepsView:  UICollectionViewDataSource,UICollectionViewDelegate, U
         return items.count
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize.init(width: (self.frame.size.width/CGFloat(items.count))-10, height: self.frame.size.height)
+        return cellSize
+        
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "item", for:indexPath) as! StepsItemCell
         let titleLbl = cell.viewWithTag(100) as! UILabel
         titleLbl.adjustsFontSizeToFitWidth = true
         if selectedIndex == indexPath.row {
-            titleLbl.textColor = UIColor.appBlue
-        }else{
+            titleLbl.textColor = UIColor.primaryBrandingColor()
+        }else{ 
             titleLbl.textColor = UIColor.white
         }
         titleLbl.text = items[indexPath.row]

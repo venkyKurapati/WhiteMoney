@@ -40,7 +40,6 @@ class EmailAndPhoneViewModel: NSObject {
         if  dataModel.emailAndPhoneInfo.isOTPGenerated{
             if dataModel.emailAndPhoneInfo.isOTPVerified{
                 fields.append(.otp)
-                fields.append(.nextWithCancelOTP)
                 fields.append(.password)
                 fields.append(.nextWithCancelPassword)
 
@@ -102,11 +101,16 @@ extension EmailAndPhoneViewModel:UITableViewDataSource,UITableViewDelegate{
         
         switch field {
             
-        case .otp:
-            let OTPCell = tableView.dequeueReusableCell(withIdentifier: "OTPTextFieldCell") as! OTPTextFieldCell
-            OTPCell.dataModel = dataModel
-            OTPCell.setUpUserFieldDetailsOfUser(dataModel.emailAndPhoneInfo.OTP, typeOfTxtField: fields[indexPath.row], inputAccessoryView: nil, delegate: self)
-            cell = OTPCell
+//        case .otp:
+//            let OTPCell = tableView.dequeueReusableCell(withIdentifier: "OTPTextFieldCell") as! OTPTextFieldCell
+//            OTPCell.dataModel = dataModel
+//            OTPCell.setUpUserFieldDetailsOfUser(dataModel.emailAndPhoneInfo.OTP, typeOfTxtField: fields[indexPath.row], inputAccessoryView: nil, delegate: self)
+//            if isActive {
+//                Async.main(after: 0.2, {
+//                    OTPCell.beginEditField()
+//                })
+//            }
+//            cell = OTPCell
 
         case .nextBtn,.nextWithCancelOTP,.nextWithCancelPassword:
             let cellBtn = tableView.dequeueReusableCell(withIdentifier: "ButtonCell") as! ButtonCell
@@ -136,8 +140,20 @@ extension EmailAndPhoneViewModel:UITableViewDataSource,UITableViewDelegate{
             case .fullName:
                 floatingTxtCell.setUpUserFieldDetailsOfUser(dataModel.emailAndPhoneInfo.fullName, typeOfTxtField: fields[indexPath.row], inputAccessoryView: nil, delegate: self)
 
+            case .otp:
+                floatingTxtCell.setUpUserFieldDetailsOfUser(dataModel.emailAndPhoneInfo.OTP, typeOfTxtField: fields[indexPath.row], inputAccessoryView: nil, delegate: self)
+                    if isActive {
+                        Async.main(after: 0.2, {
+                            floatingTxtCell.floatingTxtView.txtField.becomeFirstResponder()
+                        })
+                    }
             case .password:
                 floatingTxtCell.setUpUserFieldDetailsOfUser(dataModel.emailAndPhoneInfo.password, typeOfTxtField: fields[indexPath.row], inputAccessoryView: nil, delegate: self)
+                if isActive {
+//                    Async.main(after: 0.2, {
+//                        floatingTxtCell.floatingTxtView.txtField.becomeFirstResponder()
+//                    })
+                }
 
             default:
                 break
@@ -148,7 +164,7 @@ extension EmailAndPhoneViewModel:UITableViewDataSource,UITableViewDelegate{
         }
         cell.deactivateCell(!isActive)
         cell.selectionStyle = .none
-        cell.contentView.backgroundColor = UIColor.appBlue
+        cell.contentView.backgroundColor = UIColor.clear
         return cell
     }
     @objc func nextBtnAction() -> Void {
@@ -161,6 +177,7 @@ extension EmailAndPhoneViewModel:UITableViewDataSource,UITableViewDelegate{
     }
     @objc func OtpCancelBtnActionOTP() -> Void {
         dataModel.emailAndPhoneInfo.isOTPGenerated = false
+        dataModel.emailAndPhoneInfo.isOTPVerified = false
         dataModel.emailAndPhoneInfo.OTP = ""
         setUpFieldsWithDataAndReload()
     }
@@ -171,6 +188,7 @@ extension EmailAndPhoneViewModel:UITableViewDataSource,UITableViewDelegate{
         dataModel.emailAndPhoneInfo.OTP = ""
         dataModel.emailAndPhoneInfo.password = ""
         dataModel.emailAndPhoneInfo.isOTPGenerated = false
+        dataModel.emailAndPhoneInfo.isOTPVerified = false
         setUpFieldsWithDataAndReload()
     }
 }
@@ -201,7 +219,9 @@ extension EmailAndPhoneViewModel: FloatingTxtFieldDelegate{
                 dataModel.emailAndPhoneInfo.password = updatedText
             case Constants.phoneNumPlaceHolder:
                 dataModel.emailAndPhoneInfo.phoneNum = updatedText
-                
+            case Constants.OTPPlaceHolde:
+                dataModel.emailAndPhoneInfo.OTP = updatedText
+
             default:
                 break
             }

@@ -62,3 +62,14 @@ extension UIView{
     
     
 }
+extension UIView{
+    func applyDropShaddow(_ color: UIColor) -> Void {
+        self.layer.cornerRadius = 5
+//        self.layer.masksToBounds = true
+        self.layer.shadowColor = color.cgColor
+        self.layer.shadowOpacity = 1
+        self.layer.shadowOffset = CGSize.zero
+        self.layer.shadowRadius = 5
+
+    }
+}

@@ -35,8 +35,8 @@ class AuthFlow: NSObject {
         runAuthFlow()
         emailAndPhoneModel?.didFinishEmailAndPhonesStep {
             Async.main{
-                self.authMainVC.stepsItemsView.chaangeStepTo(2)
-                self.authPageVC.setShowingVC(1)
+                self.authMainVC.stepsItemsView.chaangeStepTo(3)
+                self.authPageVC.setShowingVC(2)
             }
         }
     }

@@ -26,6 +26,9 @@ class ButtonCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         renderImg()
+        middleNextBtn.setTitleColor(UIColor.secondaryBrandingColor(), for: .normal) 
+        middleNextBtn.backgroundColor = UIColor.primaryBrandingColor()
+        middleNextBtn.applyDropShaddow(UIColor.lightGray)
     }
     func setAsMiddleBtnActive(_ activeMiddle : Bool) -> Void {
         if !activeMiddle {
@@ -40,13 +43,13 @@ class ButtonCell: UITableViewCell {
     }
     func renderImg() -> Void {
         if middleNextBtnImg != nil {
-            middleNextBtnImg.renderImgWithColor(UIColor.white)
+            middleNextBtnImg.renderImgWithColor(UIColor.primaryBrandingColor())
         }
         if nextBtnImg != nil {
-            nextBtnImg.renderImgWithColor(UIColor.white)
+            nextBtnImg.renderImgWithColor(UIColor.primaryBrandingColor())
         }
         if backBtnImg != nil {
-           backBtnImg.renderImgWithColor(UIColor.white)
+           backBtnImg.renderImgWithColor(UIColor.primaryBrandingColor())
         }
     }
     override func setSelected(_ selected: Bool, animated: Bool) {

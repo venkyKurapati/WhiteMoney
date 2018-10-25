@@ -20,15 +20,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bN-aT-KGB">
-                        <rect key="frame" x="120" y="10" width="80" height="50"/>
+                        <rect key="frame" x="115" y="10" width="90" height="40"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="80" id="3zO-Wz-eAM"/>
-                            <constraint firstAttribute="height" constant="50" id="yna-vL-UaC"/>
+                            <constraint firstAttribute="width" constant="90" id="3zO-Wz-eAM"/>
+                            <constraint firstAttribute="height" constant="40" id="yna-vL-UaC"/>
                         </constraints>
+                        <state key="normal" title="Get OTP"/>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nextBtnImg" translatesAutoresizingMaskIntoConstraints="NO" id="mjz-LO-Or3">
-                        <rect key="frame" x="140" y="15" width="40" height="40"/>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mjz-LO-Or3">
+                        <rect key="frame" x="140" y="10" width="40" height="40"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="KbI-kE-yYC"/>
@@ -36,10 +37,10 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ovo-tk-HYW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backBtnIcon" translatesAutoresizingMaskIntoConstraints="NO" id="DCz-aM-ZGb">
-                                <rect key="frame" x="35" y="15" width="40" height="40"/>
+                                <rect key="frame" x="35" y="10" width="40" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="QLf-fG-E29"/>
@@ -47,7 +48,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAk-tY-UOv">
-                                <rect key="frame" x="225" y="10" width="80" height="50"/>
+                                <rect key="frame" x="225" y="5" width="80" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="QAY-FL-Dh6"/>
@@ -55,7 +56,7 @@
                                 </constraints>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nextBtnImg" translatesAutoresizingMaskIntoConstraints="NO" id="Vjp-5K-H2t">
-                                <rect key="frame" x="245" y="15" width="40" height="40"/>
+                                <rect key="frame" x="245" y="10" width="40" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="HUJ-1V-7iW"/>
@@ -63,7 +64,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Be-vT-gjT">
-                                <rect key="frame" x="15" y="10" width="80" height="50"/>
+                                <rect key="frame" x="15" y="5" width="80" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="Bw6-ge-eJK"/>

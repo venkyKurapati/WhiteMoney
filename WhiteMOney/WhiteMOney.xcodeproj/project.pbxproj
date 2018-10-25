@@ -52,6 +52,9 @@
 		8277FDB22168AFE80003AD65 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8277FDB02168AFE80003AD65 /* ButtonCell.xib */; };
 		8277FDB42168B76B0003AD65 /* Constents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277FDB32168B76B0003AD65 /* Constents.swift */; };
 		8277FDB621690A790003AD65 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277FDB521690A790003AD65 /* UIImageView.swift */; };
+		828CA41521814C6300B5A815 /* UploadDocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828CA41321814C6300B5A815 /* UploadDocumentCell.swift */; };
+		828CA41621814C6300B5A815 /* UploadDocumentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828CA41421814C6300B5A815 /* UploadDocumentCell.xib */; };
+		828CA41921815CB300B5A815 /* DocumentsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828CA41821815CB300B5A815 /* DocumentsPicker.swift */; };
 		829CA6C321612A6600F032FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829CA6C221612A6600F032FC /* AppDelegate.swift */; };
 		829CA6C521612A6600F032FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829CA6C421612A6600F032FC /* ViewController.swift */; };
 		829CA6C821612A6600F032FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 829CA6C621612A6600F032FC /* Main.storyboard */; };
@@ -138,6 +141,10 @@
 		8277FDB02168AFE80003AD65 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		8277FDB32168B76B0003AD65 /* Constents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constents.swift; sourceTree = "<group>"; };
 		8277FDB521690A790003AD65 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		828CA41321814C6300B5A815 /* UploadDocumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocumentCell.swift; sourceTree = "<group>"; };
+		828CA41421814C6300B5A815 /* UploadDocumentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadDocumentCell.xib; sourceTree = "<group>"; };
+		828CA41821815CB300B5A815 /* DocumentsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsPicker.swift; sourceTree = "<group>"; };
+		828CA41A218160C600B5A815 /* WhiteMOney.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WhiteMOney.entitlements; sourceTree = "<group>"; };
 		829CA6BF21612A6600F032FC /* WhiteMOney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhiteMOney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		829CA6C221612A6600F032FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		829CA6C421612A6600F032FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +229,7 @@
 		825FB0F22163CFF3008B6D9B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				828CA41721815C8800B5A815 /* DocumentsPicker */,
 				825FB1182163D7B6008B6D9B /* Extentions */,
 				825FB1152163D792008B6D9B /* Color */,
 				825FB1122163D58F008B6D9B /* StoryboardUtils */,
@@ -304,8 +312,18 @@
 			children = (
 				8277FDAF2168AFE80003AD65 /* ButtonCell.swift */,
 				8277FDB02168AFE80003AD65 /* ButtonCell.xib */,
+				828CA41321814C6300B5A815 /* UploadDocumentCell.swift */,
+				828CA41421814C6300B5A815 /* UploadDocumentCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		828CA41721815C8800B5A815 /* DocumentsPicker */ = {
+			isa = PBXGroup;
+			children = (
+				828CA41821815CB300B5A815 /* DocumentsPicker.swift */,
+			);
+			path = DocumentsPicker;
 			sourceTree = "<group>";
 		};
 		829CA6B621612A6600F032FC = {
@@ -333,6 +351,7 @@
 		829CA6C121612A6600F032FC /* WhiteMOney */ = {
 			isa = PBXGroup;
 			children = (
+				828CA41A218160C600B5A815 /* WhiteMOney.entitlements */,
 				8277FDAC2168AFB80003AD65 /* Cells */,
 				82ECAB172167A5B800455397 /* AuthFlow */,
 				82ECAB132167A5B800455397 /* FloatingTxtField */,
@@ -502,6 +521,14 @@
 				TargetAttributes = {
 					829CA6BE21612A6600F032FC = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					829CA6D521612A6700F032FC = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -547,6 +574,7 @@
 				8274B5E6216D08670032AA23 /* OTPField.xib in Resources */,
 				8277FDB22168AFE80003AD65 /* ButtonCell.xib in Resources */,
 				82ECAB1F2167A5B800455397 /* AuthFlow.storyboard in Resources */,
+				828CA41621814C6300B5A815 /* UploadDocumentCell.xib in Resources */,
 				82ECAB1C2167A5B800455397 /* FloatingTxtFieldCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -655,6 +683,7 @@
 				825FB1142163D58F008B6D9B /* StoryboardUtils.swift in Sources */,
 				825FB1232163D7B6008B6D9B /* UIColor.swift in Sources */,
 				825FB1272163D7B6008B6D9B /* UIImage.swift in Sources */,
+				828CA41921815CB300B5A815 /* DocumentsPicker.swift in Sources */,
 				8274B5E8216D0A160032AA23 /* XibView.swift in Sources */,
 				825FB10C2163D16F008B6D9B /* SideMenuNavigation.swift in Sources */,
 				8274B5E4216D08450032AA23 /* OTPField.swift in Sources */,
@@ -682,6 +711,7 @@
 				8277FDB42168B76B0003AD65 /* Constents.swift in Sources */,
 				8277FDB621690A790003AD65 /* UIImageView.swift in Sources */,
 				825FB10F2163D16F008B6D9B /* SideMenuOption.swift in Sources */,
+				828CA41521814C6300B5A815 /* UploadDocumentCell.swift in Sources */,
 				825FB0F82163CFF3008B6D9B /* NavigationControllerDelegates.swift in Sources */,
 				825FB0FA2163CFF3008B6D9B /* AppearFading.swift in Sources */,
 				82ECAB202167A5B800455397 /* AuthFlow.swift in Sources */,
@@ -858,6 +888,7 @@
 			baseConfigurationReference = 0630FF6D1493474AE5BF0F1C /* Pods-WhiteMOney.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WhiteMOney/WhiteMOney.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TFU2WWZ8G7;
 				INFOPLIST_FILE = WhiteMOney/Info.plist;
@@ -878,6 +909,7 @@
 			baseConfigurationReference = 0F1C9A823B95A3F4D922256A /* Pods-WhiteMOney.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WhiteMOney/WhiteMOney.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TFU2WWZ8G7;
 				INFOPLIST_FILE = WhiteMOney/Info.plist;

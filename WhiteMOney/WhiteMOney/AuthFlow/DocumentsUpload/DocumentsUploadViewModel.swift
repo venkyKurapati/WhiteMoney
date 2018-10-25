@@ -11,7 +11,8 @@ import UIKit
 
 
 class DocumentsUploadViewModel: NSObject {
-    
+    var fieldsArray : [AuthDataModel.TypeOfCellField]?
+    var authDataModel : AuthDataModel?
     var documentsUploadVC : DocumentsUploadVC?
     
     init(_ navigator : Navigator) {
@@ -20,8 +21,13 @@ class DocumentsUploadViewModel: NSObject {
 //        navigator.setAsRoot(documentsUploadVC!)
         documentsUploadVC?.onDidLoad(callback: { (eligibilityView) in
             self.regCellNib()
+            self.setupCellIdentifiers()
             
         })
+    }
+    func setupCellIdentifiers() -> Void {
+        fieldsArray = [.uploadPhoto,.uploadPanCard,.uploadProofOfResidence,.uploadSalarySlip,.uploadITR,.bankStatements]
+        documentsUploadVC?.fieldsTblView.reloadData()
     }
 }
 
@@ -29,8 +35,8 @@ class DocumentsUploadViewModel: NSObject {
 extension DocumentsUploadViewModel:UITableViewDataSource,UITableViewDelegate{
     func regCellNib() -> Void {
         
-        let nib = UINib.init(nibName: "FloatingTxtFieldCell", bundle: Bundle.main)
-        documentsUploadVC?.fieldsTblView.register(nib, forCellReuseIdentifier: "FloatingTxtFieldCell")
+        let nib = UINib.init(nibName: "UploadDocumentCell", bundle: Bundle.main)
+        documentsUploadVC?.fieldsTblView.register(nib, forCellReuseIdentifier: "UploadDocumentCell")
         documentsUploadVC?.fieldsTblView.dataSource = self
         documentsUploadVC?.fieldsTblView.delegate = self
         documentsUploadVC?.fieldsTblView.reloadData()
@@ -38,16 +44,27 @@ extension DocumentsUploadViewModel:UITableViewDataSource,UITableViewDelegate{
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return fieldsArray?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FloatingTxtFieldCell") as! FloatingTxtFieldCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UploadDocumentCell") as! UploadDocumentCell
+        cell.documentTypeLbl.text = (fieldsArray?[indexPath.row]).map { $0.rawValue }
+        cell.browsBtn.tag = indexPath.row
+        cell.browsBtn.addTarget(self, action: #selector(didTappedOnBrows(_:)), for: .touchUpInside)
         cell.selectionStyle = .none
-        cell.contentView.backgroundColor = UIColor.green
         return cell
     }
-    
+    @objc func didTappedOnBrows(_ sender : UIButton) -> Void {
+        let documentPicker = DocumentsPicker.init(documentsUploadVC!)
+        documentPicker.show({
+            
+            
+        })
+    }
+    func didTappedOnUpload(_ sender : UIButton) -> Void {
+        
+    }
     
     
 }
