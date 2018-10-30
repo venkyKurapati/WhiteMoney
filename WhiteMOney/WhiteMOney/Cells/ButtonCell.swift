@@ -29,6 +29,9 @@ class ButtonCell: UITableViewCell {
         middleNextBtn.setTitleColor(UIColor.secondaryBrandingColor(), for: .normal) 
         middleNextBtn.backgroundColor = UIColor.primaryBrandingColor()
         middleNextBtn.applyDropShaddow(UIColor.lightGray)
+        
+ 
+
     }
     func setAsMiddleBtnActive(_ activeMiddle : Bool) -> Void {
         if !activeMiddle {

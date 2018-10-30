@@ -10,6 +10,8 @@ import UIKit
 
 class DocumentsUploadVC: UIViewController {
     var didLoad : (UIViewController)->Void = {_ in}
+    var willAppear : (UIViewController)->Void = {_ in}
+
     @IBOutlet weak var fieldsTblView: UITableView!
     
     override func viewDidLoad() {
@@ -17,9 +19,18 @@ class DocumentsUploadVC: UIViewController {
         didLoad(self)
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        willAppear(self)
+    }
+    
+    
     func onDidLoad(callback: @escaping (UIViewController)->Void) {
         didLoad = callback
     }
+    func onWillAppear(callback: @escaping (UIViewController)->Void) {
+        willAppear = callback
+    }
+
     
     /*
      // MARK: - Navigation

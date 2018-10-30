@@ -84,7 +84,7 @@ class FormStepsView: UIView {
     }
     */
     func chaangeStepTo(_ step : Int) -> Void {
-        var stepNum = step-1
+        var stepNum = step
         selectedIndex = stepNum
         collectionView?.scrollToItem(at: IndexPath.init(row: stepNum, section: 0), at: .centeredHorizontally, animated: false)
 

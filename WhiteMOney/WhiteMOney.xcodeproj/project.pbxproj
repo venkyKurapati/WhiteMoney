@@ -55,6 +55,8 @@
 		828CA41521814C6300B5A815 /* UploadDocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828CA41321814C6300B5A815 /* UploadDocumentCell.swift */; };
 		828CA41621814C6300B5A815 /* UploadDocumentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828CA41421814C6300B5A815 /* UploadDocumentCell.xib */; };
 		828CA41921815CB300B5A815 /* DocumentsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828CA41821815CB300B5A815 /* DocumentsPicker.swift */; };
+		82972503218566EE009744F5 /* ViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82972502218566EE009744F5 /* ViewControllerExt.swift */; };
+		82972508218567C3009744F5 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82972507218567C3009744F5 /* Toast.swift */; };
 		829CA6C321612A6600F032FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829CA6C221612A6600F032FC /* AppDelegate.swift */; };
 		829CA6C521612A6600F032FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829CA6C421612A6600F032FC /* ViewController.swift */; };
 		829CA6C821612A6600F032FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 829CA6C621612A6600F032FC /* Main.storyboard */; };
@@ -145,6 +147,8 @@
 		828CA41421814C6300B5A815 /* UploadDocumentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadDocumentCell.xib; sourceTree = "<group>"; };
 		828CA41821815CB300B5A815 /* DocumentsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsPicker.swift; sourceTree = "<group>"; };
 		828CA41A218160C600B5A815 /* WhiteMOney.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WhiteMOney.entitlements; sourceTree = "<group>"; };
+		82972502218566EE009744F5 /* ViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExt.swift; sourceTree = "<group>"; };
+		82972507218567C3009744F5 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		829CA6BF21612A6600F032FC /* WhiteMOney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhiteMOney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		829CA6C221612A6600F032FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		829CA6C421612A6600F032FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -220,8 +224,8 @@
 		822E0C64216E6CF000032A60 /* DocumentsUpload */ = {
 			isa = PBXGroup;
 			children = (
-				822E0C65216E6CF000032A60 /* DocumentsUploadVC.swift */,
 				822E0C66216E6CF000032A60 /* DocumentsUploadViewModel.swift */,
+				822E0C65216E6CF000032A60 /* DocumentsUploadVC.swift */,
 			);
 			path = DocumentsUpload;
 			sourceTree = "<group>";
@@ -229,6 +233,7 @@
 		825FB0F22163CFF3008B6D9B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8297250621856797009744F5 /* Utilitys */,
 				828CA41721815C8800B5A815 /* DocumentsPicker */,
 				825FB1182163D7B6008B6D9B /* Extentions */,
 				825FB1152163D792008B6D9B /* Color */,
@@ -303,6 +308,7 @@
 				825FB1202163D7B6008B6D9B /* UIApplication.swift */,
 				825FB1212163D7B6008B6D9B /* Bundle.swift */,
 				8277FD982167C16C0003AD65 /* TableView.swift */,
+				82972502218566EE009744F5 /* ViewControllerExt.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -324,6 +330,14 @@
 				828CA41821815CB300B5A815 /* DocumentsPicker.swift */,
 			);
 			path = DocumentsPicker;
+			sourceTree = "<group>";
+		};
+		8297250621856797009744F5 /* Utilitys */ = {
+			isa = PBXGroup;
+			children = (
+				82972507218567C3009744F5 /* Toast.swift */,
+			);
+			path = Utilitys;
 			sourceTree = "<group>";
 		};
 		829CA6B621612A6600F032FC = {
@@ -676,6 +690,7 @@
 				8277FDA321687C8C0003AD65 /* AuthPageViewController.swift in Sources */,
 				8277FDA521689ABC0003AD65 /* AuthDataMOdel.swift in Sources */,
 				822E0C68216E6CF000032A60 /* DocumentsUploadViewModel.swift in Sources */,
+				82972503218566EE009744F5 /* ViewControllerExt.swift in Sources */,
 				822E0C62216E6CB600032A60 /* EligibilityCheckCV.swift in Sources */,
 				82ECAB292167B03400455397 /* BaseViewController.swift in Sources */,
 				825FB1292163D7B6008B6D9B /* UIApplication.swift in Sources */,
@@ -701,6 +716,7 @@
 				82ECAB252167B01200455397 /* EmailAndPhoneVC.swift in Sources */,
 				825FB1092163D16F008B6D9B /* SideMenuFeature.swift in Sources */,
 				8274B5EA216D13CB0032AA23 /* SimpleTimer.swift in Sources */,
+				82972508218567C3009744F5 /* Toast.swift in Sources */,
 				825FB12C2163D7D4008B6D9B /* Color.swift in Sources */,
 				822E0C67216E6CF000032A60 /* DocumentsUploadVC.swift in Sources */,
 				822E0C63216E6CB600032A60 /* EligibilityCheckViewModel.swift in Sources */,
@@ -900,7 +916,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Byteridge.VPCustomerPortal.Com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -921,7 +937,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Byteridge.VPCustomerPortal.Com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

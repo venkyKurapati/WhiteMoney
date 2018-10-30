@@ -32,11 +32,34 @@ class AuthFlow: NSObject {
         documentsUploadModel = DocumentsUploadViewModel.init(navigator)
         authPageVC = AuthPageViewController.instanciateFrom(storyboard: Storyboards.authFlow)
         super.init()
-        runAuthFlow()
         emailAndPhoneModel?.didFinishEmailAndPhonesStep {
             Async.main{
-                self.authMainVC.stepsItemsView.chaangeStepTo(3)
+                self.authMainVC.stepsItemsView.chaangeStepTo(1)
+                self.authPageVC.setShowingVC(1)
+            }
+        }
+        eligibilityCheckModel?.didFinishEligibilityStep {
+            Async.main{
+                self.authMainVC.stepsItemsView.chaangeStepTo(2)
                 self.authPageVC.setShowingVC(2)
+            }
+        }
+        eligibilityCheckModel?.didCancelEligibilityStep {
+            Async.main{
+                self.authMainVC.stepsItemsView.chaangeStepTo(0)
+                self.authPageVC.setShowingVC(0)
+            }
+        }
+        documentsUploadModel?.didFinishUploadDocStep {
+            Async.main{
+                self.authMainVC.stepsItemsView.chaangeStepTo(0)
+                self.authPageVC.setShowingVC(0)
+            }
+        }
+        documentsUploadModel?.didCancelEligibilityStep {
+            Async.main{
+                self.authMainVC.stepsItemsView.chaangeStepTo(1)
+                self.authPageVC.setShowingVC(1)
             }
         }
     }

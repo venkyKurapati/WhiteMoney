@@ -40,18 +40,43 @@ class FloatingTxtFieldCell: UITableViewCell {
         case .password:
             floatingTxtView.setUpTxtField(userInfo, font: UIFont.appTextFont(), textColor: UIColor.appPrimaryTextColor(), underLine_Hilight_ViewColor: UIColor.appHilightedTxtColor(), underLineViewColor: UIColor.fieldBackgroundColor(), placeHoleder: Constants.passwordPlaceHolder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.fieldBackgroundColor(), keyboardType: .default, delegate: delegate ,logoImg : nil, isSecureTextEntry : true, warningText: "")
             
-//
-//        case .zipCode:
-//            floatingTxtView.setUpTxtField(userInfo, inputAccessoryView: inputAccessoryView, font: UIFont.appTextFont(), textColor: UIColor.appHilightedTxtColor(), underLine_Hilight_ViewColor: UIColor.appPrimaryTextColor(), underLineViewColor: UIColor.placeHolderTxtColor(), placeHoleder: Constants.zipCodeTxtPLaceHolder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.placeHolderTxtColor(), keyboardType: .numbersAndPunctuation, delegate: delegate ,logoImg : nil, isSecureTextEntry : false)
-//
-//        case .state:
-//            floatingTxtView.setUpTxtField(userInfo, inputAccessoryView: inputAccessoryView, font: UIFont.appTextFont(), textColor: UIColor.appHilightedTxtColor(), underLine_Hilight_ViewColor: UIColor.appPrimaryTextColor(), underLineViewColor: UIColor.placeHolderTxtColor(), placeHoleder: Constants.stateTxtPLaceHolder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.placeHolderTxtColor(), keyboardType: .default, delegate: delegate ,logoImg : nil, isSecureTextEntry : false)
-//        case .city:
-//            floatingTxtView.setUpTxtField(userInfo, inputAccessoryView: inputAccessoryView, font: UIFont.appTextFont(), textColor: UIColor.appHilightedTxtColor(), underLine_Hilight_ViewColor: UIColor.appPrimaryTextColor(), underLineViewColor: UIColor.placeHolderTxtColor(), placeHoleder: Constants.cityTxtPLaceHolder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.placeHolderTxtColor(), keyboardType: .default, delegate: delegate ,logoImg : nil, isSecureTextEntry : false)
-//        case .startDate:
-//            floatingTxtView.setUpTxtField(userInfo, inputAccessoryView: inputAccessoryView, font: UIFont.appTextFont(), textColor: UIColor.appHilightedTxtColor(), underLine_Hilight_ViewColor: UIColor.appPrimaryTextColor(), underLineViewColor: UIColor.placeHolderTxtColor(), placeHoleder: Constants.startDateTxtPLaceHolder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.placeHolderTxtColor(), keyboardType: .default, delegate: delegate ,logoImg : nil, isSecureTextEntry : false)
-//        case .endDate:
-//            floatingTxtView.setUpTxtField(userInfo, inputAccessoryView: inputAccessoryView, font: UIFont.appTextFont(), textColor: UIColor.appHilightedTxtColor(), underLine_Hilight_ViewColor: UIColor.appPrimaryTextColor(), underLineViewColor: UIColor.placeHolderTxtColor(), placeHoleder: Constants.endDateTxtPLaceHolder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.placeHolderTxtColor(), keyboardType: .default, delegate: delegate ,logoImg : nil, isSecureTextEntry : false)
+
+           
+            
+            
+            
+            
+            
+        case .panCardField:
+            floatingTxtView.setUpTxtField(userInfo, font: UIFont.appTextFont(), textColor: UIColor.appPrimaryTextColor(), underLine_Hilight_ViewColor: UIColor.appHilightedTxtColor(), underLineViewColor: UIColor.fieldBackgroundColor(), placeHoleder: Constants.panCardNumPlaceholder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.fieldBackgroundColor(), keyboardType: .phonePad, delegate: delegate ,logoImg : nil,isSecureTextEntry : false, warningText: "")
+            
+            
+        case .aadharCardField:
+            floatingTxtView.setUpTxtField(userInfo, font: UIFont.appTextFont(), textColor: UIColor.appPrimaryTextColor(), underLine_Hilight_ViewColor: UIColor.appHilightedTxtColor(), underLineViewColor: UIColor.fieldBackgroundColor(), placeHoleder: Constants.aadharCardNumPlaceholder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.fieldBackgroundColor(), keyboardType: .default, delegate: delegate ,logoImg : nil, isSecureTextEntry : false, warningText: "")
+        case .currentCompanyName:
+            floatingTxtView.setUpTxtField(userInfo, font: UIFont.appTextFont(), textColor: UIColor.appPrimaryTextColor(), underLine_Hilight_ViewColor: UIColor.appHilightedTxtColor(), underLineViewColor: UIColor.fieldBackgroundColor(), placeHoleder: Constants.currentCompanyNamePlaceholder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.fieldBackgroundColor(), keyboardType: .phonePad, delegate: delegate ,logoImg : nil,isSecureTextEntry : false, warningText: "    * This number will recive OTP.")
+            
+            
+        case .monthlyIncome:
+            floatingTxtView.setUpTxtField(userInfo, font: UIFont.appTextFont(), textColor: UIColor.appPrimaryTextColor(), underLine_Hilight_ViewColor: UIColor.appHilightedTxtColor(), underLineViewColor: UIColor.fieldBackgroundColor(), placeHoleder: Constants.monthlySalaryInHandPlaceholder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.fieldBackgroundColor(), keyboardType: .default, delegate: delegate ,logoImg : nil, isSecureTextEntry : false, warningText: "")
+        case .anualIncome:
+            floatingTxtView.setUpTxtField(userInfo, font: UIFont.appTextFont(), textColor: UIColor.appPrimaryTextColor(), underLine_Hilight_ViewColor: UIColor.appHilightedTxtColor(), underLineViewColor: UIColor.fieldBackgroundColor(), placeHoleder: Constants.annualIncomePlaceholder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.fieldBackgroundColor(), keyboardType: .phonePad, delegate: delegate ,logoImg : nil,isSecureTextEntry : false, warningText: "    * This number will recive OTP.")
+            
+            
+        case .addressLine1:
+            floatingTxtView.setUpTxtField(userInfo, font: UIFont.appTextFont(), textColor: UIColor.appPrimaryTextColor(), underLine_Hilight_ViewColor: UIColor.appHilightedTxtColor(), underLineViewColor: UIColor.fieldBackgroundColor(), placeHoleder: Constants.add1Placeholder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.fieldBackgroundColor(), keyboardType: .default, delegate: delegate ,logoImg : nil, isSecureTextEntry : false, warningText: "")
+            
+        case .addressLine2:
+            floatingTxtView.setUpTxtField(userInfo, font: UIFont.appTextFont(), textColor: UIColor.appPrimaryTextColor(), underLine_Hilight_ViewColor: UIColor.appHilightedTxtColor(), underLineViewColor: UIColor.fieldBackgroundColor(), placeHoleder: Constants.add2Placeholder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.fieldBackgroundColor(), keyboardType: .default, delegate: delegate ,logoImg : nil, isSecureTextEntry : false, warningText: "")
+            
+            
+        case .cityField:
+            floatingTxtView.setUpTxtField(userInfo, font: UIFont.appTextFont(), textColor: UIColor.appPrimaryTextColor(), underLine_Hilight_ViewColor: UIColor.appHilightedTxtColor(), underLineViewColor: UIColor.fieldBackgroundColor(), placeHoleder: Constants.cityPlaceholder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.fieldBackgroundColor(), keyboardType: .default, delegate: delegate ,logoImg : nil, isSecureTextEntry : false, warningText: "")
+            
+        case .stateField:
+            floatingTxtView.setUpTxtField(userInfo, font: UIFont.appTextFont(), textColor: UIColor.appPrimaryTextColor(), underLine_Hilight_ViewColor: UIColor.appHilightedTxtColor(), underLineViewColor: UIColor.fieldBackgroundColor(), placeHoleder: Constants.statePlaceholder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.fieldBackgroundColor(), keyboardType: .default, delegate: delegate ,logoImg : nil, isSecureTextEntry : false, warningText: "")
+        case .pinCode:
+            floatingTxtView.setUpTxtField(userInfo, font: UIFont.appTextFont(), textColor: UIColor.appPrimaryTextColor(), underLine_Hilight_ViewColor: UIColor.appHilightedTxtColor(), underLineViewColor: UIColor.fieldBackgroundColor(), placeHoleder: Constants.pinCodePlaceholder, placeHolederLblFont: UIFont.appTextFont(), placeholderTxtColor: UIColor.fieldBackgroundColor(), keyboardType: .default, delegate: delegate ,logoImg : nil, isSecureTextEntry : false, warningText: "")
             
             
         default:

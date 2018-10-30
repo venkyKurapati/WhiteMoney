@@ -12,6 +12,7 @@ class AuthDataModel: NSObject {
     
     var emailAndPhoneInfo : EmailAndPhoneVerifyAuthModel
     var eligibilityCheckInfo : EligibilityCheckModel?
+    var documentsInfo : DocumentsUploadModel?
 
     init(_ emailAndPhoneVerifyModel : EmailAndPhoneVerifyAuthModel? ) {
         self.emailAndPhoneInfo = emailAndPhoneVerifyModel ?? EmailAndPhoneVerifyAuthModel()
@@ -28,7 +29,7 @@ class AuthDataModel: NSObject {
         var password = ""
     }
     class EligibilityCheckModel {
-        var address : AddressModel? = nil
+        var address = AddressModel()
         var employementType : EmployementType = .salaried
         var nameOfCurrentCompany = ""
         var monthlyInHandSalary = ""
@@ -38,6 +39,13 @@ class AuthDataModel: NSObject {
         
     }
     class DocumentsUploadModel {
+        var uploadedPhotoData : Data?
+        var uploadedPanCard : Data?
+        var uploadedProofOfResidence : Data?
+        var uploadedSalarySlip : Data?
+        var uploadedITR : Data?
+        var bankStatements : Data?
+
         
     }
     enum EmployementType : String{
@@ -55,20 +63,23 @@ class AuthDataModel: NSObject {
         case password = "Password"
         case nextBtn = "NextBtn"
         case nextWithCancelOTP = "NextWithCancelOTP"
-        case nextWithCancelPassword = "NextWithCancelPassword"
-        
-        
-        case employmentType = "EmploymentTypeField"
-        case anualIncome = "AnualIncome"
-        case currentCompanyName = "CurrentCompanyName"
-        case monthlyIncome = "MonthlyIncome"
-
-        case addAddressField = "addAddressField"
-        case showAddressField = "showAddressField"
+        case nextWithCancel = "NextWithCancel"
+      
         
         case panCardField = "PanCardNumberField"
         case aadharCardField = "AadharCardNumberField"
         
+        case addressLine1 = "AddressLine1Field"
+        case addressLine2 = "AddressLine2Field"
+        case cityField = "CityField"
+        case stateField = "StateField"
+        case pinCode = "PinCode"
+        
+        case employmentType = "EmploymentTypeField"
+        case currentCompanyName = "CurrentCompanyName"
+        case monthlyIncome = "MonthlyIncome"
+        case anualIncome = "AnualIncome"
+
         
         case uploadPhoto = "Photo"
         case uploadPanCard = "Pan card"

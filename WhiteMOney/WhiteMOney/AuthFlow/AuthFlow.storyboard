@@ -57,7 +57,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7gV-XE-bg4">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7gV-XE-bg4">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -68,17 +68,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="140.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <segmentedControl opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2wW-uf-6co">
-                                                    <rect key="frame" x="20" y="20" width="335" height="51"/>
-                                                    <color key="backgroundColor" red="0.2470588235" green="0.62745098040000002" blue="0.85490196080000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <segmentedControl opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2wW-uf-6co">
+                                                    <rect key="frame" x="20" y="20" width="335" height="46"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="yid-xa-bGi"/>
+                                                        <constraint firstAttribute="height" constant="45" id="yid-xa-bGi"/>
                                                     </constraints>
                                                     <segments>
                                                         <segment title="Salaried"/>
                                                         <segment title="Self Employed"/>
                                                     </segments>
-                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </segmentedControl>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -266,11 +265,14 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNN-yF-kdN" customClass="FormStepsView" customModule="WhiteMOney" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="30" width="375" height="45.5"/>
+                                <rect key="frame" x="0.0" y="30" width="375" height="55"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="nkB-Cg-Kx8"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bt5-ux-xtn">
-                                <rect key="frame" x="19" y="90.5" width="337.5" height="556.5"/>
+                                <rect key="frame" x="9.5" y="105" width="356" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -278,15 +280,14 @@
                         <constraints>
                             <constraint firstItem="qNN-yF-kdN" firstAttribute="leading" secondItem="S6F-Hk-zP6" secondAttribute="leading" id="FFj-0l-RdR"/>
                             <constraint firstItem="qNN-yF-kdN" firstAttribute="top" secondItem="S6F-Hk-zP6" secondAttribute="top" constant="10" id="UKt-2m-YCU"/>
-                            <constraint firstItem="bt5-ux-xtn" firstAttribute="width" secondItem="z7P-Z2-LDD" secondAttribute="width" multiplier="0.9" id="XNc-VL-USC"/>
-                            <constraint firstItem="bt5-ux-xtn" firstAttribute="bottom" secondItem="S6F-Hk-zP6" secondAttribute="bottom" constant="-20" id="eaf-h1-b4R"/>
+                            <constraint firstItem="bt5-ux-xtn" firstAttribute="width" secondItem="z7P-Z2-LDD" secondAttribute="width" multiplier="0.95" id="XNc-VL-USC"/>
+                            <constraint firstItem="bt5-ux-xtn" firstAttribute="bottom" secondItem="S6F-Hk-zP6" secondAttribute="bottom" constant="-15" id="eaf-h1-b4R"/>
                             <constraint firstItem="bt5-ux-xtn" firstAttribute="centerX" secondItem="S6F-Hk-zP6" secondAttribute="centerX" id="f19-lu-Ehd"/>
                             <constraint firstItem="S6F-Hk-zP6" firstAttribute="trailing" secondItem="ldr-fH-TuU" secondAttribute="trailing" id="gwC-fy-w5n"/>
-                            <constraint firstItem="qNN-yF-kdN" firstAttribute="width" secondItem="qNN-yF-kdN" secondAttribute="height" multiplier="23:2.8" id="gxV-fv-SC6"/>
                             <constraint firstItem="S6F-Hk-zP6" firstAttribute="trailing" secondItem="qNN-yF-kdN" secondAttribute="trailing" id="hbR-pq-YPS"/>
                             <constraint firstItem="ldr-fH-TuU" firstAttribute="top" secondItem="z7P-Z2-LDD" secondAttribute="top" id="jfC-sa-ljS"/>
                             <constraint firstItem="ldr-fH-TuU" firstAttribute="height" secondItem="z7P-Z2-LDD" secondAttribute="height" multiplier="0.4" id="lzk-qu-zPf"/>
-                            <constraint firstItem="bt5-ux-xtn" firstAttribute="top" secondItem="qNN-yF-kdN" secondAttribute="bottom" constant="15" id="rbH-Rn-DS7"/>
+                            <constraint firstItem="bt5-ux-xtn" firstAttribute="top" secondItem="qNN-yF-kdN" secondAttribute="bottom" constant="20" id="rbH-Rn-DS7"/>
                             <constraint firstItem="ldr-fH-TuU" firstAttribute="leading" secondItem="S6F-Hk-zP6" secondAttribute="leading" id="vl4-SY-N1i"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S6F-Hk-zP6"/>

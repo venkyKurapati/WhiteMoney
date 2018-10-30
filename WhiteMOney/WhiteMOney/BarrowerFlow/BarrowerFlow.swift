@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Async
 
 class BarrowerFlow: NSObject {
     var navigator : Navigator!
@@ -17,6 +18,12 @@ class BarrowerFlow: NSObject {
 
             navigator = Navigator.init(rootVC: rootNav, sideMenu: nil)
             let authFlow = AuthFlow.init(navigator)
+            
+            let loaderVc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "launch1")
+            navigator.rootVC.viewControllers = [loaderVc]
+            Async.main(after: 2.2, {
+                authFlow.runAuthFlow()
+            })
         }
     }
 }

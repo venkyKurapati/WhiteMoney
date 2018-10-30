@@ -35,18 +35,17 @@ class EmailAndPhoneViewModel: NSObject {
     }
     
     func setUpFieldsWithDataAndReload() -> Void {
-        fields = [.fullName,.email,.phoneNum ]
+        fields = [.fullName,.email,.password,.phoneNum ]
 
         if  dataModel.emailAndPhoneInfo.isOTPGenerated{
-            if dataModel.emailAndPhoneInfo.isOTPVerified{
-                fields.append(.otp)
-                fields.append(.password)
-                fields.append(.nextWithCancelPassword)
-
-            }else{
+//            if dataModel.emailAndPhoneInfo.isOTPVerified{
+//                fields.append(.otp)
+//                fields.append(.nextWithCancel)
+//
+//            }else{
                 fields.append(.otp)
                 fields.append(.nextWithCancelOTP)
-            }
+         //   }
         }else{
             dataModel.emailAndPhoneInfo.isOTPVerified = false
             fields.append(.nextBtn)
@@ -82,19 +81,21 @@ extension EmailAndPhoneViewModel:UITableViewDataSource,UITableViewDelegate{
         let field = fields[indexPath.row]
         var isActive = true
         if  dataModel.emailAndPhoneInfo.isOTPGenerated{
-            if dataModel.emailAndPhoneInfo.isOTPVerified{
-                if field == .fullName || field == .phoneNum || field == .email || field == .nextBtn || field == .otp || field == .nextWithCancelOTP{
-                    isActive = false
-                }else{
-                    isActive = true
-                }
+//            if dataModel.emailAndPhoneInfo.isOTPVerified{
+//
+//            }else{
+//                if field == .fullName || field == .phoneNum || field == .email || field == .nextBtn{
+//                    isActive = false
+//                }else{
+//                    isActive = true
+//                }
+//            }
+            if field == .otp || field == .nextWithCancelOTP{
+                isActive = true
             }else{
-                if field == .fullName || field == .phoneNum || field == .email || field == .nextBtn{
-                    isActive = false
-                }else{
-                    isActive = true
-                }
+                isActive = false
             }
+            
         }else{
             isActive = true
         }
@@ -112,7 +113,7 @@ extension EmailAndPhoneViewModel:UITableViewDataSource,UITableViewDelegate{
 //            }
 //            cell = OTPCell
 
-        case .nextBtn,.nextWithCancelOTP,.nextWithCancelPassword:
+        case .nextBtn,.nextWithCancelOTP,.nextWithCancel:
             let cellBtn = tableView.dequeueReusableCell(withIdentifier: "ButtonCell") as! ButtonCell
             if field == .nextBtn{
                 cellBtn.setAsMiddleBtnActive(true)
@@ -121,7 +122,7 @@ extension EmailAndPhoneViewModel:UITableViewDataSource,UITableViewDelegate{
                 cellBtn.setAsMiddleBtnActive(false)
                 cellBtn.nextBtn.addTarget(self, action: #selector(OtpNextBtnActionOTP), for: .touchUpInside)
                 cellBtn.backBtn.addTarget(self, action: #selector(OtpCancelBtnActionOTP), for: .touchUpInside)
-            }else if field == .nextWithCancelPassword{
+            }else if field == .nextWithCancel{
                 cellBtn.setAsMiddleBtnActive(false)
                 cellBtn.nextBtn.addTarget(self, action: #selector(OtpNextBtnActionPassword), for: .touchUpInside)
                 cellBtn.backBtn.addTarget(self, action: #selector(OtpCancelBtnActionPassword), for: .touchUpInside)
@@ -168,12 +169,17 @@ extension EmailAndPhoneViewModel:UITableViewDataSource,UITableViewDelegate{
         return cell
     }
     @objc func nextBtnAction() -> Void {
-        dataModel.emailAndPhoneInfo.isOTPGenerated = true
-        setUpFieldsWithDataAndReload()
+        emailAndPhoneVC?.view.endEditing(true)
+        if validateFormGenerateOTP(){
+            dataModel.emailAndPhoneInfo.isOTPGenerated = true
+            setUpFieldsWithDataAndReload()
+        }
     }
     @objc func OtpNextBtnActionOTP() -> Void {
         dataModel.emailAndPhoneInfo.isOTPVerified = true
-        setUpFieldsWithDataAndReload()
+//        setUpFieldsWithDataAndReload()
+        didFinishStep()
+
     }
     @objc func OtpCancelBtnActionOTP() -> Void {
         dataModel.emailAndPhoneInfo.isOTPGenerated = false
@@ -196,13 +202,16 @@ extension EmailAndPhoneViewModel: FloatingTxtFieldDelegate{
     func floatingTxtFieldShouldBeginEditing(_ textField: FloatingTxtField) -> Bool {
         return true
     }
-    func floatingTxtFieldDidEndEditing(_ textField: FloatingTxtField) {
-        
 
-    }
     func floatingTxtFieldDidEndEditing(_ textField: FloatingTxtField, reason: UITextFieldDidEndEditingReason)
     {
-        self.floatingTxtFieldDidEndEditing(textField)
+        
+        switch textField.placeHoleder {
+        case Constants.passwordPlaceHolder:
+            dataModel.emailAndPhoneInfo.password = textField.text ?? ""
+        default:
+            break
+        }
     }
     func floatingTxtField(_ textField: FloatingTxtField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let text = textField.text,
@@ -219,7 +228,7 @@ extension EmailAndPhoneViewModel: FloatingTxtFieldDelegate{
                 dataModel.emailAndPhoneInfo.password = updatedText
             case Constants.phoneNumPlaceHolder:
                 dataModel.emailAndPhoneInfo.phoneNum = updatedText
-            case Constants.OTPPlaceHolde:
+            case Constants.OTPPlaceHolder:
                 dataModel.emailAndPhoneInfo.OTP = updatedText
 
             default:
@@ -229,7 +238,41 @@ extension EmailAndPhoneViewModel: FloatingTxtFieldDelegate{
         }
         return true
     }
-
+    func floatingTxtFieldShouldClear(_ textField: FloatingTxtField) -> Bool {
+        return true
+    }
+    
+    
+    func validateFormGenerateOTP() -> Bool {
+        let emailAndPhoneInfoModel = dataModel.emailAndPhoneInfo
+        if !emailAndPhoneInfoModel.fullName.isEmpty {
+            if !emailAndPhoneInfoModel.email.isEmpty {
+                if !emailAndPhoneInfoModel.password.isEmpty {
+                    if !emailAndPhoneInfoModel.phoneNum.isEmpty {
+                        if emailAndPhoneInfoModel.email.isValidEmail(){
+                            
+                        }else{
+                            emailAndPhoneVC?.showCustomToast(message: ErrorMessages.emailInvalidErrorMsg)
+                            return false
+                        }
+                    }else{
+                        emailAndPhoneVC?.showCustomToast(message: ErrorMessages.phoneNumEmptyErrorMsg)
+                        return false
+                    }
+                }else{
+                    emailAndPhoneVC?.showCustomToast(message: ErrorMessages.passwordEmptyErrorMsg)
+                    return false
+                }
+            }else{
+                emailAndPhoneVC?.showCustomToast(message: ErrorMessages.emailEmptyErrorMsg)
+                return false
+            }
+        }else{
+            emailAndPhoneVC?.showCustomToast(message: ErrorMessages.fullNameEmptyErrorMsg)
+            return false
+        }
+        return true
+    }
 }
 
 

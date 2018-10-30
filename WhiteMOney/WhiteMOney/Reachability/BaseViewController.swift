@@ -64,7 +64,9 @@ class BaseViewController: UIViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
 //        self.didConnectionIsOpen = {_ in}
-        NotificationCenter.default.removeObserver(observer)
+        if let observer = observer{
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,3 +74,4 @@ class BaseViewController: UIViewController {
     }
 
 }
+
