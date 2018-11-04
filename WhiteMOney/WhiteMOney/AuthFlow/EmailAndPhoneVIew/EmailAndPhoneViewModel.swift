@@ -244,6 +244,10 @@ extension EmailAndPhoneViewModel: FloatingTxtFieldDelegate{
     
     
     func validateFormGenerateOTP() -> Bool {
+        
+        return true
+
+        
         let emailAndPhoneInfoModel = dataModel.emailAndPhoneInfo
         if !emailAndPhoneInfoModel.fullName.isEmpty {
             if !emailAndPhoneInfoModel.email.isEmpty {

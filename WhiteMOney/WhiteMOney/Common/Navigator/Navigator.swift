@@ -1,6 +1,6 @@
 //
 //  Navigator.swift
-//  WhiteMoney
+//  whitemoney
 //
 //  Created by Exequiel Banga on 10/3/16.
 //  Copyright © 2016 codika. All rights reserved.
@@ -19,45 +19,75 @@ class BaseNavigator: NSObject {
 
 class Navigator: BaseNavigator {
     let sideMenu: SideMenuFeature?
-    private(set) var rootVC: UINavigationController
-    private var vcsPresentedOver = [UIViewController]()
+    private(set) var rootContentNavigator: UINavigationController
+    var vcsPresentedOver = [UIViewController]()
     private var animationDuration: TimeInterval = 0.3
     
     
     private var appearFading = AppearFading()
+    var windowNavigator : UINavigationController
     
-  
-    
-    init(rootVC: UINavigationController, sideMenu: SideMenuFeature?) {
+    init(rootNavigator: UINavigationController,contentNavigator: UINavigationController, sideMenu: SideMenuFeature?) {
         self.sideMenu = sideMenu
-        self.rootVC = rootVC        
-        rootVC.setNavigationBarHidden(true, animated: false)
+        self.windowNavigator = rootNavigator
+        self.rootContentNavigator = contentNavigator
+        self.windowNavigator.setNavigationBarHidden(false, animated: true)
+        rootContentNavigator.setNavigationBarHidden(true, animated: false)
+        super.init()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateProfileInfoSideMenu), name: NSNotification.Name(rawValue: "UpdateProfileInfoInSideMenu"), object: nil)
+    }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     func setAsRoot(_ vc: UIViewController) {
-        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(image: nil, style: UIBarButtonItemStyle.plain, target: self, action: #selector(onShowMenu))
-        vc.navigationItem.title = "White Money"
-        self.rootVC.setNavigationBarHidden(false, animated: true)
-        self.rootVC.setViewControllers([vc], animated: true)
+        if !UIDevice().modelName.contains("iPad"){
+            vc.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "HamburgerIcon_.png.png"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(onShowMenu))
+            
+        }
+        
+        vc.title = "White Money"
+        vc.navigationController?.navigationBar.tintColor = UIColor.WhiteMoney_darkBlue
+        self.rootContentNavigator.setNavigationBarHidden(false, animated: true)
+        self.windowNavigator.setNavigationBarHidden(true, animated: true)
+        self.rootContentNavigator.setViewControllers([vc], animated: true)
+        if let parentVC = sideMenu?.parentVC{
+            self.windowNavigator.setViewControllers([parentVC], animated: true)
+        }
+    }
+    func isContainVCInContentNavigator(stringVC : String) -> (Bool,Int?) {
+        for (i,vc) in rootContentNavigator.viewControllers.enumerated() {
+            if NSStringFromClass(type(of: vc)).hasSuffix(stringVC) {
+                return (true,i)
+            }
+        }
+        return (false,nil)
+
     }
     
     func restart(with vc: UIViewController) {
 //        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "root_hamburger"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(onShowMenu))
-//        vc.navigationItem.title = "WhiteMoney"
+//        vc.navigationItem.title = "whitemoney"
         if (vcsPresentedOver.count != 0) {
-            self.unpresentOverPresentedVC()
+            self.unpresentOverPresentedVC(animated: false) {
+                
+            }
         }
         
-        self.rootVC.setNavigationBarHidden(true, animated: true)
-        self.rootVC.setViewControllers([vc], animated: false)
+        self.rootContentNavigator.setNavigationBarHidden(true, animated: true)
+        self.rootContentNavigator.setViewControllers([vc], animated: false)
     }
     
     @objc func onShowMenu() {
         sideMenu?.toogle(animated: true)
     }
+    @objc func updateProfileInfoSideMenu(){
+        
+        sideMenu?.sideMenuController.show()
+    }
     
     override func push<T: UIViewController>(_ vc: T, animated: Bool = true, callback: @escaping (T)->Void = { _ in }) {
-        let navVC = rootVC.presentedViewController as? UINavigationController ?? rootVC
+        let navVC = rootContentNavigator.presentedViewController as? UINavigationController ?? rootContentNavigator
         WillAppearDelegate(vc: vc, callback: { vc in
             callback(vc as! T)
         }).assign(to: navVC)
@@ -68,39 +98,39 @@ class Navigator: BaseNavigator {
     }
     
     override func pop() {
-        let navVC = rootVC.presentedViewController as? UINavigationController ?? rootVC
+        let navVC = rootContentNavigator.presentedViewController as? UINavigationController ?? rootContentNavigator
         navVC.popViewController(animated: true)
     }
     
     override func pushReplacingCurrent<T: UIViewController>(_ vc: T, callback: @escaping (T)->Void) {
         WillAppearDelegate(vc: vc, callback: { vc in
             callback(vc as! T)
-        }).assign(to: self.rootVC)
+        }).assign(to: self.rootContentNavigator)
         let item = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
-        self.rootVC.topViewController?.navigationItem.backBarButtonItem = item
-        var vcs = self.rootVC.viewControllers
+        self.rootContentNavigator.topViewController?.navigationItem.backBarButtonItem = item
+        var vcs = self.rootContentNavigator.viewControllers
         vcs.removeLast()
         vcs.append(vc)
-        self.rootVC.setViewControllers(vcs, animated: true)
+        self.rootContentNavigator.setViewControllers(vcs, animated: true)
     }
     
     func popToRoot(callback: @escaping ()->Void = {}) {
-        WillAppearDelegate(vc: self.rootVC.viewControllers.first!, callback: { vc in
+        WillAppearDelegate(vc: self.rootContentNavigator.viewControllers.first!, callback: { vc in
             callback()
-        }).assign(to: self.rootVC)
-        self.rootVC.popToRootViewController(animated: true)
+        }).assign(to: self.rootContentNavigator)
+        self.rootContentNavigator.popToRootViewController(animated: true)
     }
     
     override func nativeModal(vc: UIViewController, callback: @escaping ()->Void = {}) {
-        self.rootVC.present(vc, animated: true, completion: callback)
+        self.windowNavigator.present(vc, animated: true, completion: callback)
     }
     
     override func nativeModalDismiss(_ callback: @escaping ()->() = {}) {
-        self.rootVC.dismiss(animated: true, completion: { callback() })
+        self.windowNavigator.dismiss(animated: true, completion: { callback() })
     }
     
     func presentNotFullOverCurrent(vc: UIViewController, onCompletion: (() -> ())? = nil) {
-        let navVC = rootVC.presentedViewController as? UINavigationController ?? rootVC
+        let navVC = windowNavigator.presentedViewController as? UINavigationController ?? windowNavigator
         vcsPresentedOver.append(vc)
         
         guard let viewToPresent = vc.view else { return }
@@ -125,7 +155,7 @@ class Navigator: BaseNavigator {
     }
     
     func presentOverCurrent(vc: UIViewController, animated: Bool = true, onCompletion: (() -> ())? = nil) {
-        var baseVC = rootVC.parent ?? rootVC
+        var baseVC = windowNavigator.parent ?? windowNavigator
         baseVC = baseVC.presentedViewController ?? baseVC
         
         vcsPresentedOver.append(vc)
@@ -151,7 +181,7 @@ class Navigator: BaseNavigator {
         guard let vcPresentedOver = self.vcsPresentedOver.last else { return }
         guard let viewPresentedOverRootVC = vcPresentedOver.view else { return }
         
-        let baseVC = rootVC.parent ?? rootVC
+        let baseVC = windowNavigator.parent ?? windowNavigator
         
         UIView.animate(withDuration: animated ? animationDuration : 0.0, animations: {
             viewPresentedOverRootVC.transform = CGAffineTransform(translationX: 0, y: baseVC.view.bounds.height)
@@ -167,11 +197,4 @@ class Navigator: BaseNavigator {
         })
     }
     
-}
-class NavigationController: UINavigationController {
-    
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
 }

@@ -20,7 +20,7 @@ class AuthFlow: NSObject {
     var emailAndPhoneModel : EmailAndPhoneViewModel?
     var eligibilityCheckModel : EligibilityCheckViewModel?
     var documentsUploadModel : DocumentsUploadViewModel?
-    var navigator : Navigator?
+    var navigator : Navigator!
     var authPageVC : AuthPageViewController!
     var authUserDetails = AuthDataModel(nil)
     
@@ -52,8 +52,10 @@ class AuthFlow: NSObject {
         }
         documentsUploadModel?.didFinishUploadDocStep {
             Async.main{
-                self.authMainVC.stepsItemsView.chaangeStepTo(0)
-                self.authPageVC.setShowingVC(0)
+//                self.authMainVC.stepsItemsView.chaangeStepTo(0)
+//                self.authPageVC.setShowingVC(0)
+                let barrowerFlow = BarrowerHomeViewModel(self.navigator)
+                barrowerFlow.run()
             }
         }
         documentsUploadModel?.didCancelEligibilityStep {
@@ -65,7 +67,8 @@ class AuthFlow: NSObject {
     }
     func runAuthFlow() -> Void {
         authMainVC = AuthViewController.instanciateFrom(storyboard: Storyboards.authFlow)
-        self.navigator?.setAsRoot(authMainVC!)
+       // self.navigator?.setAsRoot(authMainVC!)
+        self.navigator?.windowNavigator.viewControllers = [authMainVC]
         authMainVC?.onDidLoad(callback: { (authvc) in
             
             self.authMainVC?.addChildViewController(self.authPageVC!)

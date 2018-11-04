@@ -1,13 +1,13 @@
 //
 //  SideMenuViewController.swift
-//  WhiteMoney
+//  whitemoney
 //
 //  Created by Exequiel Banga on 9/30/16.
 //  Copyright © 2016 codika. All rights reserved.
 //
 
 import UIKit
-
+import Async
 class SideMenuViewController: UIViewController {
     @IBOutlet weak var panToAppearView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -34,12 +34,15 @@ class SideMenuViewController: UIViewController {
     
     func show() {
 //        let user = User.current
-//        
-//        profilePic.image = #imageLiteral(resourceName: "defaultProfile")
-//        
-//        nameLabel.text = (user?.firstName ?? "") + " " + (user?.lastName ?? "")
-//        profilePic.set(image: user?.photo ?? .local( #imageLiteral(resourceName: "defaultProfile")), placeholderImage: #imageLiteral(resourceName: "defaultProfile"))
-//        emailLabel.text = user?.email ?? ""
+//        Async.main'{
+//            self.profilePic.image = #imageLiteral(resourceName: "defaultProfile")
+//            self.nameLabel.text = (user?.firstName ?? "") + " " + (user?.lastName ?? "")
+//            self.profilePic.set(image: user?.photo ?? .local( #imageLiteral(resourceName: "defaultProfile")), placeholderImage: #imageLiteral(resourceName: "defaultProfile"))
+//            self.emailLabel.text = user?.email ?? ""
+//        }'
+        
+        
+ 
     }
     
     override func viewDidLayoutSubviews() {
@@ -58,11 +61,14 @@ class SideMenuViewController: UIViewController {
         super.viewDidLoad()
         
         headerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(headerTap)))
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         onWillAppear(self)
+//        self.show()
+
     }
     
     @objc func headerTap() {

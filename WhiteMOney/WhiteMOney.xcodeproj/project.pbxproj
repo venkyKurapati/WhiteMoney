@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		70402A376F7CA9CBAB7DBACF /* Pods_WhiteMOney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8544D7B3336FB56C38FAB1E1 /* Pods_WhiteMOney.framework */; };
+		822AFF43218DE41E0034AB9D /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AFF42218DE41E0034AB9D /* UIDevice.swift */; };
+		822AFF46218E3A3F0034AB9D /* BarrowerHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 822AFF45218E3A3E0034AB9D /* BarrowerHome.storyboard */; };
+		822AFF48218E3A6F0034AB9D /* BarrowerHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AFF47218E3A6F0034AB9D /* BarrowerHomeView.swift */; };
+		822AFF4A218E3A930034AB9D /* BarrowerHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AFF49218E3A930034AB9D /* BarrowerHomeViewModel.swift */; };
+		822AFF4D218EACB40034AB9D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AFF4C218EACB40034AB9D /* LoginViewModel.swift */; };
+		822AFF4F218EACC20034AB9D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AFF4E218EACC20034AB9D /* LoginVC.swift */; };
 		822E0C62216E6CB600032A60 /* EligibilityCheckCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E0C60216E6CB500032A60 /* EligibilityCheckCV.swift */; };
 		822E0C63216E6CB600032A60 /* EligibilityCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E0C61216E6CB500032A60 /* EligibilityCheckViewModel.swift */; };
 		822E0C67216E6CF000032A60 /* DocumentsUploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822E0C65216E6CF000032A60 /* DocumentsUploadVC.swift */; };
@@ -99,6 +105,12 @@
 /* Begin PBXFileReference section */
 		0630FF6D1493474AE5BF0F1C /* Pods-WhiteMOney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteMOney.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhiteMOney/Pods-WhiteMOney.debug.xcconfig"; sourceTree = "<group>"; };
 		0F1C9A823B95A3F4D922256A /* Pods-WhiteMOney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhiteMOney.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhiteMOney/Pods-WhiteMOney.release.xcconfig"; sourceTree = "<group>"; };
+		822AFF42218DE41E0034AB9D /* UIDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
+		822AFF45218E3A3E0034AB9D /* BarrowerHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BarrowerHome.storyboard; sourceTree = "<group>"; };
+		822AFF47218E3A6F0034AB9D /* BarrowerHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarrowerHomeView.swift; sourceTree = "<group>"; };
+		822AFF49218E3A930034AB9D /* BarrowerHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarrowerHomeViewModel.swift; sourceTree = "<group>"; };
+		822AFF4C218EACB40034AB9D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		822AFF4E218EACC20034AB9D /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		822E0C60216E6CB500032A60 /* EligibilityCheckCV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityCheckCV.swift; sourceTree = "<group>"; };
 		822E0C61216E6CB500032A60 /* EligibilityCheckViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EligibilityCheckViewModel.swift; sourceTree = "<group>"; };
 		822E0C65216E6CF000032A60 /* DocumentsUploadVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentsUploadVC.swift; sourceTree = "<group>"; };
@@ -212,6 +224,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		822AFF44218E39FB0034AB9D /* BarrowerHome */ = {
+			isa = PBXGroup;
+			children = (
+				822AFF45218E3A3E0034AB9D /* BarrowerHome.storyboard */,
+				822AFF47218E3A6F0034AB9D /* BarrowerHomeView.swift */,
+				822AFF49218E3A930034AB9D /* BarrowerHomeViewModel.swift */,
+			);
+			path = BarrowerHome;
+			sourceTree = "<group>";
+		};
+		822AFF4B218EAC250034AB9D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				822AFF4C218EACB40034AB9D /* LoginViewModel.swift */,
+				822AFF4E218EACC20034AB9D /* LoginVC.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		822E0C5F216E6CB500032A60 /* EligibilityCheckVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +333,7 @@
 				825FB11B2163D7B6008B6D9B /* Notification.swift */,
 				825FB11C2163D7B6008B6D9B /* String.swift */,
 				825FB11D2163D7B6008B6D9B /* UIButton.swift */,
+				822AFF42218DE41E0034AB9D /* UIDevice.swift */,
 				825FB11E2163D7B6008B6D9B /* UIImage.swift */,
 				8277FDB521690A790003AD65 /* UIImageView.swift */,
 				825FB11F2163D7B6008B6D9B /* UIFont.swift */,
@@ -370,8 +402,9 @@
 				82ECAB172167A5B800455397 /* AuthFlow */,
 				82ECAB132167A5B800455397 /* FloatingTxtField */,
 				825FB0FC2163D018008B6D9B /* BarrowerFlow */,
-				829CA6C421612A6600F032FC /* ViewController.swift */,
+				822AFF44218E39FB0034AB9D /* BarrowerHome */,
 				829CA6C221612A6600F032FC /* AppDelegate.swift */,
+				829CA6C421612A6600F032FC /* ViewController.swift */,
 				829CA6F521613B0B00F032FC /* UIView+Anchors.swift */,
 				829CA6F321613A7D00F032FC /* FormStepsView.swift */,
 				825FB0E321636051008B6D9B /* StepsItemCell.swift */,
@@ -431,6 +464,7 @@
 				8277FDA221687C8C0003AD65 /* AuthPageViewController.swift */,
 				82ECAB192167A5B800455397 /* AuthFlow.storyboard */,
 				8277FDA421689ABC0003AD65 /* AuthDataMOdel.swift */,
+				822AFF4B218EAC250034AB9D /* Login */,
 				822E0C64216E6CF000032A60 /* DocumentsUpload */,
 				822E0C5F216E6CB500032A60 /* EligibilityCheckVC */,
 				82ECAB212167AFCF00455397 /* EmailAndPhoneVIew */,
@@ -586,6 +620,7 @@
 				825FB10A2163D16F008B6D9B /* SideMenuCell.xib in Resources */,
 				829CA6C821612A6600F032FC /* Main.storyboard in Resources */,
 				8274B5E6216D08670032AA23 /* OTPField.xib in Resources */,
+				822AFF46218E3A3F0034AB9D /* BarrowerHome.storyboard in Resources */,
 				8277FDB22168AFE80003AD65 /* ButtonCell.xib in Resources */,
 				82ECAB1F2167A5B800455397 /* AuthFlow.storyboard in Resources */,
 				828CA41621814C6300B5A815 /* UploadDocumentCell.xib in Resources */,
@@ -675,12 +710,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				822AFF4A218E3A930034AB9D /* BarrowerHomeViewModel.swift in Sources */,
 				82ECAB2A2167B03400455397 /* NetworkManager.swift in Sources */,
+				822AFF43218DE41E0034AB9D /* UIDevice.swift in Sources */,
 				825FB0FE2163D046008B6D9B /* BarrowerFlow.swift in Sources */,
 				82ECAB1B2167A5B800455397 /* FloatingTxtFieldCell.swift in Sources */,
 				825FB0E521636051008B6D9B /* StepsItemCell.swift in Sources */,
 				825FB0FB2163CFF3008B6D9B /* Navigator.swift in Sources */,
 				825FB1242163D7B6008B6D9B /* Notification.swift in Sources */,
+				822AFF4D218EACB40034AB9D /* LoginViewModel.swift in Sources */,
 				829CA6F421613A7D00F032FC /* FormStepsView.swift in Sources */,
 				825FB1262163D7B6008B6D9B /* UIButton.swift in Sources */,
 				825FB1082163D16F008B6D9B /* SideMenuViewController.swift in Sources */,
@@ -705,6 +743,7 @@
 				825FB1112163D55B008B6D9B /* Storyboards.swift in Sources */,
 				8277FDB12168AFE80003AD65 /* ButtonCell.swift in Sources */,
 				82ECAB232167AFEE00455397 /* EmailAndPhoneViewModel.swift in Sources */,
+				822AFF48218E3A6F0034AB9D /* BarrowerHomeView.swift in Sources */,
 				825FB1172163D792008B6D9B /* UIColor+Hex.swift in Sources */,
 				825FB10D2163D16F008B6D9B /* SideMenuCell.swift in Sources */,
 				825FB0F92163CFF3008B6D9B /* AlertsPresenter.swift in Sources */,
@@ -712,6 +751,7 @@
 				82ECAB1E2167A5B800455397 /* AuthViewController.swift in Sources */,
 				8277FDAA2168A16F0003AD65 /* OTPTextFieldCell.swift in Sources */,
 				829CA6F621613B0C00F032FC /* UIView+Anchors.swift in Sources */,
+				822AFF4F218EACC20034AB9D /* LoginVC.swift in Sources */,
 				825FB10B2163D16F008B6D9B /* RootVC.swift in Sources */,
 				82ECAB252167B01200455397 /* EmailAndPhoneVC.swift in Sources */,
 				825FB1092163D16F008B6D9B /* SideMenuFeature.swift in Sources */,

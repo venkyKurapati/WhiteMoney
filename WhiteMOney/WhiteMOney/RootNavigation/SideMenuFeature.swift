@@ -1,6 +1,6 @@
 //
 //  SideMenuFeature.swift
-//  WhiteMoney
+//  whitemoney
 //
 //  Created by Exequiel Banga on 9/29/16.
 //  Copyright © 2016 codika. All rights reserved.
@@ -13,8 +13,24 @@ class SideMenuFeature: NSObject {
     private let sideOffset: CGFloat = 0
     init(on parentVC: UIViewController, with contentVC: UIViewController) {
         sideMenuController = SideMenuViewController.instanciateFrom(storyboard: Storyboards.main)
-        
         self.parentVC = parentVC
+        blockView = UIView()
+        super.init()
+
+        if UIDevice().modelName.contains("iPad"){
+            setupSideMenuAnchorsForIpad(on: parentVC, with: contentVC)
+            self.parentVC.view.layoutSubviews()
+
+        }else{
+            setupSideMenuAnchorsForIpone(on: parentVC, with: contentVC)
+            self.addGestures()
+            self.hide(animated: false)
+            self.parentVC.view.layoutSubviews()
+
+        }
+    }
+   
+    func setupSideMenuAnchorsForIpone(on parentVC: UIViewController, with contentVC: UIViewController) -> Void {
         
         parentVC.addChildViewController(contentVC)
         parentVC.view.addSubview(contentVC.view)
@@ -24,11 +40,11 @@ class SideMenuFeature: NSObject {
         contentVC.view.bottomAnchor.constraint(equalTo: parentVC.view.bottomAnchor).isActive = true
         contentVC.view.leftAnchor.constraint(equalTo: parentVC.view.leftAnchor).isActive = true
         contentVC.view.rightAnchor.constraint(equalTo: parentVC.view.rightAnchor).isActive = true
-
+        
         parentVC.addChildViewController(sideMenuController)
         parentVC.view.addSubview(sideMenuController.view)
         
-//        self.panToShowMenuView = sideMenuController.panToAppearView
+        //        self.panToShowMenuView = sideMenuController.panToAppearView
         
         sideMenuController.view.translatesAutoresizingMaskIntoConstraints = false
         sideMenuController.view.topAnchor.constraint(equalTo: parentVC.view.topAnchor).isActive = true
@@ -36,9 +52,8 @@ class SideMenuFeature: NSObject {
         sideMenuController.view.bottomAnchor.constraint(equalTo: parentVC.view.bottomAnchor).isActive = true
         
         leadingConstraint = sideMenuController.view.leftAnchor.constraint(equalTo: parentVC.view.leftAnchor, constant: 0)
-        leadingConstraint.isActive = true
-
-        blockView = UIView()
+        leadingConstraint?.isActive = true
+        
         blockView.backgroundColor = UIColor(hex: 0x1b1b2c)
         parentVC.view.addSubview(blockView)
         
@@ -50,36 +65,80 @@ class SideMenuFeature: NSObject {
         
         parentVC.view.bringSubview(toFront: sideMenuController.view)
         
-        super.init()
         
-//        sideMenuController.onDidLayoutDo({ (vc) in
-//            self.hide(animated: false)
-//        })
+        //        sideMenuController.onDidLayoutDo({ (vc) in
+        //            self.hide(animated: false)
+        //        })
         
+      
+        
+        //        sideMenuController.onWillAppearDo { _ in
+        //            self.hide(animated: false)
+        //        }
+    }
+    
+    func addGestures() -> Void {
         hideMenuTapGesture = UITapGestureRecognizer(target: self, action: #selector(onHideMenuTap))
         blockView.addGestureRecognizer(hideMenuTapGesture)
         
         
         panToHideFromBlockViewGesture = UIPanGestureRecognizer(target: self, action: #selector(pan(gestureRecognizer:)))
-        blockView.addGestureRecognizer(panToHideFromBlockViewGesture)
+        blockView.addGestureRecognizer(panToHideFromBlockViewGesture!)
         
         panToShowGesture = UIPanGestureRecognizer(target: self, action: #selector(panFromSide(gestureRecognizer:)))
-        sideMenuController.view.addGestureRecognizer(panToShowGesture)
+        sideMenuController.view.addGestureRecognizer(panToShowGesture!)
         
         panToHideGesture = UIPanGestureRecognizer(target: self, action: #selector(pan(gestureRecognizer:)))
-        sideMenuController.view.addGestureRecognizer(panToHideGesture)
-        
-//        sideMenuController.onWillAppearDo { _ in
-//            self.hide(animated: false)
-//        }
-        self.hide(animated: false)
-        self.parentVC.view.layoutSubviews()
+        sideMenuController.view.addGestureRecognizer(panToHideGesture!)
     }
+    func setupSideMenuAnchorsForIpad(on parentVC: UIViewController, with contentVC: UIViewController) -> Void {
+        
+        
+        
+        parentVC.addChildViewController(sideMenuController)
+        parentVC.view.addSubview(sideMenuController.view)
+        sideMenuController.view.translatesAutoresizingMaskIntoConstraints = false
+        sideMenuController.view.topAnchor.constraint(equalTo: parentVC.view.topAnchor).isActive = true
+        sideMenuController.view.widthAnchor.constraint(equalTo: parentVC.view.widthAnchor, multiplier: 0.3, constant: sideOffset).isActive = true
+        sideMenuController.view.bottomAnchor.constraint(equalTo: parentVC.view.bottomAnchor).isActive = true
+        
+        leadingConstraint = sideMenuController.view.leftAnchor.constraint(equalTo: parentVC.view.leftAnchor, constant: 0)
+        leadingConstraint?.isActive = true
+        
+        
+        
+        parentVC.addChildViewController(contentVC)
+        parentVC.view.addSubview(contentVC.view)
+        
+        contentVC.view.translatesAutoresizingMaskIntoConstraints = false
+        contentVC.view.topAnchor.constraint(equalTo: parentVC.view.topAnchor).isActive = true
+        contentVC.view.bottomAnchor.constraint(equalTo: parentVC.view.bottomAnchor).isActive = true
+//        contentVC.view.leftAnchor.constraint(equalTo: parentVC.view.leftAnchor).isActive = true
+        contentVC.view.widthAnchor.constraint(equalTo: parentVC.view.widthAnchor, multiplier: 0.7, constant: sideOffset).isActive = true
+
+        contentVC.view.rightAnchor.constraint(equalTo: parentVC.view.rightAnchor).isActive = true
+        
+
+        
+//        blockView.backgroundColor = UIColor(hex: 0x1b1b2c)
+//        parentVC.view.addSubview(blockView)
+//
+//        blockView.translatesAutoresizingMaskIntoConstraints = false
+//        blockView.topAnchor.constraint(equalTo: parentVC.view.topAnchor).isActive = true
+//        blockView.bottomAnchor.constraint(equalTo: parentVC.view.bottomAnchor).isActive = true
+//        blockView.leftAnchor.constraint(equalTo: parentVC.view.leftAnchor).isActive = true
+//        blockView.rightAnchor.constraint(equalTo: parentVC.view.rightAnchor).isActive = true
+        
+        parentVC.view.bringSubview(toFront: sideMenuController.view)
+        
+    }
+    
+    
     
     func set(headerOption option: SideMenuOption) {
         headerOption = option
         sideMenuController.onHeaderTap = { [headerOption] in
-            headerOption?.onSelect?()
+            headerOption?.onSelect?(nil)
         }
     }
     
@@ -89,12 +148,13 @@ class SideMenuFeature: NSObject {
     }
 
     func show(animated: Bool = false) {
+        if UIDevice().modelName.contains("iPad"){return}
         onWillShow()
         modifyLeadingContraint(constant: 0, animated: animated, onCompletion: {
             self.onDidShow()
-            self.panToHideGesture.isEnabled = true
-            self.panToShowGesture.isEnabled = false
-            self.panToHideFromBlockViewGesture.isEnabled = true
+            self.panToHideGesture?.isEnabled = true
+            self.panToShowGesture?.isEnabled = false
+            self.panToHideFromBlockViewGesture?.isEnabled = true
         })
         block(animated: animated)
     }
@@ -115,12 +175,15 @@ class SideMenuFeature: NSObject {
     }
 
     func hide(animated: Bool = false) {
+        
+        if UIDevice().modelName.contains("iPad"){return}
+
         onWillHide()
         modifyLeadingContraint(constant: -sideMenuController.view.frame.size.width + sideOffset, animated: animated, onCompletion: {
             self.onDidHide()
-            self.panToHideGesture.isEnabled = false
-            self.panToShowGesture.isEnabled = true
-            self.panToHideFromBlockViewGesture.isEnabled = false
+            self.panToHideGesture?.isEnabled = false
+            self.panToShowGesture?.isEnabled = true
+            self.panToHideFromBlockViewGesture?.isEnabled = false
         })
         unblock(animated: animated)
         isShowing = false
@@ -142,19 +205,19 @@ class SideMenuFeature: NSObject {
     }
     
     private(set) var isShowing: Bool = false
-    private var parentVC: UIViewController
+    var parentVC: UIViewController
     var sideMenuController: SideMenuViewController
     private var showHideAnimationDuration: Double = 0.4
     private var panToShowMenuView: UIView?
-    private var panToHideGesture: UIPanGestureRecognizer!
-    private var panToShowGesture: UIPanGestureRecognizer!
-    private var panToHideFromBlockViewGesture: UIPanGestureRecognizer!
+    private var panToHideGesture: UIPanGestureRecognizer?
+    private var panToShowGesture: UIPanGestureRecognizer?
+    private var panToHideFromBlockViewGesture: UIPanGestureRecognizer?
     private var options = SideMenuOptions(options: [])
     private var onWillShow: ()->() = {}
     private var onDidShow: ()->() = {}
     private var onWillHide: ()->() = {}
     private var onDidHide: ()->() = {}
-    private var leadingConstraint: NSLayoutConstraint
+    private var leadingConstraint: NSLayoutConstraint?
     private var blockView: UIView
     private var hideMenuTapGesture: UITapGestureRecognizer!
     
@@ -208,7 +271,7 @@ class SideMenuFeature: NSObject {
     private func modifyLeadingContraint(constant: CGFloat,
                                         animated: Bool,
                                         onCompletion: (()->())?) {
-        leadingConstraint.constant = constant
+        leadingConstraint?.constant = constant
         self.sideMenuController.view.setNeedsLayout()
         
         if (animated) {
@@ -276,7 +339,9 @@ class SideMenuOptions : NSObject, UITableViewDelegate , UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        optionAt(indexPath).onSelect!()
+        if let cell = tableView.cellForRow(at: indexPath) as? SideMenuCell {
+            optionAt(indexPath).onSelect!(cell)
+        }
     }
     
     fileprivate func optionAt(_ indexPath: IndexPath) -> SideMenuOption {

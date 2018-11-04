@@ -14,16 +14,32 @@ class BarrowerFlow: NSObject {
     
     init(_ window : UIWindow) {
 //        window.rootViewController = AuthPageViewController.instanciateFrom(storyboard: Storyboards.authFlow)
+        super.init()
+
         if let rootNav = window.rootViewController as? UINavigationController{
 
-            navigator = Navigator.init(rootVC: rootNav, sideMenu: nil)
+            let containerVC = RootVC()
+            containerVC.view.backgroundColor = UIColor.red
+            if let navVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ContentNavigator") as? UINavigationController{
+                let sideMenu = SideMenuFeature(on: containerVC, with: navVC)
+                navigator = Navigator.init(rootNavigator: rootNav, contentNavigator: navVC, sideMenu: sideMenu)
+               
+
+            }
             let authFlow = AuthFlow.init(navigator)
-            
             let loaderVc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "launch1")
-            navigator.rootVC.viewControllers = [loaderVc]
-            Async.main(after: 2.2, {
-                authFlow.runAuthFlow()
+            navigator.windowNavigator.viewControllers = [loaderVc]
+
+
+            Async.main(after: 1.2, {
+                   authFlow.runAuthFlow()
+            
+//                self.navigator.windowNavigator.viewControllers = [loaderVc]
+                
             })
+
+
         }
+
     }
 }

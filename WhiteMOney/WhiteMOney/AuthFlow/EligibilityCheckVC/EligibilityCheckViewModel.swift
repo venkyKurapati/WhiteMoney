@@ -268,6 +268,10 @@ extension EligibilityCheckViewModel: FloatingTxtFieldDelegate{
         return true
     }
     func validateFields() -> Bool {
+        return true
+        
+        
+        
         switch eligibilityCheckModel.employementType {
         case .selfEmployed:
             if eligibilityCheckModel.netAnnualIncome.isEmpty{

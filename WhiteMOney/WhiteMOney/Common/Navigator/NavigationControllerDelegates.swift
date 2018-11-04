@@ -1,6 +1,6 @@
 //
 //  NavigationControllerDelegates.swift
-//  WhiteMoney2
+//  whitemoney2
 //
 //  Created by Leandro Linardos on 24/04/2018.
 //  Copyright © 2018 Leandro Linardos. All rights reserved.
