@@ -20,6 +20,8 @@ class AuthViewController: UIViewController {
         fieldsContentView.applyDropShaddow(UIColor.lightGray)
         backgroundThemeView.backgroundColor =  UIColor.primaryBrandingColor()
         stepsItemsView.items = [" Profile Verification  ","  Eligibility Check   ","   Upload Documents    "]
+//        self.view.backgroundColor = UIColor.primaryBrandingColor()
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
 
         // Do any additional setup after loading the view.
     }

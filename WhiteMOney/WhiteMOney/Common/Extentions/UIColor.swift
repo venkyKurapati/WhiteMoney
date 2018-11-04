@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 extension UIColor {
-    class var appYellow: UIColor { get { return UIColor(red:244.0/255, green:228.0/255, blue:63.0/255, alpha:1.0) } }
-    class var appDarkBlue: UIColor { get { return UIColor(red:44.0/255, green:72.0/255, blue:114.0/255, alpha:1.0) } }
-    class var appGreen: UIColor { get { return UIColor(red:46.0/255, green:204.0/255, blue:113.0/255, alpha:1.0) } }
-    class var appRed: UIColor { get { return UIColor(red:214.0/255, green:69.0/255, blue:65.0/255, alpha:1.0) } }
+//    class var appYellow: UIColor { get { return UIColor(red:244.0/255, green:228.0/255, blue:63.0/255, alpha:1.0) } }
+//    class var appDarkBlue: UIColor { get { return UIColor(red:44.0/255, green:72.0/255, blue:114.0/255, alpha:1.0) } }
+//    class var appGreen: UIColor { get { return UIColor(red:46.0/255, green:204.0/255, blue:113.0/255, alpha:1.0) } }
+//    class var appRed: UIColor { get { return UIColor(red:214.0/255, green:69.0/255, blue:65.0/255, alpha:1.0) } }
     
     class var WhiteMoney_lightBlue: UIColor {
         get {
@@ -118,20 +118,20 @@ public extension UIColor {
     
     
     static func primaryBrandingColor() -> UIColor{
-        return UIColor.hexStringToUIColor(hex: "#0086F7")
+        return UIColor.hexStringToUIColor(hex: "#435590")
     }
     static func secondaryBrandingColor() -> UIColor{
         return UIColor.white
     }
     
     static func fieldBackgroundColor() -> UIColor{
-        return UIColor.hexStringToUIColor(hex: "#0086F7",alpha: 0.6)
+        return UIColor.hexStringToUIColor(hex: "#435590",alpha: 0.6)
     }
     static func appPrimaryTextColor() -> UIColor {
-        return UIColor.hexStringToUIColor(hex: "#0086F7",alpha: 0.8)
+        return UIColor.hexStringToUIColor(hex: "#435590",alpha: 0.8)
     }
     class func appHilightedTxtColor() -> UIColor{
-        return UIColor.hexStringToUIColor(hex: "#0086F7",alpha: 0.8)
+        return UIColor.hexStringToUIColor(hex: "#435590",alpha: 0.8)
     }
 
     

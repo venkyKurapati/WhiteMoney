@@ -1,5 +1,5 @@
 //
-//  BarrowerHomeView.swift
+//  BorrowerHomeView.swift
 //  WhiteMOney
 //
 //  Created by Venkatesh on 04/11/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BarrowerHomeView: UIViewController {
+class BorrowerHomeView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

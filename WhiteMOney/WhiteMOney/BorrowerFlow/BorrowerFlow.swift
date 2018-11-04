@@ -1,5 +1,5 @@
 //
-//  BarrowerFlow.swift
+//  BorrowerFlow.swift
 //  WhiteMOney
 //
 //  Created by Venkatesh on 02/10/18.
@@ -9,7 +9,7 @@
 import UIKit
 import Async
 
-class BarrowerFlow: NSObject {
+class BorrowerFlow: NSObject {
     var navigator : Navigator!
     
     init(_ window : UIWindow) {
@@ -27,15 +27,12 @@ class BarrowerFlow: NSObject {
 
             }
             let authFlow = AuthFlow.init(navigator)
-            let loaderVc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "launch1")
-            navigator.windowNavigator.viewControllers = [loaderVc]
+            let loaderVc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "LaunchLoadingView")
+            //navigator.windowNavigator.viewControllers = [loaderVc]
 
 
             Async.main(after: 1.2, {
-                   authFlow.runAuthFlow()
-            
-//                self.navigator.windowNavigator.viewControllers = [loaderVc]
-                
+                  // authFlow.runAuthFlow()
             })
 
 

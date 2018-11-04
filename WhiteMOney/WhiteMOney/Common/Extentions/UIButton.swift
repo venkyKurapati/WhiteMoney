@@ -19,7 +19,7 @@ extension UIButton {
     }
     
     func applySimpleBorderDestructiveStyle() {
-        applyStyle(color: UIColor.appRed, textColor: UIColor.appRed, fill: UIColor.white)
+        applyStyle(color: UIColor.primaryBrandingColor(), textColor: UIColor.primaryBrandingColor(), fill: UIColor.white)
     }
     
     func applyRoundedButtonStyle() {

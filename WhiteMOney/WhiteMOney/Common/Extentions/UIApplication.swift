@@ -13,7 +13,7 @@ extension UIApplication {
     func configureAppAppearance() {
         self.statusBarStyle = .lightContent
         
-        let tintColor: UIColor = UIColor.appDarkBlue
+        let tintColor: UIColor = UIColor.primaryBrandingColor()
         
         for window in self.windows {
             window.tintColor = tintColor

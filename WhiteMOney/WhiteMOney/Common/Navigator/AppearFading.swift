@@ -44,7 +44,7 @@ class AppearFading: NSObject {
         bgView.backgroundColor = UIColor.clear
         UIView.animate(withDuration: animationDuration, animations: {
             viewToPresent.transform = CGAffineTransform.identity
-            self.bgView.backgroundColor = UIColor.appDarkBlue.withAlphaComponent(0.8)
+            self.bgView.backgroundColor = UIColor.primaryBrandingColor().withAlphaComponent(0.8)
             }, completion: { _ in
                 onCompletion()
         })
@@ -54,7 +54,7 @@ class AppearFading: NSObject {
         guard let viewToUnpresent = viewToPresent else { return }
         
         UIView.animate(withDuration: animationDuration, animations: {
-            self.bgView.backgroundColor = UIColor.appDarkBlue.withAlphaComponent(0.0)
+            self.bgView.backgroundColor = UIColor.primaryBrandingColor().withAlphaComponent(0.0)
             viewToUnpresent.transform = CGAffineTransform(translationX: 0, y: self.parentView!.bounds.height)
             }, completion: { _ in
                 viewToUnpresent.transform = CGAffineTransform.identity

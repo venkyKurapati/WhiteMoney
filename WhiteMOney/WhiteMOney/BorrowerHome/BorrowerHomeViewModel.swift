@@ -1,5 +1,5 @@
 //
-//  BarrowerHomeViewModel.swift
+//  BorrowerHomeViewModel.swift
 //  WhiteMOney
 //
 //  Created by Venkatesh on 04/11/18.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class BarrowerHomeViewModel: NSObject {
+class BorrowerHomeViewModel: NSObject {
     
     var navigator : Navigator!
-    var homeVc : BarrowerHomeView!
+    var homeVc : BorrowerHomeView!
     init(_ navigator : Navigator) {
         self.navigator = navigator
-        self.homeVc = BarrowerHomeView.instanciateFrom(storyboard: Storyboards.barrowerHome)
+        self.homeVc = BorrowerHomeView.instanciateFrom(storyboard: Storyboards.borrowerHome)
     }
     func run(){
         self.navigator.setAsRoot(self.homeVc)

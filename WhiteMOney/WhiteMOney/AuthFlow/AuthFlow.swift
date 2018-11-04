@@ -54,8 +54,8 @@ class AuthFlow: NSObject {
             Async.main{
 //                self.authMainVC.stepsItemsView.chaangeStepTo(0)
 //                self.authPageVC.setShowingVC(0)
-                let barrowerFlow = BarrowerHomeViewModel(self.navigator)
-                barrowerFlow.run()
+                let borrowerFlow = BorrowerHomeViewModel(self.navigator)
+                borrowerFlow.run()
             }
         }
         documentsUploadModel?.didCancelEligibilityStep {

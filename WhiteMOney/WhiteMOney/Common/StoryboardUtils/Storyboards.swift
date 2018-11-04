@@ -11,7 +11,7 @@ import Foundation
 public enum Storyboards: String {
     case main
     case authFlow
-    case barrowerHome
+    case borrowerHome
 }
 
 extension Storyboards : Storyboard {

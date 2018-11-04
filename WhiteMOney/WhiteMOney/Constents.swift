@@ -13,7 +13,7 @@ struct Constants{
     static let emailPlaceHolder = "Email"
     static let phoneNumPlaceHolder = "Phone Number"
     static let OTPPlaceHolder = "OTP"
-    static let fullNamePlaceHolder = "Full Name"
+    static let fullNamePlaceHolder = "Full Name (As per PAN Card)"
     static let passwordPlaceHolder = "Password"
     
     static let panCardNumPlaceholder = "Pan card number"

@@ -12,7 +12,7 @@ import UIKit
 extension String {
     func attributed(accents: [String?]? = []) -> NSAttributedString {
         let baseAttributes = [NSAttributedStringKey.strokeColor: UIColor.black, NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)]
-        let accentAttributes = [NSAttributedStringKey.foregroundColor: UIColor.appDarkBlue, NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 15)]
+        let accentAttributes = [NSAttributedStringKey.foregroundColor: UIColor.primaryBrandingColor(), NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 15)]
         let attributedText =  NSMutableAttributedString(string: self, attributes: baseAttributes)
         
         if let accents = accents {
