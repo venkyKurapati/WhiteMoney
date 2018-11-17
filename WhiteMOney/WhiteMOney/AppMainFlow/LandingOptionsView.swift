@@ -20,6 +20,8 @@ class LandingOptionsView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.view.backgroundColor = UIColor.primaryBrandingColor()
 
         // Do any additional setup after loading the view.
         updateUI()

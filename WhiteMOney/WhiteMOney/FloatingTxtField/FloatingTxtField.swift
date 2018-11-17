@@ -246,7 +246,7 @@ var constraintsArranged = false
             _ = warningLbl.heightAnchor.constraint(equalToConstant: warningLblHeight).isActive = true
         }
     }
-    @IBInspectable var warningLblTxtColor : UIColor = UIColor.white{
+    @IBInspectable var warningLblTxtColor : UIColor = UIColor.red{
         didSet{
             warningLbl.textColor = warningLblTxtColor
         }
@@ -374,7 +374,7 @@ extension UIImageView{
 }
 
 extension FloatingTxtField{
-    func setUpTxtField( _ txt : String ,font : UIFont, textColor : UIColor ,underLine_Hilight_ViewColor : UIColor,underLineViewColor : UIColor,placeHoleder : String,placeHolederLblFont : UIFont, placeholderTxtColor : UIColor, keyboardType : UIKeyboardType , delegate : FloatingTxtFieldDelegate?, logoImg : UIImage?,isSecureTextEntry : Bool,warningText:String) -> Void {
+    func setUpTxtField( _ txt : String ,font : UIFont, textColor : UIColor ,underLine_Hilight_ViewColor : UIColor,underLineViewColor : UIColor,placeHoleder : String,placeHolederLblFont : UIFont, placeholderTxtColor : UIColor, keyboardType : UIKeyboardType , delegate : FloatingTxtFieldDelegate?, logoImg : UIImage?,isSecureTextEntry : Bool,warningText:String?) -> Void {
         self.delegate = delegate
         self.txtField.keyboardType = keyboardType
         self.placeholderTxtColor = placeholderTxtColor
@@ -389,7 +389,7 @@ extension FloatingTxtField{
         self.text = txt
         endEditingWithTxt(txt)
         self.logoImg = logoImg
-        warningLblText = warningText
+        warningLblText = warningText ?? ""
 //        self.txtField.inputAccessoryView = inputAccessoryView
         self.txtField.autocorrectionType = .no
         setUpSecureEntry(isSecureTextEntry)

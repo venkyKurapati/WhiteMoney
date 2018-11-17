@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AuthViewController: UIViewController {
+class Barrower_AuthViewController: UIViewController {
     var didLoad : (UIViewController)->Void = {_ in}
     
     @IBOutlet weak var backgroundThemeView: UIView!
@@ -22,6 +22,8 @@ class AuthViewController: UIViewController {
         stepsItemsView.items = [" Profile Verification  ","  Eligibility Check   ","   Upload Documents    "]
 //        self.view.backgroundColor = UIColor.primaryBrandingColor()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        var leftitem = self.navigationItem.backBarButtonItem
+        leftitem?.title = "Back"
 
         // Do any additional setup after loading the view.
     }

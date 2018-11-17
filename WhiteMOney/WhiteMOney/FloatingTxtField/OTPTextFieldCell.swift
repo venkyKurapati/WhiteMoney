@@ -11,7 +11,7 @@ import Async
 class OTPTextFieldCell: UITableViewCell {
 
     var delegate : FloatingTxtFieldDelegate?
-    var dataModel : AuthDataModel?
+    var dataModel : Barrower_AuthDataModel?
     @IBOutlet weak var dummyTxtField: UITextField!
     var OTPFieldsCount = 4
     var isFieldEditing  : Bool = false{
@@ -63,7 +63,7 @@ class OTPTextFieldCell: UITableViewCell {
     }
 
     func setUpUserFieldDetailsOfUser(_ userInfo : String ,
-                                     typeOfTxtField : AuthDataModel.TypeOfCellField ,inputAccessoryView : UIToolbar? , delegate : FloatingTxtFieldDelegate?) -> Void {
+                                     typeOfTxtField : Barrower_AuthDataModel.TypeOfCellField ,inputAccessoryView : UIToolbar? , delegate : FloatingTxtFieldDelegate?) -> Void {
         
         OTPtext = userInfo
         dummyTxtField.keyboardType = .numberPad

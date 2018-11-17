@@ -10,7 +10,7 @@ import Foundation
 
 public enum Storyboards: String {
     case main
-    case authFlow
+    case Barrower_AuthFlow
     case borrowerHome
 }
 

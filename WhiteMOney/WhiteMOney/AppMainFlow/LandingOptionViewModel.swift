@@ -21,9 +21,10 @@ class LandingOptionViewModel: NSObject {
         super.init()
     }
     func run() -> Void {
-        navigator.rootContentNavigator.viewControllers = [optionsVC]
+        navigator.windowNavigator.setViewControllers([optionsVC], animated: true)
         optionsVC.didTappedOnBarrow {
-            
+            let barrowerAuthFlow = Barrower_AuthFlow.init(self.navigator)
+            barrowerAuthFlow.runAuthFlow()
         }
         optionsVC.didTappedOnLend {
             

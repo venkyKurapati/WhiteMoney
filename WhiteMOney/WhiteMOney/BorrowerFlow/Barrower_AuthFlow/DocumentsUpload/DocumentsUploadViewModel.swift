@@ -11,18 +11,18 @@ import UIKit
 import Async
 
 class DocumentsUploadViewModel: NSObject {
-    var fieldsArray : [AuthDataModel.TypeOfCellField]?
-    var authDataModel : AuthDataModel?
-    var documentsInfo : AuthDataModel.DocumentsUploadModel?
+    var fieldsArray : [Barrower_AuthDataModel.TypeOfCellField]?
+    var authDataModel : Barrower_AuthDataModel?
+    var documentsInfo : Barrower_AuthDataModel.DocumentsUploadModel?
     var documentsUploadVC : DocumentsUploadVC?
     var documentPicker : DocumentsPicker?
     var didFinishStep : ()->Void = {}
     var didCancelStep : ()->Void = {}
     init(_ navigator : Navigator) {
-        documentsUploadVC = DocumentsUploadVC.instanciateFrom(storyboard: Storyboards.authFlow)
+        documentsUploadVC = DocumentsUploadVC.instanciateFrom(storyboard: Storyboards.Barrower_AuthFlow)
         
         super.init()
-        documentsInfo = AuthDataModel.DocumentsUploadModel()
+        documentsInfo = Barrower_AuthDataModel.DocumentsUploadModel()
         documentsUploadVC?.onDidLoad(callback: { (eligibilityView) in
             self.regCellNib()
             self.setupCellIdentifiers()

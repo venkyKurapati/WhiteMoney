@@ -9,20 +9,20 @@
 import UIKit
 import Async
 
-class AuthFlow: NSObject {
+class Barrower_AuthFlow: NSObject {
     enum AuthSteps : String{
         case emailAndPhoneNum = "emailAndPhoneNum"
         case eligibility = "eligibility"
         case documentsUpload = "documentsUpload"
     }
     
-    var authMainVC : AuthViewController!
+    var authMainVC : Barrower_AuthViewController!
     var emailAndPhoneModel : EmailAndPhoneViewModel?
     var eligibilityCheckModel : EligibilityCheckViewModel?
     var documentsUploadModel : DocumentsUploadViewModel?
     var navigator : Navigator!
-    var authPageVC : AuthPageViewController!
-    var authUserDetails = AuthDataModel(nil)
+    var authPageVC : Barrower_AuthPageViewController!
+    var authUserDetails = Barrower_AuthDataModel(nil)
     
     
     init(_ navigator : Navigator) {
@@ -30,7 +30,7 @@ class AuthFlow: NSObject {
         emailAndPhoneModel = EmailAndPhoneViewModel.init(navigator, dataModel: authUserDetails)
         eligibilityCheckModel = EligibilityCheckViewModel.init(navigator)
         documentsUploadModel = DocumentsUploadViewModel.init(navigator)
-        authPageVC = AuthPageViewController.instanciateFrom(storyboard: Storyboards.authFlow)
+        authPageVC = Barrower_AuthPageViewController.instanciateFrom(storyboard: Storyboards.Barrower_AuthFlow)
         super.init()
         emailAndPhoneModel?.didFinishEmailAndPhonesStep {
             Async.main{
@@ -66,9 +66,10 @@ class AuthFlow: NSObject {
         }
     }
     func runAuthFlow() -> Void {
-        authMainVC = AuthViewController.instanciateFrom(storyboard: Storyboards.authFlow)
+        authMainVC = Barrower_AuthViewController.instanciateFrom(storyboard: Storyboards.Barrower_AuthFlow)
        // self.navigator?.setAsRoot(authMainVC!)
-        self.navigator?.windowNavigator.viewControllers = [authMainVC]
+        self.navigator?.windowNavigator.pushViewController(authMainVC, animated: true)
+
         authMainVC?.onDidLoad(callback: { (authvc) in
             
             self.authMainVC?.addChildViewController(self.authPageVC!)

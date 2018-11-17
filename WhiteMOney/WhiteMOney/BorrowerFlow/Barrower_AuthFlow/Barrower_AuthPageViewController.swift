@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AuthPageViewController: UIPageViewController {
+class Barrower_AuthPageViewController: UIPageViewController {
     
     var currentIndex : Int = 0
     
@@ -66,7 +66,7 @@ class AuthPageViewController: UIPageViewController {
 
 }
 
-extension AuthPageViewController:UIPageViewControllerDataSource{
+extension Barrower_AuthPageViewController:UIPageViewControllerDataSource{
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
         return orderedViewControllers.count
     }

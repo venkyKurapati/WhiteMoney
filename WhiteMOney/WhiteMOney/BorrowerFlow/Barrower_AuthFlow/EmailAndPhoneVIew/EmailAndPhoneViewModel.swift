@@ -15,13 +15,13 @@ import Async
 
 class EmailAndPhoneViewModel: NSObject {
 
-    var dataModel : AuthDataModel!
+    var dataModel : Barrower_AuthDataModel!
     var emailAndPhoneVC : EmailAndPhoneVC?
-    var fields = [AuthDataModel.TypeOfCellField]()
-    
+    var fields = [Barrower_AuthDataModel.TypeOfCellField]()
+    var fieldErrors = [Barrower_AuthDataModel.TypeOfCellField : String]()
     var didFinishStep : ()->Void = {}
-    init(_ navigator : Navigator , dataModel : AuthDataModel) {
-        emailAndPhoneVC = EmailAndPhoneVC.instanciateFrom(storyboard: Storyboards.authFlow)
+    init(_ navigator : Navigator , dataModel : Barrower_AuthDataModel) {
+        emailAndPhoneVC = EmailAndPhoneVC.instanciateFrom(storyboard: Storyboards.Barrower_AuthFlow)
         self.dataModel = dataModel
         super.init()
 //        navigator.setAsRoot(emailAndPhoneVC!)
@@ -133,23 +133,23 @@ extension EmailAndPhoneViewModel:UITableViewDataSource,UITableViewDelegate{
             let floatingTxtCell = tableView.dequeueReusableCell(withIdentifier: "FloatingTxtFieldCell") as! FloatingTxtFieldCell
             switch field{
             case .email:
-                floatingTxtCell.setUpUserFieldDetailsOfUser(dataModel.emailAndPhoneInfo.email, typeOfTxtField: fields[indexPath.row], inputAccessoryView: nil, delegate: self)
+                floatingTxtCell.setUpUserFieldDetailsOfUser(dataModel.emailAndPhoneInfo.email, typeOfTxtField: fields[indexPath.row], inputAccessoryView: nil, delegate: self ,warningText: fieldErrors[field])
 
             case .phoneNum:
-                floatingTxtCell.setUpUserFieldDetailsOfUser(dataModel.emailAndPhoneInfo.phoneNum, typeOfTxtField: fields[indexPath.row], inputAccessoryView: nil, delegate: self)
+                floatingTxtCell.setUpUserFieldDetailsOfUser(dataModel.emailAndPhoneInfo.phoneNum, typeOfTxtField: fields[indexPath.row], inputAccessoryView: nil, delegate: self ,warningText: fieldErrors[field])
 
             case .fullName:
-                floatingTxtCell.setUpUserFieldDetailsOfUser(dataModel.emailAndPhoneInfo.fullName, typeOfTxtField: fields[indexPath.row], inputAccessoryView: nil, delegate: self)
+                floatingTxtCell.setUpUserFieldDetailsOfUser(dataModel.emailAndPhoneInfo.fullName, typeOfTxtField: fields[indexPath.row], inputAccessoryView: nil, delegate: self ,warningText:fieldErrors[field] )
 
             case .otp:
-                floatingTxtCell.setUpUserFieldDetailsOfUser(dataModel.emailAndPhoneInfo.OTP, typeOfTxtField: fields[indexPath.row], inputAccessoryView: nil, delegate: self)
+                floatingTxtCell.setUpUserFieldDetailsOfUser(dataModel.emailAndPhoneInfo.OTP, typeOfTxtField: fields[indexPath.row], inputAccessoryView: nil, delegate: self ,warningText:fieldErrors[field] )
                     if isActive {
                         Async.main(after: 0.2, {
                             floatingTxtCell.floatingTxtView.txtField.becomeFirstResponder()
                         })
                     }
             case .password:
-                floatingTxtCell.setUpUserFieldDetailsOfUser(dataModel.emailAndPhoneInfo.password, typeOfTxtField: fields[indexPath.row], inputAccessoryView: nil, delegate: self)
+                floatingTxtCell.setUpUserFieldDetailsOfUser(dataModel.emailAndPhoneInfo.password, typeOfTxtField: fields[indexPath.row], inputAccessoryView: nil, delegate: self ,warningText: fieldErrors[field])
                 if isActive {
 //                    Async.main(after: 0.2, {
 //                        floatingTxtCell.floatingTxtView.txtField.becomeFirstResponder()
@@ -170,9 +170,12 @@ extension EmailAndPhoneViewModel:UITableViewDataSource,UITableViewDelegate{
     }
     @objc func nextBtnAction() -> Void {
         emailAndPhoneVC?.view.endEditing(true)
-        if validateFormGenerateOTP(){
+        fieldErrors = validateFormGenerateOTP()
+        if fieldErrors.count == 0{
             dataModel.emailAndPhoneInfo.isOTPGenerated = true
             setUpFieldsWithDataAndReload()
+        }else{
+            self.emailAndPhoneVC?.fieldsTblView.reloadData()
         }
     }
     @objc func OtpNextBtnActionOTP() -> Void {
@@ -243,39 +246,58 @@ extension EmailAndPhoneViewModel: FloatingTxtFieldDelegate{
     }
     
     
-    func validateFormGenerateOTP() -> Bool {
+    func validateFormGenerateOTP() -> [Barrower_AuthDataModel.TypeOfCellField: String] {
         
-        return true
 
+        var errors = [Barrower_AuthDataModel.TypeOfCellField: String]()
         
         let emailAndPhoneInfoModel = dataModel.emailAndPhoneInfo
-        if !emailAndPhoneInfoModel.fullName.isEmpty {
-            if !emailAndPhoneInfoModel.email.isEmpty {
-                if !emailAndPhoneInfoModel.password.isEmpty {
-                    if !emailAndPhoneInfoModel.phoneNum.isEmpty {
-                        if emailAndPhoneInfoModel.email.isValidEmail(){
-                            
-                        }else{
-                            emailAndPhoneVC?.showCustomToast(message: ErrorMessages.emailInvalidErrorMsg)
-                            return false
-                        }
-                    }else{
-                        emailAndPhoneVC?.showCustomToast(message: ErrorMessages.phoneNumEmptyErrorMsg)
-                        return false
-                    }
-                }else{
-                    emailAndPhoneVC?.showCustomToast(message: ErrorMessages.passwordEmptyErrorMsg)
-                    return false
-                }
-            }else{
-                emailAndPhoneVC?.showCustomToast(message: ErrorMessages.emailEmptyErrorMsg)
-                return false
-            }
-        }else{
-            emailAndPhoneVC?.showCustomToast(message: ErrorMessages.fullNameEmptyErrorMsg)
-            return false
+        
+        if emailAndPhoneInfoModel.fullName.isEmpty {
+            errors[Barrower_AuthDataModel.TypeOfCellField.fullName] = ErrorMessages.fullNameEmptyErrorMsg
         }
-        return true
+        if emailAndPhoneInfoModel.email.isEmpty {
+            errors[Barrower_AuthDataModel.TypeOfCellField.email] = ErrorMessages.emailEmptyErrorMsg
+        }else{
+            if !emailAndPhoneInfoModel.email.isValidEmail(){
+                errors[Barrower_AuthDataModel.TypeOfCellField.email] = ErrorMessages.emailInvalidErrorMsg
+            }
+        }
+        if emailAndPhoneInfoModel.password.isEmpty {
+            errors[Barrower_AuthDataModel.TypeOfCellField.password] = ErrorMessages.passwordEmptyErrorMsg
+        }
+        
+        if emailAndPhoneInfoModel.phoneNum.isEmpty {
+            errors[Barrower_AuthDataModel.TypeOfCellField.phoneNum] = ErrorMessages.phoneNumEmptyErrorMsg
+        }
+        
+//        if !emailAndPhoneInfoModel.fullName.isEmpty {
+//            if !emailAndPhoneInfoModel.email.isEmpty {
+//                if !emailAndPhoneInfoModel.password.isEmpty {
+//                    if !emailAndPhoneInfoModel.phoneNum.isEmpty {
+//                        if emailAndPhoneInfoModel.email.isValidEmail(){
+//
+//                        }else{
+////                            emailAndPhoneVC?.showCustomToast(message: ErrorMessages.emailInvalidErrorMsg)
+//                            errors[Barrower_AuthDataModel.TypeOfCellField.email] = ErrorMessages.emailInvalidErrorMsg
+//                        }
+//                    }else{
+////                        emailAndPhoneVC?.showCustomToast(message: ErrorMessages.phoneNumEmptyErrorMsg)
+//                        errors[Barrower_AuthDataModel.TypeOfCellField.phoneNum] = ErrorMessages.phoneNumEmptyErrorMsg
+//                    }
+//                }else{
+////                    emailAndPhoneVC?.showCustomToast(message: ErrorMessages.passwordEmptyErrorMsg)
+//                    errors[Barrower_AuthDataModel.TypeOfCellField.password] = ErrorMessages.passwordEmptyErrorMsg
+//                }
+//            }else{
+////                emailAndPhoneVC?.showCustomToast(message: ErrorMessages.emailEmptyErrorMsg)
+//                errors[Barrower_AuthDataModel.TypeOfCellField.email] = ErrorMessages.emailEmptyErrorMsg
+//            }
+//        }else{
+////            emailAndPhoneVC?.showCustomToast(message: ErrorMessages.fullNameEmptyErrorMsg)
+//            errors[Barrower_AuthDataModel.TypeOfCellField.fullName] = ErrorMessages.fullNameEmptyErrorMsg
+//        }
+        return errors
     }
 }
 

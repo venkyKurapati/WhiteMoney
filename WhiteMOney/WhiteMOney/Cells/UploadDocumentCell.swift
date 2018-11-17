@@ -13,8 +13,8 @@ class UploadDocumentCell: UITableViewCell {
 
     @IBOutlet weak var documentTypeLbl: UILabel!
     @IBOutlet weak var browsBtn: UIButton!
-    var fieldType : AuthDataModel.TypeOfCellField?
-    var documentsModel : AuthDataModel.DocumentsUploadModel?
+    var fieldType : Barrower_AuthDataModel.TypeOfCellField?
+    var documentsModel : Barrower_AuthDataModel.DocumentsUploadModel?
     @IBOutlet weak var uploadView: UIView!
     @IBOutlet weak var uploadViewHeight: NSLayoutConstraint!
     @IBOutlet weak var uploadedFileImgView: UIImageView!

@@ -12,16 +12,16 @@ import UIKit
 
 class EligibilityCheckViewModel: NSObject {
 //    var fieldsArray : [AuthDataModel.TypeOfCellField]?
-    var authDataModel : AuthDataModel?
+    var authDataModel : Barrower_AuthDataModel?
     var eligibilityVC : EligibilityCheckVC?
-    var eligibilityCheckModel = AuthDataModel.EligibilityCheckModel()
+    var eligibilityCheckModel = Barrower_AuthDataModel.EligibilityCheckModel()
     var didFinishStep : ()->Void = {}
     var didCancelStep : ()->Void = {}
-    var employmentFields = [AuthDataModel.TypeOfCellField]()
-    var commonFields = [AuthDataModel.TypeOfCellField]()
+    var employmentFields = [Barrower_AuthDataModel.TypeOfCellField]()
+    var commonFields = [Barrower_AuthDataModel.TypeOfCellField]()
     
     init(_ navigator : Navigator) {
-        eligibilityVC = EligibilityCheckVC.instanciateFrom(storyboard: Storyboards.authFlow)
+        eligibilityVC = EligibilityCheckVC.instanciateFrom(storyboard: Storyboards.Barrower_AuthFlow)
         super.init()
 //        navigator.setAsRoot(eligibilityCV!)
         eligibilityVC?.onDidLoad(callback: { (eligibilityView) in
@@ -92,7 +92,7 @@ extension EligibilityCheckViewModel:UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = UITableViewCell()
-        var field : AuthDataModel.TypeOfCellField{
+        var field : Barrower_AuthDataModel.TypeOfCellField{
             get{
                 if indexPath.section == 0 {
                     return employmentFields[indexPath.row]

@@ -41,10 +41,10 @@
             </objects>
             <point key="canvasLocation" x="1073" y="-79"/>
         </scene>
-        <!--Auth Page View Controller-->
+        <!--Barrower Auth Page View Controller-->
         <scene sceneID="kcH-J4-A6r">
             <objects>
-                <pageViewController storyboardIdentifier="AuthPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="u3X-A5-OPn" customClass="AuthPageViewController" customModule="WhiteMOney" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="Barrower_AuthPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="u3X-A5-OPn" customClass="Barrower_AuthPageViewController" customModule="WhiteMOney" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Syh-q6-Mnz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1761" y="-795"/>
@@ -69,7 +69,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <segmentedControl opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2wW-uf-6co">
-                                                    <rect key="frame" x="20" y="20" width="280" height="46"/>
+                                                    <rect key="frame" x="20" y="20" width="374" height="46"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="45" id="yid-xa-bGi"/>
@@ -104,7 +104,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwY-IA-F5O">
-                                                    <rect key="frame" x="15" y="51" width="290" height="58.666666666666657"/>
+                                                    <rect key="frame" x="15" y="51" width="384" height="58.666666666666657"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </button>
                                             </subviews>
@@ -128,21 +128,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="addr1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5b-mn-DA7">
-                                                    <rect key="frame" x="15" y="15" width="225" height="43"/>
+                                                    <rect key="frame" x="15" y="15" width="319" height="43"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="addr2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaO-OU-Lyv">
-                                                    <rect key="frame" x="15" y="73" width="225" height="21"/>
+                                                    <rect key="frame" x="15" y="73" width="319" height="21"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wtH-wY-2Jv">
-                                                    <rect key="frame" x="255" y="15" width="50" height="50"/>
+                                                    <rect key="frame" x="349" y="15" width="50" height="50"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="ggl-md-hga"/>
@@ -386,10 +386,10 @@
             </objects>
             <point key="canvasLocation" x="2425" y="-79"/>
         </scene>
-        <!--White Money-->
+        <!--Sign Up-->
         <scene sceneID="2DZ-SB-RlO">
             <objects>
-                <viewController storyboardIdentifier="AuthViewController" id="ryn-GQ-6TT" customClass="AuthViewController" customModule="WhiteMOney" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Barrower_AuthViewController" id="ryn-GQ-6TT" customClass="Barrower_AuthViewController" customModule="WhiteMOney" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z7P-Z2-LDD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -426,7 +426,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S6F-Hk-zP6"/>
                     </view>
-                    <navigationItem key="navigationItem" title="White Money" id="CHR-4G-inN"/>
+                    <navigationItem key="navigationItem" title="Sign Up" id="CHR-4G-inN"/>
                     <connections>
                         <outlet property="backgroundThemeView" destination="ldr-fH-TuU" id="OMV-N8-Ur3"/>
                         <outlet property="fieldsContentView" destination="bt5-ux-xtn" id="kzV-hl-tD6"/>

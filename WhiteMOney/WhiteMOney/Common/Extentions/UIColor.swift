@@ -125,13 +125,13 @@ public extension UIColor {
     }
     
     static func fieldBackgroundColor() -> UIColor{
-        return UIColor.hexStringToUIColor(hex: "#435590",alpha: 0.6)
+        return UIColor.hexStringToUIColor(hex: "#435590",alpha: 0.7)
     }
     static func appPrimaryTextColor() -> UIColor {
-        return UIColor.hexStringToUIColor(hex: "#435590",alpha: 0.8)
+        return UIColor.hexStringToUIColor(hex: "#435590",alpha: 1.0)
     }
     class func appHilightedTxtColor() -> UIColor{
-        return UIColor.hexStringToUIColor(hex: "#435590",alpha: 0.8)
+        return UIColor.hexStringToUIColor(hex: "#435590",alpha: 1.0)
     }
 
     

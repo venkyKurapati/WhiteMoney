@@ -53,14 +53,15 @@
 		8274B5E8216D0A160032AA23 /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8274B5E7216D0A160032AA23 /* XibView.swift */; };
 		8274B5EA216D13CB0032AA23 /* SimpleTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8274B5E9216D13CB0032AA23 /* SimpleTimer.swift */; };
 		8277FD992167C16C0003AD65 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277FD982167C16C0003AD65 /* TableView.swift */; };
-		8277FDA321687C8C0003AD65 /* AuthPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277FDA221687C8C0003AD65 /* AuthPageViewController.swift */; };
-		8277FDA521689ABC0003AD65 /* AuthDataMOdel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277FDA421689ABC0003AD65 /* AuthDataMOdel.swift */; };
+		8277FDA321687C8C0003AD65 /* Barrower_AuthPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277FDA221687C8C0003AD65 /* Barrower_AuthPageViewController.swift */; };
+		8277FDA521689ABC0003AD65 /* Barrower_AuthDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277FDA421689ABC0003AD65 /* Barrower_AuthDataModel.swift */; };
 		8277FDAA2168A16F0003AD65 /* OTPTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277FDA82168A16F0003AD65 /* OTPTextFieldCell.swift */; };
 		8277FDAB2168A16F0003AD65 /* OTPTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8277FDA92168A16F0003AD65 /* OTPTextFieldCell.xib */; };
 		8277FDB12168AFE80003AD65 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277FDAF2168AFE80003AD65 /* ButtonCell.swift */; };
 		8277FDB22168AFE80003AD65 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8277FDB02168AFE80003AD65 /* ButtonCell.xib */; };
 		8277FDB42168B76B0003AD65 /* Constents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277FDB32168B76B0003AD65 /* Constents.swift */; };
 		8277FDB621690A790003AD65 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8277FDB521690A790003AD65 /* UIImageView.swift */; };
+		82839BA7219FDE51001C89FA /* AppMainFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82839BA6219FDE51001C89FA /* AppMainFlow.swift */; };
 		828CA41521814C6300B5A815 /* UploadDocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828CA41321814C6300B5A815 /* UploadDocumentCell.swift */; };
 		828CA41621814C6300B5A815 /* UploadDocumentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828CA41421814C6300B5A815 /* UploadDocumentCell.xib */; };
 		828CA41921815CB300B5A815 /* DocumentsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828CA41821815CB300B5A815 /* DocumentsPicker.swift */; };
@@ -79,9 +80,9 @@
 		82ECAB1B2167A5B800455397 /* FloatingTxtFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ECAB142167A5B800455397 /* FloatingTxtFieldCell.swift */; };
 		82ECAB1C2167A5B800455397 /* FloatingTxtFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82ECAB152167A5B800455397 /* FloatingTxtFieldCell.xib */; };
 		82ECAB1D2167A5B800455397 /* FloatingTxtField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ECAB162167A5B800455397 /* FloatingTxtField.swift */; };
-		82ECAB1E2167A5B800455397 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ECAB182167A5B800455397 /* AuthViewController.swift */; };
-		82ECAB1F2167A5B800455397 /* AuthFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82ECAB192167A5B800455397 /* AuthFlow.storyboard */; };
-		82ECAB202167A5B800455397 /* AuthFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ECAB1A2167A5B800455397 /* AuthFlow.swift */; };
+		82ECAB1E2167A5B800455397 /* Barrower_AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ECAB182167A5B800455397 /* Barrower_AuthViewController.swift */; };
+		82ECAB1F2167A5B800455397 /* Barrower_AuthFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82ECAB192167A5B800455397 /* Barrower_AuthFlow.storyboard */; };
+		82ECAB202167A5B800455397 /* Barrower_AuthFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ECAB1A2167A5B800455397 /* Barrower_AuthFlow.swift */; };
 		82ECAB232167AFEE00455397 /* EmailAndPhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ECAB222167AFEE00455397 /* EmailAndPhoneViewModel.swift */; };
 		82ECAB252167B01200455397 /* EmailAndPhoneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ECAB242167B01200455397 /* EmailAndPhoneVC.swift */; };
 		82ECAB292167B03400455397 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ECAB272167B03400455397 /* BaseViewController.swift */; };
@@ -153,14 +154,15 @@
 		8274B5E7216D0A160032AA23 /* XibView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
 		8274B5E9216D13CB0032AA23 /* SimpleTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTimer.swift; sourceTree = "<group>"; };
 		8277FD982167C16C0003AD65 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
-		8277FDA221687C8C0003AD65 /* AuthPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPageViewController.swift; sourceTree = "<group>"; };
-		8277FDA421689ABC0003AD65 /* AuthDataMOdel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataMOdel.swift; sourceTree = "<group>"; };
+		8277FDA221687C8C0003AD65 /* Barrower_AuthPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Barrower_AuthPageViewController.swift; sourceTree = "<group>"; };
+		8277FDA421689ABC0003AD65 /* Barrower_AuthDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Barrower_AuthDataModel.swift; sourceTree = "<group>"; };
 		8277FDA82168A16F0003AD65 /* OTPTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextFieldCell.swift; sourceTree = "<group>"; };
 		8277FDA92168A16F0003AD65 /* OTPTextFieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OTPTextFieldCell.xib; sourceTree = "<group>"; };
 		8277FDAF2168AFE80003AD65 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		8277FDB02168AFE80003AD65 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		8277FDB32168B76B0003AD65 /* Constents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constents.swift; sourceTree = "<group>"; };
 		8277FDB521690A790003AD65 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		82839BA6219FDE51001C89FA /* AppMainFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainFlow.swift; sourceTree = "<group>"; };
 		828CA41321814C6300B5A815 /* UploadDocumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDocumentCell.swift; sourceTree = "<group>"; };
 		828CA41421814C6300B5A815 /* UploadDocumentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadDocumentCell.xib; sourceTree = "<group>"; };
 		828CA41821815CB300B5A815 /* DocumentsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsPicker.swift; sourceTree = "<group>"; };
@@ -186,9 +188,9 @@
 		82ECAB142167A5B800455397 /* FloatingTxtFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingTxtFieldCell.swift; sourceTree = "<group>"; };
 		82ECAB152167A5B800455397 /* FloatingTxtFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FloatingTxtFieldCell.xib; sourceTree = "<group>"; };
 		82ECAB162167A5B800455397 /* FloatingTxtField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingTxtField.swift; sourceTree = "<group>"; };
-		82ECAB182167A5B800455397 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		82ECAB192167A5B800455397 /* AuthFlow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthFlow.storyboard; sourceTree = "<group>"; };
-		82ECAB1A2167A5B800455397 /* AuthFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthFlow.swift; sourceTree = "<group>"; };
+		82ECAB182167A5B800455397 /* Barrower_AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Barrower_AuthViewController.swift; sourceTree = "<group>"; };
+		82ECAB192167A5B800455397 /* Barrower_AuthFlow.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Barrower_AuthFlow.storyboard; sourceTree = "<group>"; };
+		82ECAB1A2167A5B800455397 /* Barrower_AuthFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Barrower_AuthFlow.swift; sourceTree = "<group>"; };
 		82ECAB222167AFEE00455397 /* EmailAndPhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAndPhoneViewModel.swift; sourceTree = "<group>"; };
 		82ECAB242167B01200455397 /* EmailAndPhoneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAndPhoneVC.swift; sourceTree = "<group>"; };
 		82ECAB272167B03400455397 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				822AFF51218F0CA90034AB9D /* LaunchLoadingView.swift */,
 				822AFF55218F1E3B0034AB9D /* LandingOptionViewModel.swift */,
 				822AFF53218F12130034AB9D /* LandingOptionsView.swift */,
+				82839BA6219FDE51001C89FA /* AppMainFlow.swift */,
 			);
 			path = AppMainFlow;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 		825FB0FC2163D018008B6D9B /* BorrowerFlow */ = {
 			isa = PBXGroup;
 			children = (
+				82ECAB172167A5B800455397 /* Barrower_AuthFlow */,
 				825FB0FD2163D046008B6D9B /* BorrowerFlow.swift */,
 			);
 			path = BorrowerFlow;
@@ -414,9 +418,6 @@
 			isa = PBXGroup;
 			children = (
 				828CA41A218160C600B5A815 /* WhiteMOney.entitlements */,
-				8277FDAC2168AFB80003AD65 /* Cells */,
-				82ECAB172167A5B800455397 /* AuthFlow */,
-				82ECAB132167A5B800455397 /* FloatingTxtField */,
 				825FB0FC2163D018008B6D9B /* BorrowerFlow */,
 				822AFF44218E39FB0034AB9D /* BorrowerHome */,
 				829CA6C221612A6600F032FC /* AppDelegate.swift */,
@@ -431,6 +432,8 @@
 				829CA6CE21612A6700F032FC /* LaunchScreen.storyboard */,
 				829CA6D121612A6700F032FC /* Info.plist */,
 				829CA6C921612A6600F032FC /* WhiteMOney.xcdatamodeld */,
+				8277FDAC2168AFB80003AD65 /* Cells */,
+				82ECAB132167A5B800455397 /* FloatingTxtField */,
 				82ECAB262167B03400455397 /* Reachability */,
 				825FB0FF2163D16F008B6D9B /* RootNavigation */,
 				825FB0F22163CFF3008B6D9B /* Common */,
@@ -473,20 +476,20 @@
 			path = FloatingTxtField;
 			sourceTree = "<group>";
 		};
-		82ECAB172167A5B800455397 /* AuthFlow */ = {
+		82ECAB172167A5B800455397 /* Barrower_AuthFlow */ = {
 			isa = PBXGroup;
 			children = (
-				82ECAB1A2167A5B800455397 /* AuthFlow.swift */,
-				82ECAB182167A5B800455397 /* AuthViewController.swift */,
-				8277FDA221687C8C0003AD65 /* AuthPageViewController.swift */,
-				82ECAB192167A5B800455397 /* AuthFlow.storyboard */,
-				8277FDA421689ABC0003AD65 /* AuthDataMOdel.swift */,
+				82ECAB1A2167A5B800455397 /* Barrower_AuthFlow.swift */,
+				82ECAB182167A5B800455397 /* Barrower_AuthViewController.swift */,
+				8277FDA221687C8C0003AD65 /* Barrower_AuthPageViewController.swift */,
+				82ECAB192167A5B800455397 /* Barrower_AuthFlow.storyboard */,
+				8277FDA421689ABC0003AD65 /* Barrower_AuthDataModel.swift */,
 				822AFF4B218EAC250034AB9D /* Login */,
 				822E0C64216E6CF000032A60 /* DocumentsUpload */,
 				822E0C5F216E6CB500032A60 /* EligibilityCheckVC */,
 				82ECAB212167AFCF00455397 /* EmailAndPhoneVIew */,
 			);
-			path = AuthFlow;
+			path = Barrower_AuthFlow;
 			sourceTree = "<group>";
 		};
 		82ECAB212167AFCF00455397 /* EmailAndPhoneVIew */ = {
@@ -639,7 +642,7 @@
 				8274B5E6216D08670032AA23 /* OTPField.xib in Resources */,
 				822AFF46218E3A3F0034AB9D /* BorrowerHome.storyboard in Resources */,
 				8277FDB22168AFE80003AD65 /* ButtonCell.xib in Resources */,
-				82ECAB1F2167A5B800455397 /* AuthFlow.storyboard in Resources */,
+				82ECAB1F2167A5B800455397 /* Barrower_AuthFlow.storyboard in Resources */,
 				828CA41621814C6300B5A815 /* UploadDocumentCell.xib in Resources */,
 				82ECAB1C2167A5B800455397 /* FloatingTxtFieldCell.xib in Resources */,
 			);
@@ -743,8 +746,8 @@
 				825FB12A2163D7B6008B6D9B /* Bundle.swift in Sources */,
 				82ECAB1D2167A5B800455397 /* FloatingTxtField.swift in Sources */,
 				825FB1252163D7B6008B6D9B /* String.swift in Sources */,
-				8277FDA321687C8C0003AD65 /* AuthPageViewController.swift in Sources */,
-				8277FDA521689ABC0003AD65 /* AuthDataMOdel.swift in Sources */,
+				8277FDA321687C8C0003AD65 /* Barrower_AuthPageViewController.swift in Sources */,
+				8277FDA521689ABC0003AD65 /* Barrower_AuthDataModel.swift in Sources */,
 				822E0C68216E6CF000032A60 /* DocumentsUploadViewModel.swift in Sources */,
 				82972503218566EE009744F5 /* ViewControllerExt.swift in Sources */,
 				822E0C62216E6CB600032A60 /* EligibilityCheckCV.swift in Sources */,
@@ -766,10 +769,11 @@
 				825FB10D2163D16F008B6D9B /* SideMenuCell.swift in Sources */,
 				825FB0F92163CFF3008B6D9B /* AlertsPresenter.swift in Sources */,
 				825FB1282163D7B6008B6D9B /* UIFont.swift in Sources */,
-				82ECAB1E2167A5B800455397 /* AuthViewController.swift in Sources */,
+				82ECAB1E2167A5B800455397 /* Barrower_AuthViewController.swift in Sources */,
 				8277FDAA2168A16F0003AD65 /* OTPTextFieldCell.swift in Sources */,
 				829CA6F621613B0C00F032FC /* UIView+Anchors.swift in Sources */,
 				822AFF4F218EACC20034AB9D /* LoginVC.swift in Sources */,
+				82839BA7219FDE51001C89FA /* AppMainFlow.swift in Sources */,
 				825FB10B2163D16F008B6D9B /* RootVC.swift in Sources */,
 				82ECAB252167B01200455397 /* EmailAndPhoneVC.swift in Sources */,
 				825FB1092163D16F008B6D9B /* SideMenuFeature.swift in Sources */,
@@ -790,7 +794,7 @@
 				825FB0F82163CFF3008B6D9B /* NavigationControllerDelegates.swift in Sources */,
 				822AFF54218F12130034AB9D /* LandingOptionsView.swift in Sources */,
 				825FB0FA2163CFF3008B6D9B /* AppearFading.swift in Sources */,
-				82ECAB202167A5B800455397 /* AuthFlow.swift in Sources */,
+				82ECAB202167A5B800455397 /* Barrower_AuthFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

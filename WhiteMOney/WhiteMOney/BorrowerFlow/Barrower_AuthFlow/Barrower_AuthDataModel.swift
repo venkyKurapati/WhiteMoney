@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AuthDataModel: NSObject {
+class Barrower_AuthDataModel: NSObject {
     
     var emailAndPhoneInfo : EmailAndPhoneVerifyAuthModel
     var eligibilityCheckInfo : EligibilityCheckModel?
