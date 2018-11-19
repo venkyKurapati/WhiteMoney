@@ -32,7 +32,6 @@ extension UIView {
 
    
     let spacing : CGFloat = 5.0
-    var iconImgView = UIImageView()
     var txtField = UITextField()
     var underlineView = UIView()
     var placeHolederLbl = UILabel()
@@ -65,7 +64,7 @@ var constraintsArranged = false
     
     var placeHolderCenterYConstraint : NSLayoutConstraint?
     
-    @IBInspectable var txtFieldLeftPaddingWidth : CGFloat = 15.0 {
+    @IBInspectable var txtFieldLeftPaddingWidth : CGFloat = 10.0 {
         didSet{
            setPaddingView()
         }
@@ -131,12 +130,6 @@ var constraintsArranged = false
             setNeedsDisplay()
         }
     }
-    @IBInspectable var logoImg : UIImage? = nil{
-        didSet{
-            iconImgView.image = logoImg
-            self.setNeedsDisplay()
-        }
-    }
 
     @IBInspectable var text : String? {
         set{
@@ -145,10 +138,8 @@ var constraintsArranged = false
                 placeHolderCenterYConstraint?.constant = 0
                 txtField.textColor = textColor
                 underlineView.backgroundColor = underLineViewColor
-                iconImgView.renderImgWithColor(underLineViewColor)
                 endEditingWithTxt(newValue ?? "")
             }else{
-                iconImgView.renderImgWithColor(textColor)
                 txtField.textColor = textColor
                 underlineView.backgroundColor = underLine_Hilight_ViewColor
                 placeHolderCenterYConstraint?.constant = -((txtField.frame.size.height/2)+spacing+placeHolderHeight/2)
@@ -184,17 +175,8 @@ var constraintsArranged = false
     }
     
     func addLeftImgAndTxtField() -> Void { // dependence eachother
-        self.addSubview(iconImgView)
         self.addSubview(txtField)
 
-        iconImgView.translatesAutoresizingMaskIntoConstraints = false
-        iconImgView.image = logoImg
-        iconImgView.renderImgWithColor(underLineViewColor)
-        _ = iconImgView.setLeadingAnc(self.leadingAnchor, withConst: spacing)
-        iconImgView.heightAnchor.constraint(equalToConstant: iconSize).isActive = true
-        iconImgView.widthAnchor.constraint(equalToConstant: iconSize).isActive = true
-       
-        
         txtField.delegate = self
         txtField.placeholder = ""
 //        txtField.backgroundColor = UIColor.green
@@ -202,8 +184,8 @@ var constraintsArranged = false
         _ = txtField.setTrailingAnc(self.trailingAnchor, withConst: spacing)
         _ = txtField.setTopAnc(self.topAnchor, withConst: placeHolderHeight + spacing)
         _ = txtField.setBottomAnc(underlineView.topAnchor, withConst: spacing)
-        _ = iconImgView.setCenterVerticalTo(txtField, withConst: 0)
-        _ = txtField.setLeadingAnc(iconImgView.trailingAnchor, withConst: spacing)
+        _ = txtField.setLeadingAnc(self.leadingAnchor, withConst: spacing)
+
         setPaddingView()
     }
     
@@ -269,7 +251,7 @@ var constraintsArranged = false
         warningLbl.font = warningLblFont
 //        warningLbl.textAlignment = NSTextAlignment.center
         _ = warningLbl.setBottomAnc(self.bottomAnchor, withConst: spacing)
-        _ = warningLbl.setLeadingAnc(self.leadingAnchor, withConst: spacing)
+        _ = warningLbl.setLeadingAnc(self.leadingAnchor, withConst: txtFieldLeftPaddingWidth+spacing)
         _ = warningLbl.setTrailingAnc(self.trailingAnchor, withConst: spacing)
         _ = warningLbl.heightAnchor.constraint(equalToConstant: warningLblHeight).isActive = true
     }
@@ -344,7 +326,6 @@ extension FloatingTxtField:UITextFieldDelegate{
             let font = placeHolederLbl.font
             placeHolederLbl.font = font?.withSize((font?.pointSize ?? 4) - 4)
             txtField.layoutIfNeeded()
-            iconImgView.renderImgWithColor(textColor)
             txtField.textColor = textColor
             underlineView.backgroundColor = underLine_Hilight_ViewColor
             placeHolderCenterYConstraint?.constant = -((txtField.frame.size.height/2)+spacing+placeHolderHeight/2)
@@ -358,7 +339,6 @@ extension FloatingTxtField:UITextFieldDelegate{
             placeHolderCenterYConstraint?.constant = 0
             txtField.textColor = textColor
             underlineView.backgroundColor = underLineViewColor
-            iconImgView.renderImgWithColor(underLineViewColor)
         }
     }
     
@@ -388,7 +368,6 @@ extension FloatingTxtField{
         self.txtField.text = txt
         self.text = txt
         endEditingWithTxt(txt)
-        self.logoImg = logoImg
         warningLblText = warningText ?? ""
 //        self.txtField.inputAccessoryView = inputAccessoryView
         self.txtField.autocorrectionType = .no

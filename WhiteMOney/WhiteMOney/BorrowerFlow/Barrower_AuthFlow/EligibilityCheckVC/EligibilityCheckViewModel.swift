@@ -19,6 +19,7 @@ class EligibilityCheckViewModel: NSObject {
     var didCancelStep : ()->Void = {}
     var employmentFields = [Barrower_AuthDataModel.TypeOfCellField]()
     var commonFields = [Barrower_AuthDataModel.TypeOfCellField]()
+    var fieldErrors = [Barrower_AuthDataModel.TypeOfCellField : String]()
     
     init(_ navigator : Navigator) {
         eligibilityVC = EligibilityCheckVC.instanciateFrom(storyboard: Storyboards.Barrower_AuthFlow)
@@ -128,58 +129,58 @@ extension EligibilityCheckViewModel:UITableViewDataSource,UITableViewDelegate{
             
         case .panCardField:
             let floatingTxtCell = tableView.dequeueReusableCell(withIdentifier: "FloatingTxtFieldCell") as! FloatingTxtFieldCell
-            floatingTxtCell.setUpUserFieldDetailsOfUser(eligibilityCheckModel.panCardNumber, typeOfTxtField: field, inputAccessoryView: nil, delegate: self)
+            floatingTxtCell.setUpUserFieldDetailsOfUser(eligibilityCheckModel.panCardNumber, typeOfTxtField: field, inputAccessoryView: nil, delegate: self, warningText :fieldErrors[field])
             cell = floatingTxtCell
 
         case .aadharCardField:
             let floatingTxtCell = tableView.dequeueReusableCell(withIdentifier: "FloatingTxtFieldCell") as! FloatingTxtFieldCell
-            floatingTxtCell.setUpUserFieldDetailsOfUser(eligibilityCheckModel.aadharCardNumber, typeOfTxtField: field, inputAccessoryView: nil, delegate: self)
+            floatingTxtCell.setUpUserFieldDetailsOfUser(eligibilityCheckModel.aadharCardNumber, typeOfTxtField: field, inputAccessoryView: nil, delegate: self, warningText :fieldErrors[field])
             cell = floatingTxtCell
 
 
         case .addressLine1:
             let floatingTxtCell = tableView.dequeueReusableCell(withIdentifier: "FloatingTxtFieldCell") as! FloatingTxtFieldCell
-            floatingTxtCell.setUpUserFieldDetailsOfUser(eligibilityCheckModel.address.addressLine1, typeOfTxtField: field, inputAccessoryView: nil, delegate: self)
+            floatingTxtCell.setUpUserFieldDetailsOfUser(eligibilityCheckModel.address.addressLine1, typeOfTxtField: field, inputAccessoryView: nil, delegate: self, warningText :fieldErrors[field])
             cell = floatingTxtCell
 
 
         case .addressLine2:
             let floatingTxtCell = tableView.dequeueReusableCell(withIdentifier: "FloatingTxtFieldCell") as! FloatingTxtFieldCell
-            floatingTxtCell.setUpUserFieldDetailsOfUser(eligibilityCheckModel.address.addressLine2, typeOfTxtField: field, inputAccessoryView: nil, delegate: self)
+            floatingTxtCell.setUpUserFieldDetailsOfUser(eligibilityCheckModel.address.addressLine2, typeOfTxtField: field, inputAccessoryView: nil, delegate: self, warningText :fieldErrors[field])
             cell = floatingTxtCell
 
             
         case .cityField:
             let floatingTxtCell = tableView.dequeueReusableCell(withIdentifier: "FloatingTxtFieldCell") as! FloatingTxtFieldCell
-            floatingTxtCell.setUpUserFieldDetailsOfUser(eligibilityCheckModel.address.city, typeOfTxtField: field, inputAccessoryView: nil, delegate: self)
+            floatingTxtCell.setUpUserFieldDetailsOfUser(eligibilityCheckModel.address.city, typeOfTxtField: field, inputAccessoryView: nil, delegate: self, warningText :fieldErrors[field])
             cell = floatingTxtCell
 
         case .stateField:
             let floatingTxtCell = tableView.dequeueReusableCell(withIdentifier: "FloatingTxtFieldCell") as! FloatingTxtFieldCell
-            floatingTxtCell.setUpUserFieldDetailsOfUser(eligibilityCheckModel.address.state, typeOfTxtField: field, inputAccessoryView: nil, delegate: self)
+            floatingTxtCell.setUpUserFieldDetailsOfUser(eligibilityCheckModel.address.state, typeOfTxtField: field, inputAccessoryView: nil, delegate: self, warningText :fieldErrors[field])
             cell = floatingTxtCell
 
         case .pinCode:
             let floatingTxtCell = tableView.dequeueReusableCell(withIdentifier: "FloatingTxtFieldCell") as! FloatingTxtFieldCell
-            floatingTxtCell.setUpUserFieldDetailsOfUser(eligibilityCheckModel.address.pinCode, typeOfTxtField: field, inputAccessoryView: nil, delegate: self)
+            floatingTxtCell.setUpUserFieldDetailsOfUser(eligibilityCheckModel.address.pinCode, typeOfTxtField: field, inputAccessoryView: nil, delegate: self, warningText :fieldErrors[field])
 
             cell = floatingTxtCell
 
 
         case .anualIncome:
             let floatingTxtCell = tableView.dequeueReusableCell(withIdentifier: "FloatingTxtFieldCell") as! FloatingTxtFieldCell
-            floatingTxtCell.setUpUserFieldDetailsOfUser(eligibilityCheckModel.netAnnualIncome, typeOfTxtField: field, inputAccessoryView: nil, delegate: self)
+            floatingTxtCell.setUpUserFieldDetailsOfUser(eligibilityCheckModel.netAnnualIncome, typeOfTxtField: field, inputAccessoryView: nil, delegate: self, warningText :fieldErrors[field])
             cell = floatingTxtCell
 
             
         case .currentCompanyName:
             let floatingTxtCell = tableView.dequeueReusableCell(withIdentifier: "FloatingTxtFieldCell") as! FloatingTxtFieldCell
-            floatingTxtCell.setUpUserFieldDetailsOfUser(eligibilityCheckModel.nameOfCurrentCompany, typeOfTxtField: field, inputAccessoryView: nil, delegate: self)
+            floatingTxtCell.setUpUserFieldDetailsOfUser(eligibilityCheckModel.nameOfCurrentCompany, typeOfTxtField: field, inputAccessoryView: nil, delegate: self, warningText :fieldErrors[field])
             cell = floatingTxtCell
 
         case .monthlyIncome:
             let floatingTxtCell = tableView.dequeueReusableCell(withIdentifier: "FloatingTxtFieldCell") as! FloatingTxtFieldCell
-            floatingTxtCell.setUpUserFieldDetailsOfUser(eligibilityCheckModel.monthlyInHandSalary, typeOfTxtField: field, inputAccessoryView: nil, delegate: self)
+            floatingTxtCell.setUpUserFieldDetailsOfUser(eligibilityCheckModel.monthlyInHandSalary, typeOfTxtField: field, inputAccessoryView: nil, delegate: self, warningText :fieldErrors[field])
             cell = floatingTxtCell
 
             
@@ -201,9 +202,13 @@ extension EligibilityCheckViewModel:UITableViewDataSource,UITableViewDelegate{
     }
     
     @objc func nextBtnAction() -> Void {
-        if validateFields(){
+        fieldErrors = validateFields()
+        if fieldErrors.count == 0{
+            
             didFinishStep()
         }
+        eligibilityVC?.fieldsTblView.reloadData()
+
     }
     @objc func cancelBtnAction() -> Void {
         didCancelStep()
@@ -267,62 +272,50 @@ extension EligibilityCheckViewModel: FloatingTxtFieldDelegate{
         }
         return true
     }
-    func validateFields() -> Bool {
-        return true
-        
-        
+    func validateFields() -> [Barrower_AuthDataModel.TypeOfCellField : String] {
+        var errors = [Barrower_AuthDataModel.TypeOfCellField : String]()
         
         switch eligibilityCheckModel.employementType {
         case .selfEmployed:
             if eligibilityCheckModel.netAnnualIncome.isEmpty{
-                eligibilityVC?.showCustomToast(message: ErrorMessages.annualIncomeEmptyErrorMsg)
-                return false
+                errors[Barrower_AuthDataModel.TypeOfCellField.anualIncome] = ErrorMessages.annualIncomeEmptyErrorMsg
             }
         default:
             if eligibilityCheckModel.nameOfCurrentCompany.isEmpty{
-                eligibilityVC?.showCustomToast(message: ErrorMessages.currentCompanyNameEmptyErrorMsg)
-                return false
-            }else if eligibilityCheckModel.monthlyInHandSalary.isEmpty{
-                eligibilityVC?.showCustomToast(message: ErrorMessages.monthlySalaryInHandEmptyErrorMsg)
-                return false
+                errors[Barrower_AuthDataModel.TypeOfCellField.currentCompanyName] = ErrorMessages.currentCompanyNameEmptyErrorMsg
+            }
+            if eligibilityCheckModel.monthlyInHandSalary.isEmpty{
+                errors[Barrower_AuthDataModel.TypeOfCellField.monthlyIncome] = ErrorMessages.monthlySalaryInHandEmptyErrorMsg
             }
         }
-        if !eligibilityCheckModel.panCardNumber.isEmpty {
-            if !eligibilityCheckModel.aadharCardNumber.isEmpty {
-                if !eligibilityCheckModel.address.addressLine1.isEmpty {
-                    if !eligibilityCheckModel.address.addressLine2.isEmpty {
-                        if !eligibilityCheckModel.address.city.isEmpty {
-                            if !eligibilityCheckModel.address.state.isEmpty {
-                                if !eligibilityCheckModel.address.pinCode.isEmpty {
-                                    return true
-                                }else{
-                                    eligibilityVC?.showCustomToast(message: ErrorMessages.pinCodeEmptyErrorMsg)
-                                    return false
-                                }
-                            }else{
-                                eligibilityVC?.showCustomToast(message: ErrorMessages.stateEmptyErrorMsg)
-                                return false
-                            }
-                        }else{
-                            eligibilityVC?.showCustomToast(message: ErrorMessages.cityEmptyErrorMsg)
-                            return false
-                        }
-                    }else{
-                        eligibilityVC?.showCustomToast(message: ErrorMessages.addressLine2EmptyErrorMsg)
-                        return false
-                    }
-                }else{
-                    eligibilityVC?.showCustomToast(message: ErrorMessages.addressLine1EmptyErrorMsg)
-                    return false
-                }
-            }else{
-                eligibilityVC?.showCustomToast(message: ErrorMessages.aadharCardNumberEmptyErrorMsg)
-                return false
-            }
-        }else{
-            eligibilityVC?.showCustomToast(message: ErrorMessages.panCardNumberEmptyErrorMsg)
-            return false
+        
+        if eligibilityCheckModel.panCardNumber.isEmpty {
+            errors[Barrower_AuthDataModel.TypeOfCellField.panCardField] = ErrorMessages.panCardNumberEmptyErrorMsg
         }
+        if eligibilityCheckModel.aadharCardNumber.isEmpty {
+            errors[Barrower_AuthDataModel.TypeOfCellField.aadharCardField] = ErrorMessages.aadharCardNumberEmptyErrorMsg
+        }
+        
+        if eligibilityCheckModel.address.addressLine1.isEmpty {
+            errors[Barrower_AuthDataModel.TypeOfCellField.addressLine1] = ErrorMessages.addressLine1EmptyErrorMsg
+        }
+        if eligibilityCheckModel.address.addressLine2.isEmpty {
+            errors[Barrower_AuthDataModel.TypeOfCellField.addressLine2] = ErrorMessages.addressLine2EmptyErrorMsg
+        }
+        
+        if eligibilityCheckModel.address.city.isEmpty {
+            errors[Barrower_AuthDataModel.TypeOfCellField.cityField] = ErrorMessages.cityEmptyErrorMsg
+        }
+        if eligibilityCheckModel.address.state.isEmpty {
+            errors[Barrower_AuthDataModel.TypeOfCellField.stateField] = ErrorMessages.stateEmptyErrorMsg
+
+        }
+        if eligibilityCheckModel.address.pinCode.isEmpty {
+            errors[Barrower_AuthDataModel.TypeOfCellField.pinCode] = ErrorMessages.pinCodeEmptyErrorMsg
+        }
+        
+        
+        return errors
     }
     
 }
